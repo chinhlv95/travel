@@ -21,16 +21,10 @@ Route::get('/', function () {
 Route::get('/', function () {
     return view('admin.layout.index');
 });
-Route::get('/', function () {
-    return view('admin.layout.index');
-});
-Route::get('/', function () {
+Route::get('/travel', function () {
     return view('admin.layout.index');
 });
 
-Route::get('/', function () {
-    return view('admin.layout.index');
-});
 
 Route::prefix('admin')->group(function(){
 
