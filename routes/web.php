@@ -14,3 +14,16 @@
 Route::get('/', function () {
     return view('admin.layout.index');
 });
+
+Route::prefix('admin')->group(function(){
+
+	Route::prefix('cate')->group(function(){
+		Route::get('list','CategoryController@getList');
+		Route::get('edit/{id}','CategoryController@getEdit');
+		Route::post('edit/{id}','CategoryController@postEdit');
+		Route::get('add','CategoryController@getAdd');
+		Route::post('add','CategoryController@postAdd');
+		Route::get('delete/{id}','CategoryController@getDelete');
+	});
+
+});
