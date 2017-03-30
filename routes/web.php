@@ -11,15 +11,19 @@
 |
 */
 
-Route::get('/', function () {
+Route::get('admin', function () {
     return view('admin.layout.index');
 });
-Route::get('/', function () {
+Route::get('admin', function () {
     return view('admin.layout.index');
 });
-Route::get('/', function () {
+Route::get('admin', function () {
     return view('admin.layout.index');
 });
+Route::get('/', function() {
+   return view ('index');
+});
+
 
 
 Route::prefix('admin')->group(function(){
