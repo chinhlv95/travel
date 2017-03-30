@@ -18,6 +18,7 @@ class CreateOrdersTable extends Migration
             $table->integer('sale');
             $table->tinyInteger('quantity_tourer');
             $table->integer('price');
+            $table->string('code',6);
             $table->integer('tour_id')->unsigned();
             $table->foreign('tour_id')->references('id')->on('tours')->onDelete('cascade');
             $table->integer('customer_id')->unsigned();
