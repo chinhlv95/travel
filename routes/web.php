@@ -19,11 +19,7 @@ Route::get('admin', function () {
 Route::get('/', function() {
    return view ('index');
 });
-
-
-
 Route::prefix('admin')->group(function(){
-
 	Route::prefix('cate')->group(function(){
 		Route::get('list','CategoryController@getList');
 		Route::get('edit/{id}','CategoryController@getEdit');
