@@ -14,6 +14,9 @@
 Route::get('/', function () {
     return view('admin.layout.index');
 });
+
+
+
 Route::get('/', function () {
     return view('admin.layout.index');
 });
