@@ -20,11 +20,15 @@ Route::get('add', function () {
     return view('admin.layout.index');
 });
 
+
 Route::get('del', function () {
     return view('admin.layout.index');
 });
 
 
+Route::get('update', function () {
+    return view('admin.layout.index');
+});
 
 
 Route::prefix('admin')->group(function(){
