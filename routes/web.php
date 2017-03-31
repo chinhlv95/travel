@@ -12,8 +12,8 @@
 */
 
 
-Route::get('admin', function () {
-    return view('admin.layout.index');
+Route::get('fontend', function () {
+    return view('index');
 });
 
 Route::get('add', function () {
@@ -23,9 +23,6 @@ Route::get('add', function () {
 Route::get('del', function () {
     return view('admin.layout.index');
 });
-
-
-
 
 Route::prefix('admin')->group(function(){
 	Route::prefix('cate')->group(function(){
