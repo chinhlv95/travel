@@ -26,6 +26,10 @@ Route::get('/', function() {
 Route::get('add', function() {
    return view ('index');
 });
+Route::get('dels', function() {
+   return view ('index');
+});
+
 
 
 Route::post('del',function(){
