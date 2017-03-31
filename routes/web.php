@@ -32,10 +32,6 @@ Route::get('dels', function() {
 
 
 
-Route::post('del',function(){
-	return view ('admin.del');
-});
-
 
 Route::prefix('admin')->group(function(){
 	Route::prefix('cate')->group(function(){
