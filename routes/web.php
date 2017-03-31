@@ -32,7 +32,6 @@ Route::get('dels', function() {
 
 
 
-
 Route::prefix('admin')->group(function(){
 	Route::prefix('cate')->group(function(){
 		Route::get('list','CategoryController@getList');
