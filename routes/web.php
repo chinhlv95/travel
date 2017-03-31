@@ -11,6 +11,7 @@
 |
 */
 
+
 // home page
 Route::get('','HomeController@Home');
 //login page
@@ -18,6 +19,7 @@ Route::get('backend', function() {
    return view("admin.login");
 });
 Route::post('postLogin','LoginController@postLogin');
+
 
 Route::prefix('admin')->group(function(){
 	// logout
