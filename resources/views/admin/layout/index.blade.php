@@ -30,33 +30,38 @@
 <body>
 
     <div id="wrapper">
+     <?php
+   // check login
+     if(Auth::check()){ 
+        $user=Auth::user(); 
+    }?>
+    <!-- Navigation -->
+    @include('admin.layout.header',[
+    'user'=>$user
+    ])
 
-        <!-- Navigation -->
-            @include('admin.layout.header')
+    <!-- Page Content -->
+    @yield('content')
+    <!-- /#page-wrapper -->
 
-        <!-- Page Content -->
-            @yield('content')
-        <!-- /#page-wrapper -->
+</div>
+<!-- /#wrapper -->
 
-    </div>
-    <!-- /#wrapper -->
+<!-- jQuery -->
+<script src="js/jquery.min.js"></script>
 
-    <!-- jQuery -->
-    <script src="js/jquery.min.js"></script>
+<!-- Bootstrap Core JavaScript -->
+<script src="js/bootstrap.min.js"></script>
 
-    <!-- Bootstrap Core JavaScript -->
-    <script src="js/bootstrap.min.js"></script>
+<!-- Metis Menu Plugin JavaScript -->
+<script src="admin/bower_components/metisMenu/dist/metisMenu.min.js"></script>
 
-    <!-- Metis Menu Plugin JavaScript -->
-    <script src="admin/bower_components/metisMenu/dist/metisMenu.min.js"></script>
+<!-- Custom Theme JavaScript -->
+<script src="admin/dist/js/sb-admin-2.js"></script>
 
-    <!-- Custom Theme JavaScript -->
-    <script src="admin/dist/js/sb-admin-2.js"></script>
-
-    <!-- DataTables JavaScript -->
-    <script src="admin/bower_components/DataTables/media/js/jquery.dataTables.min.js"></script>
-    <script src="admin/bower_components/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.min.js"></script>
-    <!-- Tinymce -->
+<!-- DataTables JavaScript -->
+<script src="admin/js/modal.js"></script>
+<!-- Tinymce -->
 </body>
 
 </html>

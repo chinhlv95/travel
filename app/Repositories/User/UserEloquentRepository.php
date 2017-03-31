@@ -13,6 +13,6 @@ class CategoryEloquentRepository extends EloquentRepository implements CategoryR
 	*/
 	public function getModel()
 	{
-		return \App\Models\Post::class;
+		return \App\Models\User::class;
 	}
 }

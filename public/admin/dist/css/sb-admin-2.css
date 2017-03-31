@@ -38,6 +38,15 @@ body {
 .navbar-top-links li:last-child {
     margin-right: 15px;
 }
+#add-user{
+    padding: 5px 10px;
+    background: #337ab7;
+    color: #FFF;
+    text-decoration: none;
+}
+#add {
+    margin-bottom: 10px;
+}
 
 .navbar-top-links li a {
     padding: 15px;

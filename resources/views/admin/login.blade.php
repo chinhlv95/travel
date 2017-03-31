@@ -6,20 +6,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Khóa Học Lập Trình Laravel Framework 5.x Tại Khoa Phạm">
     <meta name="author" content="">
-    <base href="{{asset('')}}">
-    <title>Admin - Khoa Phạm</title>
 
+    <title>Admin - Khoa Phạm</title>
+    
+   <base href="{{asset('')}}">
     <!-- Bootstrap Core CSS -->
-    <link href="admin_asset/bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
 
     <!-- MetisMenu CSS -->
-    <link href="admin_asset/bower_components/metisMenu/dist/metisMenu.min.css" rel="stylesheet">
+    <link href="admin/bower_components/metisMenu/dist/metisMenu.min.css" rel="stylesheet">
 
     <!-- Custom CSS -->
-    <link href="admin_asset/dist/css/sb-admin-2.css" rel="stylesheet">
+    <link href="admin/dist/css/sb-admin-2.css" rel="stylesheet">
 
     <!-- Custom Fonts -->
-    <link href="admin_asset/bower_components/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="admin/bower_components/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+   
 
 </head>
 
@@ -42,23 +45,28 @@
                                 </ul>
                             </div>
                         @endif
-                        @if(session('thongbao'))
-                            <div class="alert alert-success">
-                                {{session('thongbao')}}
+                        @if(session('message'))
+                            <div class="alert alert-danger" id="alert-login">
+                                {{session('message')}}
                             </div>
                         @endif
-                        <form role="form" action="admin/dangnhap" method="POST">
+
+                        <form role="form" action="{{URL::to('/')}}/postLogin" method="POST">
                             <input type="hidden" name="_token" value="{{csrf_token()}}">
                             <fieldset>
                                 <div class="form-group">
-                                    <input class="form-control" placeholder="E-mail" name="email" type="email" autofocus>
+                                    <input class="form-control" placeholder="username" name="username" value="" type="text" autofocus>
                                 </div>
                                 <div class="form-group">
-                                    <input class="form-control" placeholder="Password" name="password" type="password" value="">
+                                    <input class="form-control" placeholder="Password" name="password" value="{{(session('password'))?session('password'):""}}" type="password" >
+                                </div>
+                                <div class="checkbox">
+                                  <label><input type="checkbox" value="">Remember</label>
                                 </div>
                                 <button type="submit" class="btn btn-lg btn-success btn-block">Login</button>
                             </fieldset>
                         </form>
+                     
                     </div>
                 </div>
             </div>
@@ -66,17 +74,20 @@
     </div>
 
     <!-- jQuery -->
-    <script src="admin_asset/bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="js/jquery.min.js"></script>
 
     <!-- Bootstrap Core JavaScript -->
-    <script src="admin_asset/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
 
     <!-- Metis Menu Plugin JavaScript -->
-    <script src="admin_asset/bower_components/metisMenu/dist/metisMenu.min.js"></script>
+    <script src="admin/bower_components/metisMenu/dist/metisMenu.min.js"></script>
 
     <!-- Custom Theme JavaScript -->
-    <script src="admin_asset/dist/js/sb-admin-2.js"></script>
+    <script src="admin/dist/js/sb-admin-2.js"></script>
 
+    <!-- DataTables JavaScript -->
+    <script src="admin/js/main.js"></script>
+  
 </body>
 
 </html>

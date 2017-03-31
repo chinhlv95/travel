@@ -11,27 +11,18 @@
 |
 */
 
-
-Route::get('admin', function () {
-    return view('admin.layout.index');
+// home page
+Route::get('','HomeController@Home');
+//login page
+Route::get('backend', function() {
+   return view("admin.login");
 });
-
-Route::get('add', function () {
-    return view('admin.layout.index');
-});
-
-
-Route::get('del', function () {
-    return view('admin.layout.index');
-});
-
-
-Route::get('update', function () {
-    return view('admin.layout.index');
-});
-
+Route::post('postLogin','LoginController@postLogin');
 
 Route::prefix('admin')->group(function(){
+	// logout
+	Route::get('logout', 'LoginController@Logout');
+	
 	Route::prefix('cate')->group(function(){
 		Route::get('list','CategoryController@getList');
 		Route::get('edit/{id}','CategoryController@getEdit');
@@ -39,6 +30,10 @@ Route::prefix('admin')->group(function(){
 		Route::get('add','CategoryController@getAdd');
 		Route::post('add','CategoryController@postAdd');
 		Route::get('delete/{id}','CategoryController@getDelete');
+	});
+	Route::prefix('user')->group(function(){
+		Route::get('list','UserController@getList');
+		Route::get('add','UserController@getAdd');
 	});
 
 });

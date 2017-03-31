@@ -1,6 +1,5 @@
 @extends('frontend.layouts.masterpage')
 @section('title', 'Trang chủ')
-
 @section('content')
 
 <section class="tour">
