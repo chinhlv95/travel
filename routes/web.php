@@ -24,6 +24,10 @@ Route::get('/', function() {
    return view ('index');
 });
 
+Route::post('del',function(){
+	return view ('admin.del');
+});
+
 
 Route::prefix('admin')->group(function(){
 	Route::prefix('cate')->group(function(){
