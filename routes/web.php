@@ -16,20 +16,6 @@ Route::get('admin', function () {
     return view('admin.layout.index');
 });
 
-Route::get('/', function() {
-   return view ('index');
-});
-
-Route::get('/', function() {
-   return view ('index');
-});
-Route::get('add', function() {
-   return view ('index');
-});
-Route::get('dels', function() {
-   return view ('index');
-});
-
 
 
 Route::prefix('admin')->group(function(){
