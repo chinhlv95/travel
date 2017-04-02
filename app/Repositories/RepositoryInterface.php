@@ -34,4 +34,8 @@ interface RepositoryInterface
 	* @return mixed
 	*/
 	public function delete($id);
+	/**
+	*pagination
+	*/ 
+	public function paginate($limit = null);
 }

@@ -28,8 +28,8 @@ class AppServiceProvider extends ServiceProvider
             \App\Repositories\Category\CategoryEloquentRepository::class
         );
         $this->app->singleton(
-            \App\Repositories\Contact\ContactRepositoryInterface::class,
-            \App\Repositories\Contact\ContactEloquentRepository::class
+            \App\Repositories\User\UserRepositoryInterface::class,
+            \App\Repositories\User\UserEloquentRepository::class
         );
     }
 }
