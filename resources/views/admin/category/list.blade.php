@@ -12,28 +12,41 @@
                 </h1>
             </div>
             <!-- /.col-lg-12 -->
-            <table class="table table-striped table-bordered table-hover" id="dataTables-example">
-                <thead>
-                    <tr align="center">
-                        <th>Name</th>
-                        <th>meta_key</th>
-                        <th>Status</th>
-                        <th>Delete</th>
-                        <th>Edit</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach( $cate as $cate)
-                    <tr class="odd gradeX" align="center">
-                        <td>{{ $cate->name }}</td>
-                        <td>{{ $cate->meta_key }}</td>
-                        <td>{{ $cate->status }}</td>
-                        <td class="center"><i class="fa fa-trash-o  fa-fw"></i><a href="#"> Delete</a></td>
-                        <td class="center"><i class="fa fa-pencil fa-fw"></i> <a href="#">Edit</a></td>
-                    </tr>
-                    @endforeach
-                </tbody>
-            </table>
+            <button type="button" class="btn btn-info btn-md add" data-name="cate" data-toggle="modal" data-target="#myModal"><i class="fa fa-plus-circle" aria-hidden="true"></i> ADD</button>
+            <div class="modal fade" id="myModal" role="dialog">
+                <div class="modal-dialog">
+                </div>
+            </div>
+            <div class="dataTables">
+                <table class="table table-striped table-bordered table-hover" id="dataTables-detail">
+                    <thead>
+                        <tr align="center">
+                            <th>Name</th>
+                            <th>Meta_key</th>
+                            <th>Status</th>
+                            <th>Delete</th>
+                            <th>Edit</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach( $cate as $cate)
+                        <tr class="odd gradeX" align="center">
+                            <td>{{ $cate->name }}</td>
+                            <td>{{ $cate->meta_key }}</td>
+                            <td>
+                                @if( $cate->status == 0 )
+                                {{ "Private" }}
+                                @else
+                                {{ "Published" }}
+                                @endif
+                            </td>
+                            <td class="center"><i class="fa fa-trash-o  fa-fw"></i><a href="javascript:void(0)" class="del" data-name="cate" data-id="{{ $cate->id }}"> Delete</a></td>
+                            <td class="center"><i class="fa fa-pencil fa-fw"></i> <a href="" data-id="{{ $cate->id }}" class="edit" data-name="cate" data-toggle="modal" data-target="#myModal">Edit</a></td>
+                        </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+            </div>
         </div>
         <!-- /.row -->
     </div>

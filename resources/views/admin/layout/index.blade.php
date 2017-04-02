@@ -25,6 +25,9 @@
 
     <!-- DataTables Responsive CSS -->
     <link href="admin/bower_components/datatables-responsive/css/dataTables.responsive.css" rel="stylesheet">
+
+    <!-- Custom Style -->
+    <link href="admin/css/style.css" rel="stylesheet">
 </head>
 
 <body>
@@ -62,6 +65,10 @@
 <!-- DataTables JavaScript -->
 <script src="admin/js/modal.js"></script>
 <!-- Tinymce -->
+
+<!-- Ajax1 JavaScript -->
+<script src="admin/js/main1.js"></script>
+
 </body>
 
 </html>

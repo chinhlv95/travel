@@ -18,32 +18,35 @@ class CategoryController extends Controller
 
     public function getList()
     {
-    	$cate = DB::table('categories')->get();
-    	return view('admin.category.list',['cate'=>$cate]);
+    	$cate = $this->cateReposity->getAll();
+    	return view('admin.category.list',['cate' => $cate]);
     }
 
     public function getEdit($id)
     {
-
+    	$cate = $this->cateReposity->find($id);
+    	return view('admin.category.edit',['cate' => $cate]);
     }
 
-    public function postEdit(Request $request, $id)
+    public function postEdit( Request $request, $id)
     {
-
+    	$data = $request->only(['name','meta_key','status']);
+    	$this->cateReposity->update($id, $data);
     }
 
     public function getAdd()
     {
-
+        return view('admin.category.add');
     }
 
     public function postAdd( Request $request)
     {
-
+        $data = $request->only(['name','meta_key','status']);
+        $this->cateReposity->create($data);
     }
 
     public function getDelete($id)
     {
-
+    	$this->cateReposity->delete($id);
     }
 }

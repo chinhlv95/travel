@@ -11,7 +11,6 @@
 |
 */
 
-
 // home page
 Route::get('','HomeController@Home');
 //login page

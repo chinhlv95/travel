@@ -1,0 +1,10 @@
+/* Backend Style */
+
+.add {
+	float: right;
+	margin-bottom: 20px;
+}
+
+.table tr th {
+	text-align: center;
+}
