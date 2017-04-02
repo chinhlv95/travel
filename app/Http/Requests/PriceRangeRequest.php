@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class UserRequest extends FormRequest
+class PriceRangeRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,22 +24,20 @@ class UserRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required|min:4',
-            'email'=> 'required|email:email',
+            'from_price'=>'required|integer',
+            'to_price'  =>'required|integer'
         ];
     }
-     public function messages()
-    { 
-
-        return   [
-           'name.required'=>'username not null',
-
-           'name.min'     =>"username short 4 character",
-           // email
-           'email.required'=>'email not null',
-
-           'email.email'   =>"not format email"
-           
-        ];
+    /**
+     * show message error 
+     *
+     * @return array
+     */
+    public function messages()
+    {
+        return [
+            'from_price.integer'=>"type integer",
+            'to_price.integer'  =>"type integer",
+              ];
     }
 }

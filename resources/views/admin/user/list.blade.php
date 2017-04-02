@@ -19,7 +19,7 @@
                <div class="col-md-3 col-md-offset-6">
                    <div class="input-group">
                        <input type="text" name="search" placeholder="search..." class="form-control" id="search">
-                        <span class="input-group-addon"><i class="glyphicon glyphicon-search"></i></span>
+                        <span class="input-group-addon"><i class="fa fa-search" aria-hidden="true"></i></span>
                    </div>
                </div>
            </div>

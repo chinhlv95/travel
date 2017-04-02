@@ -3,7 +3,6 @@
 @section('content')
 <!-- Page Content -->
 <div id="page-wrapper">
-
     <div class="container">
     <div id="edit-user-form">
         <div class="row">
