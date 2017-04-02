@@ -38,6 +38,9 @@ body {
 .navbar-top-links li:last-child {
     margin-right: 15px;
 }
+.alert-user{
+    display: none;
+}
 #add-user{
     padding: 5px 10px;
     background: #337ab7;

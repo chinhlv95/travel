@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Repositories\Post;
+namespace App\Repositories\User;
 
 use App\Repositories\EloquentRepository;
-use App\Repositories\Post\CategoryRepositoryInterface;
+use App\Repositories\User\UserRepositoryInterface;
 
-class CategoryEloquentRepository extends EloquentRepository implements CategoryRepositoryInterface
+class UserEloquentRepository extends EloquentRepository implements UserRepositoryInterface
 {
 	/**
 	* get model
@@ -15,4 +15,10 @@ class CategoryEloquentRepository extends EloquentRepository implements CategoryR
 	{
 		return \App\Models\User::class;
 	}
+
+  public function FilterUsername($name="")
+  {
+  	$dataUser=$this->_model->where('name','like','%'.$name.'%')->paginate(5);
+  	return $dataUser;
+  }
 }

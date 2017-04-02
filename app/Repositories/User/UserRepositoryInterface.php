@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Repositories\Category;
+namespace App\Repositories\User;
 
-interface CategoryRepositoryInterface
+interface UserRepositoryInterface
 {
-
+  public function FilterUsername($name="");
 }

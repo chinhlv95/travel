@@ -33,8 +33,16 @@ Route::prefix('admin')->group(function(){
 		Route::get('delete/{id}','CategoryController@getDelete');
 	});
 	Route::prefix('user')->group(function(){
+		//list user
 		Route::get('list','UserController@getList');
+		// add user
 		Route::get('add','UserController@getAdd');
+		Route::post('add','UserController@postAdd' );
+		//update user
+		Route::get('edit/{id}','UserController@getEdit');
+		Route::post('edit/{id}','UserController@postEdit');
+		//delete user
+		Route::post('delete','UserController@getDelete');
 	});
 
 });

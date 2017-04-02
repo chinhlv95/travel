@@ -87,4 +87,14 @@ abstract class EloquentRepository implements RepositoryInterface
 		}
 		return false;
 	}
+	/**
+    * pagination
+    * @param $limit
+    *@return mixed
+	*/
+	public function paginate($limit = null)
+	{
+      	$result =  $this->_model->paginate($limit);
+      	return $result;
+	}
 }
