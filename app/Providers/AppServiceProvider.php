@@ -31,5 +31,25 @@ class AppServiceProvider extends ServiceProvider
             \App\Repositories\User\UserRepositoryInterface::class,
             \App\Repositories\User\UserEloquentRepository::class
         );
+        // contact
+       $this->app->singleton(
+            \App\Repositories\Contact\ContactRepositoryInterface::class,
+            \App\Repositories\Contact\ContactEloquentRepository::class
+        );
+       //price-range
+        $this->app->singleton(
+            \App\Repositories\PriceRange\PriceRangeRepositoryInterface::class,
+            \App\Repositories\PriceRange\PriceRangeEloquentRepository::class
+        );
+        //pay
+          $this->app->singleton(
+            \App\Repositories\Pay\PayRepositoryInterface::class,
+            \App\Repositories\Pay\PayEloquentRepository::class
+        );
+        //
+         $this->app->singleton(
+            \App\Repositories\Traffic\TrafficRepositoryInterface::class,
+            \App\Repositories\Traffic\TrafficEloquentRepository::class
+        ); 
     }
 }

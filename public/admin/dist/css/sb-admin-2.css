@@ -41,11 +41,18 @@ body {
 .alert-user{
     display: none;
 }
-#add-user{
+#add-user,.btn-add{
     padding: 5px 10px;
     background: #337ab7;
     color: #FFF;
     text-decoration: none;
+}
+.alert-success{
+    display: none;
+}
+.error-form{
+    color: red;
+    font-size: 14px;
 }
 #add {
     margin-bottom: 10px;
