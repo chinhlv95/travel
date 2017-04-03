@@ -17,6 +17,7 @@ $('body').on('click', '.del', function() {
 			url : URL +"admin/"+name+"/delete/"+id,
 			success: function(data)
 			{
+				$('#dataTables').load(' #dataTables-detail'); 
 				$(".alert").html(data.message);
 				$("div .alert-show").slideDown("slow");
             	$("div .alert-show").delay(3000).slideUp();
@@ -56,7 +57,7 @@ $('body').on('submit', '#form', function(event) {
             data: $("#form").serialize(), // serializes the form's elements.
             success: function(data)
             {
-            	$('.dataTables').load(' #dataTables-detail');
+            	$('#dataTables').load(' #dataTables-detail');
             	$("#myModal").modal("hide");
             	$(".alert").html(data["message"]);
             	$("div .alert-show").show();
@@ -75,3 +76,46 @@ $('body').on('submit', '#form', function(event) {
         });
 
 });
+// pagination
+$('body').on('click', '#pagination a', function(event) {
+	event.preventDefault();
+	var name = $(this).parent().parent().parent().attr("data-name");
+	var page=$(this).attr('href').split('page=')[1]; 
+	history.pushState({}, "","admin/"+ name +"/list?page="+page);
+	$('#dataTables').load(' #dataTables-detail'); 
+});
+
+// search and pagination
+
+$('body').on('click', '#pagination-search a', function(event) {
+	event.preventDefault();
+	var name = $(this).parent().parent().parent().attr("data-name");
+	var page=$(this).attr('href').split('page=')[1]; 
+	var search = getParameterByName('name'); 
+	history.pushState({}, "","admin/"+ name +"/list?name="+search+"&page="+page);
+	$('#dataTables').load(' #dataTables-detail');
+
+});
+
+// Search
+$('body').on('keyup', '#search', function(event) {
+    event.preventDefault();
+    var name=$("#search").val();
+
+    history.pushState({},"name","admin/destination/list?name="+name);
+    $("#dataTables").load(" #dataTables-detail");
+});
+
+
+// getquery param url
+function getParameterByName(name, url) {
+  if (!url) {
+    url = window.location.href;
+  }
+  name = name.replace(/[\[\]]/g, "\\$&");
+  var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+  results = regex.exec(url);
+  if (!results) return '';
+  if (!results[2]) return '';
+  return decodeURIComponent(results[2].replace(/\+/g, " "));
+}

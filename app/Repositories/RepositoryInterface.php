@@ -45,4 +45,9 @@ interface RepositoryInterface
 	*pagination
 	*/ 
 	public function paginate($limit = null);
+
+	/**
+	* Eager Loading Pagination 
+	*/
+	public function pagination($limit = null, array $with = array());
 }

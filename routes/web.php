@@ -43,6 +43,24 @@ Route::prefix('admin')->group(function(){
 		Route::get('delete/{id}','DestinationController@getDelete');
 	});
 
+	Route::prefix('province')->group(function(){
+		Route::get('list','ProvinceController@getList');
+		Route::get('edit/{id}','ProvinceController@getEdit');
+		Route::post('edit/{id}','ProvinceController@postEdit');
+		Route::get('add','ProvinceController@getAdd');
+		Route::post('add','ProvinceController@postAdd');
+		Route::get('delete/{id}','ProvinceController@getDelete');
+	});
+
+	Route::prefix('sale')->group(function(){
+		Route::get('list','SaleController@getList');
+		Route::get('edit/{id}','SaleController@getEdit');
+		Route::post('edit/{id}','SaleController@postEdit');
+		Route::get('add','SaleController@getAdd');
+		Route::post('add','SaleController@postAdd');
+		Route::get('delete/{id}','SaleController@getDelete');
+	});
+
 	//user
 	Route::prefix('user')->group(function(){
 		//list user
