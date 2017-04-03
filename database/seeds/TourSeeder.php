@@ -13,9 +13,9 @@ class TourSeeder extends Seeder
     public function run()
     {
         //
-        DB::table('categories')->insert([
-        	['name' => 'Du lịch trong nước','meta_key' => 'trong-nuoc','status' => 0, 'created_at' => Carbon::now()->format('Y-m-d H:i:s'), 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')],
-        	['name' => 'Du lịch nước ngoài','meta_key' => 'ngoai-nuoc','status' => 1, 'created_at' => Carbon::now()->format('Y-m-d H:i:s'), 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')],
+        DB::table('destinations')->insert([
+        	['name' => 'Hà Nội','status' => 0, 'cate_id' => 3, 'created_at' => Carbon::now()->format('Y-m-d H:i:s'), 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')],
+        	['name' => 'New York','status' => 1, 'cate_id' => 4, 'created_at' => Carbon::now()->format('Y-m-d H:i:s'), 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')],
     	]);
     }
 }
