@@ -11,7 +11,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-<<<<<<< HEAD
+
         DB::table('users')->insert([[
             'name' =>"manager4",
             'email' =>'manager4@gmail.com',
@@ -24,7 +24,7 @@ class DatabaseSeeder extends Seeder
             'password' => bcrypt('12345678'),
         ]
         ]);
-=======
+
         // DB::table('users')->insert([
         //     'name' =>"manager",
         //     'email' =>'manager@gmail.com',
@@ -37,6 +37,6 @@ class DatabaseSeeder extends Seeder
         	['name' => 'Du lịch trong nước','meta_key' => 'trong-nuoc','status' => 0, 'created_at' => Carbon::now()->format('Y-m-d H:i:s'), 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')],
         	['name' => 'Du lịch nước ngoài','meta_key' => 'ngoai-nuoc','status' => 1, 'created_at' => Carbon::now()->format('Y-m-d H:i:s'), 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')],
     	]);
->>>>>>> kien
+
     }
 }
