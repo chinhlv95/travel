@@ -18,7 +18,7 @@ class CreateTourersTable extends Migration
             $table->string('fullname');
             $table->date('birthday');
             $table->tinyInteger('gender');
-            $table->integer('phone');
+            $table->string('phone',15);
             $table->string('address');
             $table->integer('order_id')->unsigned();
             $table->foreign('order_id')->references('id')->on('orders')->onDelete('cascade');

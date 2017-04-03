@@ -107,4 +107,15 @@ abstract class EloquentRepository implements RepositoryInterface
       	$result =  $this->_model->paginate($limit);
       	return $result;
 	}
+
+	/**
+    * Eager Loading Pagination
+    * @param $limit
+    * @return mixed
+	*/
+	public function pagination($limit = null, array $with = array())
+	{
+      	$result =  $this->make($with)->paginate($limit);
+      	return $result;
+	}
 }

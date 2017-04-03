@@ -28,9 +28,10 @@ class DestinationController extends Controller
     * Get list
     * @return mixed
     */
-    public function getList()
+    public function getList( Request $request )
     {
-    	$desti = $this->destiReposity->getAll(['category']);
+    	$name = $request->name;
+    	$desti = $this->destiReposity->FilterDestinationname( $name,10,['category']);
     	return view('admin.destination.list',['desti' => $desti]);
     }
 

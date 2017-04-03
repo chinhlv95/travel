@@ -7,7 +7,7 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-lg-12">
-                <h1 class="page-header">Destination
+                <h1 class="page-header">Province
                     <small>List</small>
                 </h1>
             </div>
@@ -18,13 +18,7 @@
             </div>
             <!-- /.col-lg-12 -->
             <div class="col-md-9">
-                <button type="button" class="btn btn-info btn-md add" data-name="destination" data-toggle="modal" data-target="#myModal"><i class="fa fa-plus-circle" aria-hidden="true"></i> ADD</button>
-            </div>
-            <div class="col-md-3">
-                <div class="input-group">
-                    <input type="text" name="search" placeholder="search..." class="form-control" id="search">
-                    <span class="input-group-addon"><i class="fa fa-search" aria-hidden="true"></i></span>
-                </div>
+                <button type="button" class="btn btn-info btn-md add" data-name="province" data-toggle="modal" data-target="#myModal"><i class="fa fa-plus-circle" aria-hidden="true"></i> ADD</button>
             </div>
             <div class="col-md-12">
                 <div class="modal fade" id="myModal" role="dialog">
@@ -38,31 +32,29 @@
                                 <tr align="center">
                                     <th>Name</th>
                                     <th>Status</th>
-                                    <th>Category</th>
                                     <th>Delete</th>
                                     <th>Edit</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach( $desti as $destination)
+                                @foreach( $provinces as $province)
                                 <tr class="odd gradeX" align="center">
-                                    <td>{{ $destination->name }}</td>
+                                    <td>{{ $province->name }}</td>
                                     <td>
-                                        @if( $destination->status == 0 )
+                                        @if( $province->status == 0 )
                                         {{ "Private" }}
                                         @else
                                         {{ "Published" }}
                                         @endif
                                     </td>
-                                    <td>{{ $destination->category->name }}</td>
-                                    <td class="center"><i class="fa fa-trash-o  fa-fw"></i><a href="javascript:void(0)" class="del" data-name="destination" data-id="{{ $destination->id }}"> Delete</a></td>
-                                    <td class="center"><i class="fa fa-pencil fa-fw"></i> <a href="" data-id="{{ $destination->id }}" class="edit" data-name="destination" data-toggle="modal" data-target="#myModal">Edit</a></td>
+                                    <td class="center"><i class="fa fa-trash-o  fa-fw"></i><a href="javascript:void(0)" class="del" data-name="province" data-id="{{ $province->id }}"> Delete</a></td>
+                                    <td class="center"><i class="fa fa-pencil fa-fw"></i> <a href="" data-id="{{ $province->id }}" class="edit" data-name="province" data-toggle="modal" data-target="#myModal">Edit</a></td>
                                 </tr>
                                 @endforeach
                             </tbody>
                         </table>
-                        <div id="pagination-search" data-name="destination">
-                        {{$desti->links()}}
+                        <div id="pagination" data-name="province">
+                        {{$provinces->links()}}
                         </div>
                     </div>
                 </div>

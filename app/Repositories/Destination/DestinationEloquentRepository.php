@@ -18,4 +18,10 @@ class DestinationEloquentRepository extends EloquentRepository implements Destin
 		return \App\Models\Destination::class;
 	}
 
+	public function FilterDestinationname($name= "", $limit = null, array $with = array())
+	{
+		$desti=$this->make($with)->where('name','like','%'.$name.'%')->paginate($limit);
+  		return $desti;
+	}
+
 }
