@@ -64,7 +64,9 @@
                    
                 </tbody>
             </table>
+            <div id="pagination-price-range">
             {{$dataPriceRangeList->links()}}
+            </div>
               </div>
             
         </div>

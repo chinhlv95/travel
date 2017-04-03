@@ -23,7 +23,7 @@ class ContactController extends Controller
     */
     public function getList()
     {
-    	$dataContactList=$this->ContactRepository->paginate(5);
+    	$dataContactList=$this->ContactRepository->paginate(10);
         return view('admin.contact.list',[
              'dataContactList' =>$dataContactList
         	]);

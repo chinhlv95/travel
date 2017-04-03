@@ -65,7 +65,9 @@
                    
                 </tbody>
             </table>
+            <div id="pagination-contact">
             {{$dataContactList->links()}}
+            </div>
               </div>
             
         </div>

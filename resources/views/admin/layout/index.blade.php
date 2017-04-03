@@ -63,7 +63,7 @@
 <script src="admin/dist/js/sb-admin-2.js"></script>
 
 <!-- DataTables JavaScript -->
-{{-- <script src="admin/js/modal.js"></script> --}}
+<script src="admin/js/modal.js"></script> 
 <!-- Tinymce -->
 
 <!-- Ajax1 JavaScript -->

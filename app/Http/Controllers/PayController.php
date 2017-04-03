@@ -20,7 +20,7 @@ class PayController extends Controller
     */
     public function getList()
     {
-    	$dataPayList=$this->PayRepository->paginate(10);
+    	$dataPayList=$this->PayRepository->paginate(1);
         return view('admin.pay.list',[
              'dataPayList' =>$dataPayList
         	]);
