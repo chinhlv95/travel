@@ -7,7 +7,7 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-lg-12">
-                <h1 class="page-header">Category
+                <h1 class="page-header">Destination
                     <small>List</small>
                 </h1>
             </div>
@@ -18,7 +18,7 @@
             </div>
             <!-- /.col-lg-12 -->
             <div class="col-md-9">
-                <button type="button" class="btn btn-info btn-md add" data-name="cate" data-toggle="modal" data-target="#myModal"><i class="fa fa-plus-circle" aria-hidden="true"></i> ADD</button>
+                <button type="button" class="btn btn-info btn-md add" data-name="destination" data-toggle="modal" data-target="#myModal"><i class="fa fa-plus-circle" aria-hidden="true"></i> ADD</button>
             </div>
             <div class="col-md-3">
                 <div class="input-group">
@@ -36,26 +36,26 @@
                         <thead>
                             <tr align="center">
                                 <th>Name</th>
-                                <th>Meta_key</th>
                                 <th>Status</th>
+                                <th>Category</th>
                                 <th>Delete</th>
                                 <th>Edit</th>
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach( $cate as $cate)
+                            @foreach( $desti as $desti)
                             <tr class="odd gradeX" align="center">
-                                <td>{{ $cate->name }}</td>
-                                <td>{{ $cate->meta_key }}</td>
+                                <td>{{ $desti->name }}</td>
                                 <td>
-                                    @if( $cate->status == 0 )
+                                    @if( $desti->status == 0 )
                                     {{ "Private" }}
                                     @else
                                     {{ "Published" }}
                                     @endif
                                 </td>
-                                <td class="center"><i class="fa fa-trash-o  fa-fw"></i><a href="javascript:void(0)" class="del" data-name="cate" data-id="{{ $cate->id }}"> Delete</a></td>
-                                <td class="center"><i class="fa fa-pencil fa-fw"></i> <a href="" data-id="{{ $cate->id }}" class="edit" data-name="cate" data-toggle="modal" data-target="#myModal">Edit</a></td>
+                                <td>{{ $desti->category->name }}</td>
+                                <td class="center"><i class="fa fa-trash-o  fa-fw"></i><a href="javascript:void(0)" class="del" data-name="destination" data-id="{{ $desti->id }}"> Delete</a></td>
+                                <td class="center"><i class="fa fa-pencil fa-fw"></i> <a href="" data-id="{{ $desti->id }}" class="edit" data-name="destination" data-toggle="modal" data-target="#myModal">Edit</a></td>
                             </tr>
                             @endforeach
                         </tbody>

@@ -16,12 +16,12 @@ abstract class EloquentRepository implements RepositoryInterface
 	{
 		$this->setModel();
 	}
-	/*
+	/**
 	* get model
 	* @return string
 	*/
 	abstract public function getModel();
-	/*
+	/**
 	* Set model
 	*/
 	public function setModel()
@@ -30,15 +30,25 @@ abstract class EloquentRepository implements RepositoryInterface
 			$this->getModel()
 		);
 	}
+	/**
+	* make
+	* @param array $with
+	* @return mixed
+	*/
+	public function make( array $with = array() )
+	{
+		$result = $this->_model->with($with);
+		return $result;
+	}
 	/*
 	* Get All
 	* @return \Illuminate\Database\Eloquent\Collection|static[]
 	*/
-	public function getAll()
+	public function getAll( array $with = array() )
 	{
-		return $this->_model->get();
+		return $this->make($with)->get();
 	}
-	/*
+	/**
 	* Get one
 	* @param $id
 	* @return mixed
@@ -48,7 +58,7 @@ abstract class EloquentRepository implements RepositoryInterface
 		$result = $this->_model->find($id);
 		return $result;
 	}
-	/*
+	/**
 	* Create
 	* @param array $attributes
 	* @return mixed
@@ -57,7 +67,7 @@ abstract class EloquentRepository implements RepositoryInterface
 	{
 		return $this->_model->create($attributes);
 	}
-	/*
+	/**
 	* Update
 	* @param $id
 	* @param array $attributes
@@ -72,7 +82,7 @@ abstract class EloquentRepository implements RepositoryInterface
 		}
 		return false;
 	}
-	/*
+	/**
 	* Delete
 	*
 	* @param $id
@@ -90,7 +100,7 @@ abstract class EloquentRepository implements RepositoryInterface
 	/**
     * pagination
     * @param $limit
-    *@return mixed
+    * @return mixed
 	*/
 	public function paginate($limit = null)
 	{
