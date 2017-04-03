@@ -83,8 +83,9 @@
                 </tbody>
             </table>
             
-            
+             <div class="pagination-user">
                 {{$dataUser->links()}}
+             </div>
                 </div>
           
         </div>

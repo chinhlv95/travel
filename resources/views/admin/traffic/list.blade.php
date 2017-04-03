@@ -62,7 +62,9 @@
                    
                 </tbody>
             </table>
+            <div id="pagination-traffic">
             {{$dataTrafficList->links()}}
+          </div>
               </div>
             
         </div>

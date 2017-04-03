@@ -20,13 +20,13 @@
                     <div class="form-group">
                         <label>From price</label>
                         <input class="form-control" name="from_price" placeholder="Please Enter from price" required />
-                        <span id="error-from-price" class="error-form"></span>
+                        <span id="error-from_price" class="error-form"></span>
                     </div>
                     
                     <div class="form-group">
                         <label>To price</label>
                         <input class="form-control" name="to_price" type="text" placeholder="Please Enter phone" required />
-                         <span id="error-to-price" class="error-form"></span>
+                         <span id="error-to_price" class="error-form"></span>
                     </div>
                     <button type="submit" class="btn btn-default">price range Add</button>
                     <button type="reset" class="btn btn-default">Reset</button>

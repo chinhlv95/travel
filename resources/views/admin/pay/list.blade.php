@@ -62,7 +62,9 @@
                    
                 </tbody>
             </table>
+            <div id="pagination-pay">
             {{$dataPayList->links()}}
+            </div>
               </div>
             
         </div>
