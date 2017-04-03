@@ -18,7 +18,7 @@ class UserEloquentRepository extends EloquentRepository implements UserRepositor
 
   public function FilterUsername($name="")
   {
-  	$dataUser=$this->_model->where('name','like','%'.$name.'%')->paginate(5);
+  	$dataUser=$this->_model->where('name','like','%'.$name.'%')->paginate(10);
   	return $dataUser;
   }
 }

@@ -2,7 +2,6 @@
   host=host.split('/');
   var url=host[0]+"//"+host[2]+"/";
 $(document).ready(function() {
-
     // user
     $("body").on('click', '#add-user', function(event) {
       var level=$(this).attr("data-check");
@@ -13,60 +12,17 @@ $(document).ready(function() {
       $("#modal-user").modal().find('#modal-content-user').load(url+"admin/user/add #add-user-form");
     }
   });
-
 	// add submit user
-	$('body').on('submit', '#user-form', function(event) {
-   $.ajax({
-     type:$("#user-form").attr('method'),
-     url :$("#user-form").attr('action'),
-           data:$("#user-form").serialize(), // serializes the form's elements.
-           success: function(data){
-             $("#content-table-user").load(" #content-table-user");
-             $("#modal-users").modal('hide');
-             $(".alert-user").html(data.message);
-
-           },
-           error: function(data){
-            var errors = data.responseJSON;
-            console.log(errors);
-            $("#error-name").html(errors['name']);
-            $("#error-email").html(errors['email']);
-          }
-        });
-   event.preventDefault();
- });
+  createUpdateForm('#user-form',"#content-table-user","#modal-users");
 	//update submmit user
-	$('body').on('submit', '#user-form-update', function(event) {
-   $.ajax({
-     type:$("#user-form-update").attr('method'),
-     url :$("#user-form-update").attr('action'),
-           data:$("#user-form-update").serialize(), // serializes the form's elements.
-           success: function(data)
-           {
-           	alert(data.message);
-           $("#modal-user").modal('hide');
-            $("#content-table-user").load(" #content-table-user");
-            
-          },
-          error: function(data){
-            var errors = data.responseJSON;
-            console.log(errors);
-            $("#error-name").html(errors['name']);
-            $("#error-email").html(errors['email']);
-          }
-        });
-   event.preventDefault();
-
- });
+  createUpdateForm('#user-form-update',"#content-table-user","#modal-user");
 	// pagination user
-
-  $('body').on('click', '.pagination a', function(event) {
+  $('body').on('click','.pagination-user a', function(event) {
     event.preventDefault();
     var page=$(this).attr('href').split('page=')[1]; 
     var name = getParameterByName('name'); 
     history.pushState({}, "","admin/user/list?name="+name+"&page="+page);
     $('#content-table-user').load(' #content-table-user');
-
   });
      // delete user
      $('body').on('click', '.delete-user', function(event) {
@@ -84,7 +40,6 @@ $(document).ready(function() {
            $("#content-table-user").load(" #content-table-user");
          },
          error:function() {
-
          }
        });
       }
@@ -120,114 +75,36 @@ $(document).ready(function() {
 
     },
     error:function() {
-
     }
-  });
+    });
     });
 
 //===================================Contact=========================================
    // modal contact add
    getModal("#add-contact","#modal-contact","#modal-content-contact","admin/contact/add #add-contact-form");
-
    // add contact
-   $('body').on('submit', '#contact-form', function(event) {
-     $.ajax({
-       type:$("#contact-form").attr('method'),
-       url :$("#contact-form").attr('action'),
-           data:$("#contact-form").serialize(), // serializes the form's elements.
-           success: function(data){
-             $("#content-table-contact").load(" #content-table-contact");
-             $("#modal-contact").modal('hide');
-             alert(data.message);
-           },
-           error: function(data){
-            var errors = data.responseJSON;
-            console.log(errors);
-            $("#error-name").html(errors['name']);
-            $("#error-phone").html(errors['phone']);
-            $("#error-address").html(errors['address']);
-          }
-        });
-     event.preventDefault();
-   });
+   createUpdateForm('#contact-form',"#content-table-contact","#modal-contact");
    // get modal contact update
    getModalPost(".update-contact","#modal-contact","#modal-content-contact","#edit-contact-form","admin/contact/edit/");
   //update contact
-   $('body').on('submit', '#contact-form-edit', function(event) {
-     $.ajax({
-       type:$("#contact-form-edit").attr('method'),
-       url :$("#contact-form-edit").attr('action'),
-           data:$("#contact-form-edit").serialize(), // serializes the form's elements.
-           success: function(data){
-             $("#content-table-contact").load(" #content-table-contact");
-             $("#modal-contact").modal('hide');
-             alert(data.message);
-           },
-           error: function(data){
-            var errors = data.responseJSON;
-            console.log(errors);
-            $("#error-name").html(errors['name']);
-            $("#error-phone").html(errors['phone']);
-            $("#error-address").html(errors['address']);
-          }
-        });
-     event.preventDefault();
-   });
+   createUpdateForm('#contact-form-edit',"#content-table-contact","#modal-contact");
     // delete contact
    deleteForm(".delete-contact","admin/contact/delete","#content-table-contact");
     // paginationcontact
-   pagination("#content-table-contact","admin/contact/list");
+    pagination("#content-table-contact","admin/contact/list");
 
 
 //===================================Price Range ===============================
    //-modal add price prang
    getModal("#add-price-range","#modal-price-range","#modal-content-price-range","admin/price-range/add #add-price-range-form");
    //-add price range
-   $('body').on('submit', '#price-range-form', function(event) {
-     $.ajax({
-       type:$("#price-range-form").attr('method'),
-       url :$("#price-range-form").attr('action'),
-           data:$("#price-range-form").serialize(), // serializes the form's elements.
-           success: function(data){
-             $("#content-table-price-range").load(" #content-table-price-range");
-             $("#modal-price-range").modal('hide');
-             alert(data.message);
-           },
-           error: function(data){
-            var errors = data.responseJSON;
-            console.log(errors);
-            $("#error-from-price").html(errors['from_price']);
-            $("#error-to-price").html(errors['from_price']);
-          }
-        });
-     event.preventDefault();
-   });
+   createUpdateForm('#price-range-form',"#content-table-price-range","#modal-price-range");
     //pagination price range
-     pagination("#content-table-price-range","admin/price-range/list");
+    pagination("#content-table-price-range","admin/price-range/list");
    //-update modal
-       getModalPost(".update-price-range","#modal-price-range","#modal-content-price-range","#edit-price-range-form","admin/price-range/edit/");
-   
+    getModalPost(".update-price-range","#modal-price-range","#modal-content-price-range","#edit-price-range-form","admin/price-range/edit/");
    //-update price range
-    $('body').on('submit', '#price-range-form-edit', function(event) {
-
-     $.ajax({
-       type:$("#price-range-form-edit").attr('method'),
-       url :$("#price-range-form-edit").attr('action'),
-           data:$("#price-range-form-edit").serialize(), // serializes the form's elements.
-           success: function(data){
-             $("#content-table-price-range").load(" #content-table-price-range");
-             $("#modal-price-range").modal('hide');
-             alert(data.message);
-           },
-           error: function(data){
-            var errors = data.responseJSON;
-            console.log(errors);
-            $("#error-from-price").html(errors['from_price']);
-            $("#error-to-price").html(errors['from_price']);
-          }
-        });
-     event.preventDefault();
-   });
+    createUpdateForm('#price-range-form-edit',"#content-table-price-range","#modal-price-range");
 
    // -delete price range
     deleteForm(".delete-price-range","admin/price-range/delete","#content-table-price-range")
@@ -235,110 +112,39 @@ $(document).ready(function() {
     //modal add
     getModal("#add-pay","#modal-pay","#modal-content-pay","admin/pay/add #add-pay-form");
     //create pay
-    $('body').on('submit', '#pay-form', function(event) {
-     $.ajax({
-       type:$("#pay-form").attr('method'),
-       url :$("#pay-form").attr('action'),
-           data:$("#pay-form").serialize(), // serializes the form's elements.
-           success: function(data){
-             $("#content-table-pay").load(" #content-table-pay");
-             $("#modal-pay").modal('hide');
-             alert(data.message);
-           },
-           error: function(data){
-            var errors = data.responseJSON;
-            console.log(errors);
-            $("#error-pay").html(errors['name']);
-            
-          }
-        });
-     event.preventDefault();
-   });
+    createUpdateForm('#pay-form',"#content-table-pay","#modal-pay");
     //pagination
-       pagination("#content-table-pay","admin/pay/list");
-
-  //modal edit
-  getModalPost(".update-pay","#modal-pay","#modal-content-pay","#edit-pay-form","admin/pay/edit/");
-  //edit pay
-
-  // delete pay
-  deleteForm(".delete-pay","admin/pay/delete","#content-table-pay")
- 
- //update pay
- $('body').on('submit', '#pay-form-edit', function(event) {
-
-     $.ajax({
-       type:$("#pay-form-edit").attr('method'),
-       url :$("#pay-form-edit").attr('action'),
-           data:$("#pay-form-edit").serialize(), // serializes the form's elements.
-           success: function(data){
-             $("#content-table-pay").load(" #content-table-pay");
-             $("#modal-pay").modal('hide');
-             alert(data.message);
-           },
-           error: function(data){
-            var errors = data.responseJSON;
-            console.log(errors);
-            $("#error-pay").html(errors['name']);
-         
-          }
-        });
-     event.preventDefault();
-   });
+    $('body').on('click','#pagination-pay a', function(event) {
+    event.preventDefault();
+    var page=$(this).attr('href').split('page=')[1]; 
+    history.pushState({}, "","admin/pay/list?page="+page);
+    $('#content-table-pay').load(' #content-table-pay'); 
+    });
+    //modal edit
+    getModalPost(".update-pay","#modal-pay","#modal-content-pay","#edit-pay-form","admin/pay/edit/");
+    //edit pay
+   createUpdateForm('#pay-form-edit',"#content-table-pay","#modal-pay");
+   // delete pay
+   deleteForm(".delete-pay","admin/pay/delete","#content-table-pay")
  // ===========================================Traffic==============================
  //modal add
     getModal("#add-traffic","#modal-traffic","#modal-content-traffic","admin/traffic/add #add-traffic-form");
     //create traffic
-    $('body').on('submit', '#traffic-form', function(event) {
-     $.ajax({
-       type:$("#traffic-form").attr('method'),
-       url :$("#traffic-form").attr('action'),
-           data:$("#traffic-form").serialize(), // serializes the form's elements.
-           success: function(data){
-             $("#content-table-traffic").load(" #content-table-traffic");
-             $("#modal-traffic").modal('hide');
-             alert(data.message);
-           },
-           error: function(data){
-            var errors = data.responseJSON;
-            console.log(errors);
-            $("#error-traffic").html(errors['name']);
-            
-          }
-        });
-     event.preventDefault();
-   });
+    createUpdateForm("#traffic-form","#content-table-traffic","#modal-traffic");
     //pagination
-    pagination("#content-table-traffic","admin/traffic/list");
-
-  //modal edit
-  getModalPost(".update-traffic","#modal-traffic","#modal-content-traffic","#edit-traffic-form","admin/traffic/edit/");
-  //edit traffic
-
-  // delete traffic
-  deleteForm(".delete-traffic","admin/traffic/delete","#content-table-traffic")
+    $('body').on('click','#pagination-traffic a', function(event) {
+    event.preventDefault();
+    var page=$(this).attr('href').split('page=')[1]; 
+    history.pushState({}, "","admin/traffic/list?page="+page);
+    $('#content-table-traffic').load(' #content-table-traffic'); 
+    });
+    //modal edit
+    getModalPost(".update-traffic","#modal-traffic","#modal-content-traffic","#edit-traffic-form","admin/traffic/edit/");
+    // delete traffic
+    deleteForm(".delete-traffic","admin/traffic/delete","#content-table-traffic")
+    //update traffic
+    createUpdateForm('#traffic-form-edit',"#content-table-traffic","#modal-traffic");
  
- //update traffic
- $('body').on('submit', '#traffic-form-edit', function(event) {
-
-     $.ajax({
-       type:$("#traffic-form-edit").attr('method'),
-       url :$("#traffic-form-edit").attr('action'),
-           data:$("#traffic-form-edit").serialize(), // serializes the form's elements.
-           success: function(data){
-             $("#content-table-traffic").load(" #content-table-traffic");
-             $("#modal-traffic").modal('hide');
-             alert(data.message);
-           },
-           error: function(data){
-            var errors = data.responseJSON;
-            console.log(errors);
-            $("#error-traffic").html(errors['name']);
-         
-          }
-        });
-     event.preventDefault();
-   });
 
 
 
@@ -373,13 +179,42 @@ $(document).ready(function() {
       });
     }
     // pagination
-    function pagination(contentTable,urlName)
+    function pagination(pagination,contentTable,urlName)
     {
-     $('body').on('click', '.pagination a', function(event) {
+     $('body').on('click',pagination+" a", function(event) {
     event.preventDefault();
     var page=$(this).attr('href').split('page=')[1]; 
     history.pushState({}, "",urlName+"?page="+page);
-    $(contentTable).load(' '+contentTable); 
+    $(contentTable).load(" "+contentTable); 
+    });
+    }
+    // create-update
+    function createUpdateForm(form,contenttable, modal)
+    {
+     $('body').on('submit',form, function(event) {
+     $.ajax({
+     type:$(form).attr('method'),
+     url :$(form).attr('action'),
+           data:$(form).serialize(), // serializes the form's elements.
+           success: function(data){
+             $(contenttable).load(" "+contenttable);
+             $(modal).modal('hide');
+             alert(data.message);
+
+           },
+           error: function(data){
+            var errors = data.responseJSON;
+            var keys=Object.keys(errors);
+            var values=Object.values(errors);
+            console.log(errors);
+            for (var i = 0; i < keys.length; i++) {
+              var key=keys[i];
+              var value=values[i][0];
+              $("#error-"+key).html(value);
+            };
+          }
+        });
+      event.preventDefault();
     });
     }
     // delete
@@ -400,7 +235,6 @@ $(document).ready(function() {
               $(contentTable).load(" "+contentTable);
             },
             error:function() {
-
             }
           });
         }
