@@ -126,5 +126,18 @@ Route::prefix('admin')->group(function(){
 		//delete contact
 		Route::post('delete','TrafficController@getDelete');
 	});
+	//order
+	Route::prefix('order')->group(function(){
+		//list contact
+		Route::get('list','OrderController@getList');
+		// add contact
+		Route::get('add','TrafficController@getAdd');
+		Route::post('add','TrafficController@postAdd' );
+		//update contact
+		Route::get('edit/{id}','TrafficController@getEdit');
+		Route::post('edit/{id}','TrafficController@postEdit');
+		//delete contact
+		Route::post('delete','TrafficController@getDelete');
+	});
 
 });

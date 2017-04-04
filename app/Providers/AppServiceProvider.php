@@ -58,10 +58,15 @@ class AppServiceProvider extends ServiceProvider
             \App\Repositories\Pay\PayRepositoryInterface::class,
             \App\Repositories\Pay\PayEloquentRepository::class
         );
-        //
+        //traffic
          $this->app->singleton(
             \App\Repositories\Traffic\TrafficRepositoryInterface::class,
             \App\Repositories\Traffic\TrafficEloquentRepository::class
+        ); 
+         //order
+         $this->app->singleton(
+            \App\Repositories\Order\OrderRepositoryInterface::class,
+            \App\Repositories\Order\OrderEloquentRepository::class
         ); 
     }
 }

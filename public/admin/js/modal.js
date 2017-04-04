@@ -225,3 +225,15 @@
      if (!results[2]) return '';
      return decodeURIComponent(results[2].replace(/\+/g, " "));
  }
+ // other
+$(document).ready(function() {
+    
+    $(".order-tr").click(function(){
+     $('.order-show').hide();
+        if($(this).next().is(":visible")){
+            $(this).next().hide();    
+        }else{
+            $(this).next().show();
+        }
+});
+});

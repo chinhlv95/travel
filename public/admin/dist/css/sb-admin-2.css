@@ -87,6 +87,7 @@ body {
     min-width: 0;
 }
 
+
 .navbar-top-links .dropdown-messages {
     margin-left: 5px;
 }
@@ -370,4 +371,50 @@ table.dataTable thead .sorting:after {
 
 .panel-yellow a:hover {
     color: #df8a13;
+}
+/*order*/
+.order-show{
+    display: none;
+}
+.order-show{
+    transition: all 0.7s ease;
+}
+.tour-order{
+    width: 100%;
+    height: auto;
+}
+.order-tr{
+    cursor: pointer;
+}
+.tour-order .tour-order-left,.tour-order .tour-order-right{
+    float: left;
+}
+.customer-tour-item {
+    border-right: 1px solid #ddd;
+}
+.customer-tour {
+    border: 1px solid #ddd;
+    padding-left: 20px;
+}
+.processing{
+    background:#F87D7D !important;
+}
+.success{
+    background: #1AEA0A !important;
+}
+.tour-order .tour-order-left{
+    width: 50%;
+    height: 250px;
+    overflow: hidden;
+}
+.tour-order .tour-order-right{
+    padding-left: 30px;
+
+}
+.tour-order .tour-order-left img{
+    width: 100%;
+    height: auto;
+}
+.add-more-touers{
+    margin-bottom: 20px;
 }
