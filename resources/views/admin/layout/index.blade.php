@@ -42,7 +42,6 @@
     @include('admin.layout.header',[
     'user'=>$user
     ])
-
     <!-- Page Content -->
     @yield('content')
     <!-- /#page-wrapper -->
@@ -62,9 +61,14 @@
 <!-- Custom Theme JavaScript -->
 <script src="admin/dist/js/sb-admin-2.js"></script>
 
+<!-- Tinymce JavaScript -->
+<script src="tinymce/js/tinymce/tinymce.min.js"></script>
+
+<!-- Main JavaScript -->
+<script src="admin/js/main.js"></script>
+
 <!-- DataTables JavaScript -->
 <script src="admin/js/modal.js"></script> 
-<!-- Tinymce -->
 
 <!-- Ajax1 JavaScript -->
 <script src="admin/js/main1.js"></script>

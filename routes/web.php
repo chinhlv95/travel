@@ -22,10 +22,12 @@ Route::post('postLogin','LoginController@postLogin');
 Route::post('check-tour', 'MainController@checkTour');
 
 Route::prefix('admin')->group(function(){
+
 	// logout
-	// 
 	Route::get('logout', 'LoginController@Logout');
 
+	
+	// cate
 	Route::prefix('cate')->group(function(){
 		Route::get('list','CategoryController@getList');
 		Route::get('edit/{id}','CategoryController@getEdit');
@@ -35,6 +37,7 @@ Route::prefix('admin')->group(function(){
 		Route::get('delete/{id}','CategoryController@getDelete');
 	});
 
+	//destination
 	Route::prefix('destination')->group(function(){
 		Route::get('list','DestinationController@getList');
 		Route::get('edit/{id}','DestinationController@getEdit');
@@ -44,6 +47,7 @@ Route::prefix('admin')->group(function(){
 		Route::get('delete/{id}','DestinationController@getDelete');
 	});
 
+	//province
 	Route::prefix('province')->group(function(){
 		Route::get('list','ProvinceController@getList');
 		Route::get('edit/{id}','ProvinceController@getEdit');
@@ -53,6 +57,7 @@ Route::prefix('admin')->group(function(){
 		Route::get('delete/{id}','ProvinceController@getDelete');
 	});
 
+	//sale
 	Route::prefix('sale')->group(function(){
 		Route::get('list','SaleController@getList');
 		Route::get('edit/{id}','SaleController@getEdit');
@@ -60,6 +65,17 @@ Route::prefix('admin')->group(function(){
 		Route::get('add','SaleController@getAdd');
 		Route::post('add','SaleController@postAdd');
 		Route::get('delete/{id}','SaleController@getDelete');
+	});
+
+	// Tour
+	Route::prefix('tour')->group(function(){
+		Route::name('admin.tour.list')->get('list','TourController@getList');
+		Route::get('detail/{id}','TourController@getDetail');
+		Route::get('edit/{id}','TourController@getEdit');
+		Route::post('edit/{id}','TourController@postEdit');
+		Route::get('add','TourController@getAdd');
+		Route::post('add','TourController@postAdd');
+		Route::get('delete/{id}','TourController@getDelete');
 	});
 
 	//user

@@ -18,13 +18,14 @@ class CreateToursTable extends Migration
             $table->string('name');
             $table->text('content');
             $table->text('description');
-            $table->string('note');
+            $table->string('note')->nullable();
             $table->tinyInteger('quantity');
+            $table->tinyInteger('booked');
             $table->string('image');
             $table->integer('price');
-            $table->string('meta_key');
-            $table->string('name_seo');
-            $table->string('tag');
+            $table->string('meta_key')->nullable();
+            $table->string('name_seo')->nullable();
+            $table->string('tag')->nullable();
             $table->date('start_date');
             $table->date('end_date');
             $table->tinyInteger('status');

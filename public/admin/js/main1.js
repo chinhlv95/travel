@@ -47,6 +47,7 @@ $('body').on('click', '.add', function(e) {
 	$('.modal-dialog').load( URL +"admin/"+name+"/add .modal-content");
 });
 
+
 // Submit Form
 
 $('body').on('submit', '#form', function(event) {
@@ -76,6 +77,17 @@ $('body').on('submit', '#form', function(event) {
         });
 
 });
+
+//  Get Tour Detail
+
+$('body').on('click', '.detail', function(e) {
+
+	e.preventDefault();
+	var id = $(this).attr("data-id");
+	$('.modal-dialog').html('');
+	$('.modal-dialog').load( URL +"admin/tour/detail/"+id+" .modal-content");
+});
+
 // pagination
 $('body').on('click', '#pagination a', function(event) {
 	event.preventDefault();
@@ -86,7 +98,6 @@ $('body').on('click', '#pagination a', function(event) {
 });
 
 // search and pagination
-
 $('body').on('click', '#pagination-search a', function(event) {
 	event.preventDefault();
 	var name = $(this).parent().parent().parent().attr("data-name");
@@ -98,14 +109,13 @@ $('body').on('click', '#pagination-search a', function(event) {
 });
 
 // Search
-$('body').on('keyup', '#search', function(event) {
+$('body').on('keyup', '#search-ajax', function(event) {
     event.preventDefault();
-    var name=$("#search").val();
-
-    history.pushState({},"name","admin/destination/list?name="+name);
+    var search= $(this).val();
+    var name  = $(this).attr("data-name");
+    history.pushState({},"name","admin/"+name+"/list?name="+search);
     $("#dataTables").load(" #dataTables-detail");
 });
-
 
 // getquery param url
 function getParameterByName(name, url) {
@@ -119,3 +129,17 @@ function getParameterByName(name, url) {
   if (!results[2]) return '';
   return decodeURIComponent(results[2].replace(/\+/g, " "));
 }
+
+$('body').on('click','#image-tour',function(){
+	$("#modal-tour").modal();
+});
+$('#modal-tour').on('hidden.bs.modal', function () {
+	var imgTour=$("#image-tour").val();
+	if(imgTour!=""){
+		$("#image").attr({
+	      'src':imgTour,
+	      'width':150,
+	      'height':100,
+	    });
+	}
+});

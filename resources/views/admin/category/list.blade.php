@@ -10,7 +10,7 @@
                 <h1 class="page-header">Category
                     <small>List</small>
                 </h1>
-            </div>
+            </div>                                
             <div class="col-lg-12">
                 <div class="alert alert-success alert-show">
                     
