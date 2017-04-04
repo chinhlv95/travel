@@ -119,4 +119,5 @@ abstract class EloquentRepository implements RepositoryInterface
       	$result =  $this->make($with)->paginate($limit);
       	return $result;
 	}
+	
 }

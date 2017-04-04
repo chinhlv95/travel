@@ -42,7 +42,7 @@
             <div class="logo-header">
                 <div class="container">
                     <div class="logo">
-                        <a href="">
+                        <a href="{{URL::to('/')}}">
                         <img src="frontend/assets/images/logo.png" alt="">
                         </a>
                         <div class="title-logo maincolor">Tận hưởng giá trị cuộc sống</div>
