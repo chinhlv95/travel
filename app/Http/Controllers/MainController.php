@@ -14,6 +14,7 @@ class MainController extends Controller
     public function __construct(OrderRepositoryInterface $OrderRepository)
     {
         $this->OrderRepository = $OrderRepository;
+        $this->catRepository=$catRepository;
     }
 
     public function checkTour(Request $request)
@@ -24,5 +25,6 @@ class MainController extends Controller
               'dataCodeOrder'=>$dataCodeOrder
     		]);
     }
+
 
 }

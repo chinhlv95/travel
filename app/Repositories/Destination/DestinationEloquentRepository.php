@@ -24,4 +24,5 @@ class DestinationEloquentRepository extends EloquentRepository implements Destin
   		return $desti;
 	}
 
+
 }
