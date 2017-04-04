@@ -6,4 +6,8 @@ $(document).ready(function() {
       slideSpeed: 300,
      navigation : true
     });
+    $('body').on('click', '#check-tour', function(event) {
+       event.preventDefault();
+       $("#modalTour").modal();
+   });
 });

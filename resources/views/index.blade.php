@@ -1,7 +1,6 @@
 @extends('frontend.layouts.masterpage')
 @section('title', 'Trang chủ')
 @section('content')
-
 <section class="tour">
             <div class="container">
                 <div class="title-tour">

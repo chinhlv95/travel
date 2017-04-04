@@ -3,9 +3,11 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use App\Repositories\Category\CategoryEloquentRepository;
 
 class AppServiceProvider extends ServiceProvider
 {
+
     /**
      * Bootstrap any application services.
      *
@@ -13,7 +15,9 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+      $CategoryRepository=new CategoryEloquentRepository();
+      $dataCategories=$CategoryRepository->getAll()->toArray();
+      view()->share('dataCategories', $dataCategories);
     }
 
     /**

@@ -35,7 +35,7 @@ abstract class EloquentRepository implements RepositoryInterface
 	* @param array $with
 	* @return mixed
 	*/
-	public function make( array $with = array() )
+	public function make(array $with = array() )
 	{
 		$result = $this->_model->with($with);
 		return $result;

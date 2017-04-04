@@ -227,7 +227,6 @@
  }
  // other
 $(document).ready(function() {
-    
     $(".order-tr").click(function(){
      $('.order-show').hide();
         if($(this).next().is(":visible")){
@@ -235,5 +234,6 @@ $(document).ready(function() {
         }else{
             $(this).next().show();
         }
-});
+  });
+
 });
