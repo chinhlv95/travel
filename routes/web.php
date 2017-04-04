@@ -18,13 +18,14 @@ Route::get('backend', function() {
    return view("admin.login");
 });
 Route::post('postLogin','LoginController@postLogin');
-
+//frontend-kien
+Route::post('check-tour', 'MainController@checkTour');
 
 Route::prefix('admin')->group(function(){
 	// logout
 	// 
 	Route::get('logout', 'LoginController@Logout');
-	
+
 	Route::prefix('cate')->group(function(){
 		Route::get('list','CategoryController@getList');
 		Route::get('edit/{id}','CategoryController@getEdit');

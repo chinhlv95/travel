@@ -10,7 +10,6 @@ class CategoryController extends Controller
 {
     
 	protected $cateReposity;
-
     /**
      * CategoryController constructor
      * @param CategoryRepositoryInterface $cateReposity

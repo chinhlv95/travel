@@ -34,7 +34,7 @@
                     </div>
                     <div class="right">
                         <ul>
-                            <li><a title="Kiểm tra tour đã đặt" href="http://vietsuntravel.com/check-booking.html">Kiểm tra tour đã đặt</a></li>
+                            <li><a title="Kiểm tra tour đã đặt" id="check-tour" href="javascript:void(0)">Kiểm tra tour đã đặt</a></li>
                         </ul>
                     </div>
                 </div>
@@ -59,6 +59,30 @@
             </div>
             @include('frontend.layouts.menuMain')
         </header>
+              <div id="modalTour" class="modal fade" role="dialog">
+          <div class="modal-dialog">
+            <!-- Modal content-->
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+              </div>
+              <div class="modal-body">
+              <form action="{{URL::to('/')}}/check-tour" method="post">
+              <input type="hidden" name="_token" value="{{csrf_token()}}" id="_token">
+              <div class="input-group">
+                <input type="text" class="form-control" name="check" id="check" placeholder="Check code tour...">
+                <div class="input-group-btn">
+                  <button class="btn btn-default" type="submit">
+                    <i class="glyphicon glyphicon-search"></i>
+                  </button>
+                </div>
+              </div>
+            </form>
+              </div>
+            </div>
+
+          </div>
+        </div>
         <section class="slideshow">
              @include('frontend.layouts.slideshow')
              @include('frontend.layouts.filter')

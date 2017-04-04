@@ -1,3 +1,4 @@
+
 <div class="main-menu">
                 <div class="container">
                     <nav class="navbar navbar-default" role="navigation">
@@ -15,9 +16,11 @@
                             <!-- Collect the nav links, forms, and other content for toggling -->
                             <div class="collapse navbar-collapse navbar-ex1-collapse">
                                 <ul class="nav navbar-nav">
-                                    <li><a href="#">DU LỊCH TRONG NƯỚC</a></li>
-                                    <li><a href="#">DU LỊCH NƯỚC NGOÀI</a></li>
-                                    <li><a href="#">DU LỊCH MIỄN PHÍ</a></li>
+                                    @foreach ($dataCategories as $key => $value)
+                                         <li><a href="#" title="{{$value['name']}}">{{$value['name']}}</a></li>
+                                     @endforeach 
+                                    
+                                 
                                     <li><a href="#">CẨM NANG DU LỊCH</a></li>
                                     <li><a href="#">LIÊN HỆ</a></li>
                                 </ul>

@@ -1,7 +1,7 @@
 @extends('admin.layout.index')
 
 @section('content')
-
+{{dd($dataCategories)}}
 <!-- Page Content -->
 <div id="page-wrapper">
     <div class="container-fluid">
