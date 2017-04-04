@@ -22,7 +22,7 @@
             </div>
             <div class="col-md-3">
                 <div class="input-group">
-                    <input type="text" name="search" placeholder="search..." class="form-control" id="search">
+                    <input type="text" data-name="destination" name="search" placeholder="search..." class="form-control" id="search-ajax">
                     <span class="input-group-addon"><i class="fa fa-search" aria-hidden="true"></i></span>
                 </div>
             </div>

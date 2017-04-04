@@ -21,7 +21,7 @@ class CreateCustomersTable extends Migration
             $table->date('birthday');
             $table->tinyInteger('gender');
             $table->string('address');
-            $table->string('note');
+            $table->string('note')->nullable();
             $table->timestamps();
         });
     }
