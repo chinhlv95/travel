@@ -53,7 +53,7 @@
                                 @foreach( $tours as $tour)
                                 <tr class="odd gradeX" align="center">
                                     <td>{{ $tour->name }}</td>
-                                    <td>{{ $tour->content }}</td>
+                                    <td>{!! $tour->content !!}</td>
                                     <td>{{ $tour->quantity }} người</td>
                                     <td>{{ $tour->price }}</td>
                                     <td><button type="button" class="btn btn-info btn-sm detail" data-toggle="modal" data-id="{{$tour->id}}" data-target="#myModal"><i class="fa fa-caret-square-o-down" aria-hidden="true"></i> More</button></td>

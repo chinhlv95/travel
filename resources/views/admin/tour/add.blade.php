@@ -79,7 +79,7 @@
                             <label>Traffic: <span id="error-traffic" class="errors"></span></label>
                             <select class="form-control" name="traffic_id">
                                 @foreach( $traffic as $traffic)
-                                    <option value="{{$traffic->id}}">{{$traffic->name}}</option>
+                                    <option value="{{$traffic->id}}">{!!$traffic->name!!}</option>
                                 @endforeach
                             </select>
                         </div>
