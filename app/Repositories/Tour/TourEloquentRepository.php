@@ -72,6 +72,24 @@ class TourEloquentRepository extends EloquentRepository implements TourRepositor
             ->where(['tours.id'=>$id,'tours.status'=>1])->first();
             return $result;
 	}
+	/**
+	*Tour relationship
+	*@param integer $destination_id
+	*@param integer $id
+	*/
+	public function relationTour($destination_id,$id){
+		 $result = DB::table('tours')
+            ->join('destinations', 'destinations.id', '=', 'tours.destination_id')
+            ->join('traffic', 'traffic.id', '=','tours.traffic_id')
+            ->join('sales', 'sales.id', '=','tours.sale_id')
+            ->join('provinces', 'provinces.id', '=','tours.province_id')
+            ->select('tours.*','traffic.name as traffic_name','sales.sale_precent as sale','provinces.name as provice_name')
+            ->where(['tours.status'=>1,'destinations.id'=>$destination_id])
+            ->where('tours.id','<>',$id)
+            ->take(3)
+            ->get();
+            return $result;
+	}
 	
 
 }
