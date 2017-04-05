@@ -21,19 +21,35 @@
                         <input type="hidden" name="_token" value="{{csrf_token()}}" />
                     <div class="col-lg-9">
                         <div class="form-group">
-                            <label>Tour Name:* <span id="error-name" class="errors"></span></label>
+                            <label>Tour Name:* <span id="error-name" class="errors">
+                            @if($errors->has('name'))
+                            {{$errors->first('name')}}
+                            @endif
+                            </span></label>
                             <input type="text" value="{{old('name',$tour->name)}}" class="form-control" name="name" placeholder="Please Enter Tour Name" />
                         </div>
                         <div class="form-group">
-                            <label>Journey:* <span id="error-journey" class="errors"></span></label>
+                            <label>Journey:* <span id="error-journey" class="errors">
+                            @if($errors->has('journey'))
+                            {{$errors->first('journey')}}
+                            @endif
+                            </span></label>
                             <input type="text" value="{{old('journey',$tour->journey)}}" class="form-control" name="journey" placeholder="Please Enter Journey" />
                         </div>
                         <div class="form-group">
-                            <label>Content:* <span id="error-content" class="errors"></span></label>
+                            <label>Content:* <span id="error-content" class="errors">
+                            @if($errors->has('content'))
+                            {{$errors->first('content')}}
+                            @endif
+                            </span></label>
                             <textarea class="tinymce" name="content">{{old('content',$tour->content)}}</textarea>
                         </div>
                         <div class="form-group">
-                            <label>Description:* <span id="error-description" class="errors"></span></label>
+                            <label>Description:* <span id="error-description" class="errors">
+                            @if($errors->has('description'))
+                            {{$errors->first('description')}}
+                            @endif
+                            </span></label>
                             <textarea class="tinymce" name="description">{{old('description',$tour->description)}}</textarea>
                         </div>
                         <div class="form-group">
@@ -41,7 +57,11 @@
                             <textarea class="tinymce" name="note">{{old('note',$tour->note)}}</textarea>
                         </div>
                         <div class="form-group">
-                            <label>Quantity:* <span id="error-quantity" class="errors"></span></label>
+                            <label>Quantity:* <span id="error-quantity" class="errors">
+                            @if($errors->has('quantity'))
+                            {{$errors->first('quantity')}}
+                            @endif
+                            </span></label>
                             <input type="number" class="form-control" name="quantity" placeholder="Please Enter Quantity" value="{{old('quantity',$tour->quantity)}}" />
                         </div>
                         <div class="form-group">
@@ -49,12 +69,20 @@
                             <input type="number" class="form-control" name="booked" value="{{old('booked',$tour->booked)}}"/>
                         </div>
                         <div class="form-group">
-                            <label>Image:* <span id="error-image" class="errors"></span></label>
+                            <label>Image:* <span id="error-image" class="errors">
+                            @if($errors->has('image'))
+                            {{$errors->first('image')}}
+                            @endif
+                            </span></label>
                             <div><img id="image" width="150px" height="100px" src="{{$tour->image}}" ></div>
                             <input type="text" class="form-control" id="image-tour" name="image" placeholder="Please Insert Tour Image" value="{{old('image',$tour->image)}}" />
                         </div>
                         <div class="form-group">
-                            <label>Price(VND):* <span id="error-price" class="errors"></span></label>
+                            <label>Price(VND):* <span id="error-price" class="errors">
+                            @if($errors->has('price'))
+                            {{$errors->first('price')}}
+                            @endif
+                            </span></label>
                             <input type="number" class="form-control" name="price" placeholder="Please Enter Price" value="{{old('price',$tour->price)}}" />
                         </div>
                         <div class="form-group">

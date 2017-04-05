@@ -37,7 +37,7 @@
                 </div>
                 <div id="dataTables">
                     <div id="dataTables-detail">
-                        <table class="table table-striped table-bordered table-hover">
+                        <table class="table table-striped table-bordered table-hover table-tour">
                             <thead>
                                 <tr align="center">
                                     <th>Name</th>
@@ -52,14 +52,14 @@
                             <tbody>
                                 @foreach( $tours as $tour)
                                 <tr class="odd gradeX" align="center">
-                                    <td>{{ $tour->name }}</td>
-                                    <td>{!! $tour->content !!}</td>
-                                    <td>{{ $tour->quantity }} người</td>
-                                    <td>{{ $tour->price }}</td>
-                                    <td><button type="button" class="btn btn-info btn-sm detail" data-toggle="modal" data-id="{{$tour->id}}" data-target="#myModal"><i class="fa fa-caret-square-o-down" aria-hidden="true"></i> More</button></td>
+                                    <td valign="center">{{ $tour->name }}</td>
+                                    <td valign="center">{!! $tour->content !!}</td>
+                                    <td valign="center">{{ $tour->quantity }} people</td>
+                                    <td valign="center">{{number_format($tour->price, 0 , ",", "." )}} VND</td>
+                                    <td valign="center"><button type="button" class="btn btn-info btn-sm detail" data-toggle="modal" data-id="{{$tour->id}}" data-target="#myModal"><i class="fa fa-caret-square-o-down" aria-hidden="true"></i> More</button></td>
 
-                                    <td class="center"><i class="fa fa-trash-o  fa-fw"></i><a href="javascript:void(0)" class="del" data-name="tour" data-id="{{ $tour->id }}"> Delete</a></td>
-                                    <td class="center"><i class="fa fa-pencil fa-fw"></i> <a href="admin/tour/edit/{{$tour->id}}" title="" ">Edit</a></td>
+                                    <td class="center" valign="center"><i class="fa fa-trash-o  fa-fw"></i><a href="javascript:void(0)" class="del" data-name="tour" data-id="{{ $tour->id }}"> Delete</a></td>
+                                    <td class="center" valign="center"><i class="fa fa-pencil fa-fw"></i> <a href="admin/tour/edit/{{$tour->id}}" title="" ">Edit</a></td>
                                 </tr>
                                 @endforeach
                             </tbody>
