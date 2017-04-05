@@ -50,4 +50,9 @@ interface RepositoryInterface
 	* Eager Loading Pagination 
 	*/
 	public function pagination($limit = null, array $with = array());
+	/**sub two date*/
+	public function subDate($start,$end);
+	/**convert vi to en*/
+	 public function convert_vi_to_en($str) ;
+
 }

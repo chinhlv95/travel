@@ -1,21 +1,24 @@
 @extends('frontend.layouts.masterpage')
 @section('title','Trang chủ')
 @section('description')
-{{'Trang chủ'}}
+{{ $dataCat->name}}
 @stop
 @section('keywords')
-{{'Trang chủ'}}
+{{$TourRepository->convert_vi_to_en($dataCat->name)}}
 @stop
 @section('content')
 <section class="tour">
             <div class="container">
-            @foreach ($dataCat as $value)
-                <div class="title-tour">
-                    <h3><a href="">{{$value->name}}</a></h3>
+                <div class="row breadcrumb-detail">
+                 <ol class="breadcrumb">
+                    <li><a href="#">Home</a></li>
+                 
+                    <li class="active">{{$dataCat->name}}</li>        
+                  </ol>
                 </div>
                 <div class="tour-content">
                     <ul class="row">
-                      @foreach ($desRepository->showTourDestination($value->id,8) as $tour)
+                      @foreach ($dataCateTour as $tour)
                         <li class="col-xs-12 col-sm-6 col-md-3 item">
                             <div class="each-item">
                                 <div class="image">
@@ -33,14 +36,14 @@
                                          {{number_format((int)($tour->price)*(1-(int)($tour->sale)/100))."đ"}}				
                                         </b>
                                     </div>
-                                    <div class="datetime_pro"><i class="fa fa-calendar"></i> {{$desRepository->subDate($tour->start_date,$tour->end_date)}} | Phương tiện: {!!$tour->traffic_name!!}</div>
+                                    <div class="datetime_pro"><i class="fa fa-calendar"></i> {{$TourRepository->subDate($tour->start_date,$tour->end_date)}} | Phương tiện: {!!$tour->traffic_name!!}</div>
                                     <!-- <div class="starttour">KH: </div> -->
                                     <div class="address_pro">
                                         <span><i class="fa fa-calendar-check-o"></i> Khởi hành {{date('d-m-Y', strtotime($tour->start_date))}}</span>
                                     </div>
                                     <div class="addtocartdiv">
                                         <a href="#" class="add-tour">Đặt tour</a>
-                                        <a href="{{URL::to('/')}}/tour-detail/{{$desRepository->convert_vi_to_en($tour->name)}}-{{$tour->id}}.html" class="tour-detail">Xem chi tiết</a>
+                                        <a href="{{URL::to('/')}}/tour-detail/{{$TourRepository->convert_vi_to_en($tour->name)}}-{{$tour->id}}.html" class="tour-detail">Xem chi tiết</a>
                                     </div>
                                 </div>
                             </div>
@@ -48,7 +51,7 @@
                          @endforeach
                     </ul>
                 </div>
-                @endforeach
+         
                
             </div>
         </section>

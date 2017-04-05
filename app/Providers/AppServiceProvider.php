@@ -18,6 +18,7 @@ class AppServiceProvider extends ServiceProvider
       $CategoryRepository=new CategoryEloquentRepository();
       $dataCategories=$CategoryRepository->getAll()->toArray();
       view()->share('dataCategories', $dataCategories);
+       view()->share('CategoryRepository', $CategoryRepository);
     }
 
     /**

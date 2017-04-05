@@ -18,4 +18,5 @@ class Destination extends Model
     {
         return $this->belongsTo('App\Models\Category','cate_id','id');
     }
+    
 }

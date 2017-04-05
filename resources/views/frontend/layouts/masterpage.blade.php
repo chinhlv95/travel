@@ -8,15 +8,15 @@
 
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <!-- Latest compiled and minified CSS & JS -->
-        <link rel="stylesheet" href="frontend/assets/plugin/bootstrap/css/bootstrap.min.css">
-        <link rel="stylesheet" href="frontend/assets/plugin/select/bootstrap-select.min.css">
-        <link rel="stylesheet" href="frontend/assets/plugin/font-awesome/css/font-awesome.min.css">
-        <link rel="stylesheet" href="frontend/assets/plugin/carousel/owl.theme.css">
-        <link rel="stylesheet" href="frontend/assets/plugin/carousel/owl.transitions.css">
-        <link rel="stylesheet" href="frontend/assets/plugin/carousel/owl.carousel.css">
-        <link rel="stylesheet" href="frontend/assets/css/reset.css">
-        <link rel="stylesheet" href="frontend/style.css">
-        <link rel="stylesheet" href="frontend/assets/css/responsive.css">
+        <link rel="stylesheet" href="{{asset('frontend/assets/plugin/bootstrap/css/bootstrap.min.css')}}">
+        <link rel="stylesheet" href="{{asset('frontend/assets/plugin/select/bootstrap-select.min.css')}}">
+        <link rel="stylesheet" href="{{asset('frontend/assets/plugin/font-awesome/css/font-awesome.min.css')}}">
+        <link rel="stylesheet" href="{{asset('frontend/assets/plugin/carousel/owl.theme.css')}}">
+        <link rel="stylesheet" href="{{asset('frontend/assets/plugin/carousel/owl.transitions.css')}}">
+        <link rel="stylesheet" href="{{asset('frontend/assets/plugin/carousel/owl.carousel.css')}}">
+        <link rel="stylesheet" href="{{asset('frontend/assets/css/reset.css')}}">
+        <link rel="stylesheet" href="{{asset('frontend/style.css')}}">
+        <link rel="stylesheet" href="{{asset('frontend/assets/css/responsive.css')}}">
     </head>
     <body>
         <header class="header">
@@ -43,7 +43,7 @@
                 <div class="container">
                     <div class="logo">
                         <a href="{{URL::to('/')}}">
-                        <img src="frontend/assets/images/logo.png" alt="">
+                        <img src="{{asset('frontend/assets/images/logo.png')}}" alt="">
                         </a>
                         <div class="title-logo maincolor">Tận hưởng giá trị cuộc sống</div>
                     </div>
@@ -93,8 +93,8 @@
         </footer>
     </body>
 </html>
-<script src="frontend/assets/plugin/jquery/jquery-2.1.4.js"></script>
-<script src="frontend/assets/plugin/bootstrap/js/bootstrap.min.js" ></script>
-<script src="frontend/assets/plugin/select/bootstrap-select.js"></script>
-<script src="frontend/assets/plugin/carousel/owl.carousel.min.js"></script>
-<script src="frontend/assets/js/main.js"></script>
+<script src="{{asset('frontend/assets/plugin/jquery/jquery-2.1.4.js')}}"></script>
+<script src="{{asset('frontend/assets/plugin/bootstrap/js/bootstrap.min.js')}}" ></script>
+<script src="{{asset('frontend/assets/plugin/select/bootstrap-select.js')}}"></script>
+<script src="{{asset('frontend/assets/plugin/carousel/owl.carousel.min.js')}}"></script>
+<script src="{{asset('frontend/assets/js/main.js')}}"></script>
