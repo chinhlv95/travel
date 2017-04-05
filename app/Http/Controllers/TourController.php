@@ -63,7 +63,8 @@ class TourController extends Controller
     public function getDetail($id)
     {
     	$tour = $this->tourReposity->find($id);
-    	return view('admin.tour.detail',['tour' => $tour]);
+    	$tour_images = $this->tourimageReposity->FilterTourImage($id, ['tour']);
+    	return view('admin.tour.detail',['tour' => $tour, 'tour_images' => $tour_images]);
     }
 
     /**
@@ -92,7 +93,13 @@ class TourController extends Controller
     {
     	$data    = $request->except(['imagepro','image-hidden','_token']);
     	$this->tourReposity->update($id, $data);
-        return Response(['message'=>'Category is edited successfully !']);
+    	$images  = $request->only(['imagepro']);
+        $image_arr = array();
+        for( $i =0 ; $i < count($images['imagepro']) ; $i++) {
+        	$image_arr = array('name' => $images['imagepro'][$i], 'tour_id' => $id);
+        	$this->tourimageReposity->create($image_arr);
+        }
+        return redirect()->route('admin.tour.list');
     }
 
     /**

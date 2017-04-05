@@ -26,7 +26,7 @@
                         </div>
                         <div class="form-group">
                             <label>Journey:* <span id="error-journey" class="errors"></span></label>
-                            <input type="text" value="{{old('journey',$tour->journey)}}" class="form-control" name="name" placeholder="Please Enter Journey" />
+                            <input type="text" value="{{old('journey',$tour->journey)}}" class="form-control" name="journey" placeholder="Please Enter Journey" />
                         </div>
                         <div class="form-group">
                             <label>Content:* <span id="error-content" class="errors"></span></label>
@@ -105,7 +105,7 @@
                                     {{"selected"}}
                                     @endif
                                     {{(old("traffic_id") == $tour->traffic_id ? "selected":"") }}>
-                                    {{$traffic->name}}</option>
+                                    {!!$traffic->name!!}</option>
                                 @endforeach
                             </select>
                         </div>

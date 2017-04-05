@@ -41,6 +41,12 @@
                                 <div>{{$tour->booked}} People</div>
                                 <h3 class="head">Image:</h3>
                                 <div><img width="30%" src="{{$tour->image}}" alt="" title=""></div>
+                                <h3 class="head">More Image:</h3>
+                                <div>
+                                @foreach( $tour_images as $tour_image )
+                                <img width="150px" height="100px" style="margin-right: 10px" src="{{$tour_image->name}}" alt="" title="">
+                                @endforeach
+                                </div>
                                 <h3 class="head">Price:</h3>
                                 <div>{{number_format($tour->price, 0 , ",", "." )}} VND</div>
                                 <h3 class="head">Sale:</h3>
@@ -50,11 +56,11 @@
                                 <h3 class="head">Destination:</h3>
                                 <div>{{$tour->destination->name}}</div>
                                 <h3 class="head">Traffic:</h3>
-                                <div>{{$tour->traffic->name}}</div>
+                                <div>{!!$tour->traffic->name!!}</div>
                                 <h3 class="head">Start Date:</h3>
-                                <div>{{$tour->start_date}}</div>
+                                <div>{{date('d-m-Y', strtotime($tour->start_date))}}</div>
                                 <h3 class="head">End Date:</h3>
-                                <div>{{$tour->end_date}}</div>
+                                <div>{{date('d-m-Y', strtotime($tour->end_date))}}</div>
                             </div>
                             <div id="more" class="tab-pane fade">
                                 <h3 class="head">Status:</h3>
