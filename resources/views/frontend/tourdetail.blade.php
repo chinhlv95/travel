@@ -73,23 +73,35 @@
                                          <span>Khởi hành:<a href="">{{$dataTour->provice_name}}</a></span>
                                          <p>Thời gian:{{$TourRepository->subDate($dataTour->start_date,$dataTour->end_date)}}</p>
                                          <p>Thời gian khởi hành:{{date('d-m-Y', strtotime($dataTour->start_date))}}</p>
-                                         <p>Còn:10 chỗ</p>
+                                         <p>
+                                         @if(((int)($dataTour->quantity)-(int)($dataTour->booked))>0)
+                                          {{ "Còn:".((int)($dataTour->quantity)-(int)($dataTour->booked))." chỗ"}}
+                                         @else
+                                         {{"Hết chỗ"}}
+                                         @endif
+                                         </p>
                                      </div>
                                  </div>
                                  <div class="col-md-6">
                                      <div class="add-tour-right">
                                      @if($dataTour->sale>0)
-
                                          <p><span id="money-unline">{{number_format($dataTour->price)."đ"}}</span></p>
                                          <p><span>Giá từ:</span><span id="tour-money">
                                               {{number_format((int)($dataTour->price)*(1-(int)($dataTour->sale)/100))."đ"}}     
                                          </span></p>
                                          @else
-                                            <p><span>Giá từ:</span><span id="tour-money">11,499,000đ</span></p>
+                                            <p><span>Giá từ:</span><span id="tour-money">{{number_format($dataTour->price)}}</span></p>
                                          @endif
-                                         <div class="add-tour-order">
+                                          @if(((int)($dataTour->quantity)-(int)($dataTour->booked))>0)
+                                          <div class="add-tour-order">
                                              <a href="#" title="">Đặt tour</a>
+                                         </div>                                         
+                                         @else
+                                         <div class="add-tour-order">
+                                             <a href="javascript:void(0)" title="">Hết chỗ</a>
                                          </div>
+                                         @endif
+                                         
                                      </div>
                                  </div>
                              </div>
@@ -112,11 +124,11 @@
                         <div class="tab-content">
                           <div id="home" class="tab-pane fade in active">
                     
-                            <p>Some content.</p>
+                            <p>{!!$dataTour->description!!}</p>
                           </div>
                           <div id="menu1" class="tab-pane fade">
                           
-                            <p>Some content in menu 1.</p>
+                            <p>{!!$dataTour->content!!}</p>
                           </div>
                           <div id="menu2" class="tab-pane fade">
                           
@@ -134,59 +146,33 @@
                          <div class="title-tour-relation">
                              <h3><i class="fa fa-filter"></i> Tour liên quan</h3>
                          </div>
+
                          <div class="list-tour-relation">
                              <ul>
+                            @foreach ($TourRepository->relationTour($dataTour->destination_id,$dataTour->id) as $key => $relation)
+                                 
+                            
                                  <li>
                                      <a href="#">
                                          <div class="box-relation">
                                              <div class="box-relation-img">
-                                                 <img src="{{asset('frontend/assets/images/relation1.jpg')}}" alt="">
+                                                 <img src="{{$relation->image}}" alt="">
                                              </div>
                                              <div class="box-relation-info">
-                                                 <p>Du Lịch Sin - Mal - Indo 6 ngày 5 đêm giá tốt khởi hành từ TP.HCM</p>
+                                                 <p>{{$relation->name}}</p>
                                                  <p>
-                                                     <span class="start-tour">Khởi hành: 20/04/2017 </span>
-                                                     <span class="discount">9,999,000</span>
+                                                     <span class="start-tour">Khởi hành: {{date('d/m/Y', strtotime($relation->start_date))}} </span>
+                                                     <span class="discount">
+                                                         {{number_format((int)($relation->price)*(1-(int)($relation->sale)/100))."đ"}}     
+                                                     </span>
                                                  </p>
                                              </div>
                                          </div>
                                      </a>
                                    
                                  </li>
-                                  <li>
-                                     <a href="#">
-                                         <div class="box-relation">
-                                             <div class="box-relation-img">
-                                                 <img src="{{asset('frontend/assets/images/relation2.jpg')}}" alt="">
-                                             </div>
-                                             <div class="box-relation-info">
-                                                 <p>Du Lịch Sin - Mal - Indo 6 ngày 5 đêm giá tốt khởi hành từ TP.HCM</p>
-                                                 <p>
-                                                     <span class="start-tour">Khởi hành: 20/04/2017 </span>
-                                                     <span class="discount">9,999,000</span>
-                                                 </p>
-                                             </div>
-                                         </div>
-                                     </a>
-                                   
-                                 </li>
-                                  <li>
-                                     <a href="#">
-                                         <div class="box-relation">
-                                             <div class="box-relation-img">
-                                                 <img src="{{asset('frontend/assets/images/relation3.jpg')}}" alt="">
-                                             </div>
-                                             <div class="box-relation-info">
-                                                 <p>Du Lịch Sin - Mal - Indo 6 ngày 5 đêm giá tốt khởi hành từ TP.HCM</p>
-                                                 <p>
-                                                     <span class="start-tour">Khởi hành: 20/04/2017 </span>
-                                                     <span class="discount">9,999,000</span>
-                                                 </p>
-                                             </div>
-                                         </div>
-                                     </a>
-                                   
-                                 </li>
+                                   @endforeach
+                                  
                              </ul>
                          </div>
                      </div>
