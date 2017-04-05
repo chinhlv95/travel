@@ -33,6 +33,13 @@ interface TourRepositoryInterface
     *@return mixed
 	*/
 	public function  findTour($id);
+	/**
+	*Tour relationship
+	*@param integer $destination_id
+	*@param integer $id
+	*/
+	public function relationTour($destination_id,$id);
+
 
 }
 
