@@ -22,13 +22,25 @@
                         <li class="col-xs-12 col-sm-6 col-md-3 item">
                             <div class="each-item">
                                 <div class="image">
-                                    <a href=""><img src="frontend/assets/images/item.jpg" class="img-responsive" alt=""></a>
+                                    <a href=""><img src="{{$tour->image}}" class="img-responsive" alt=""></a>
                                     <div class="address-tour">
                                         <span><i class="fa fa-map-marker"></i> {{$tour->provice_name}}</span>
                                     </div>
                                 </div>
                                 <div class="info_product">
-                                    <h3 class="name_pro"><a href="" title="{{$tour->name}}">{{$tour->name}}</a></h3>
+                                    <h3 class="name_pro"><a href="" title="{{$tour->name}}">
+                                     <?php $arrayDescription=explode(' ',$tour->name);
+                                         $str="";
+                                         $i=0;
+                                        foreach($arrayDescription as $key => $value) {
+                                         if($i<=10){
+                                         $str.=$value." ";    
+                                         }
+                                         $i++;
+                                        }
+                                         echo trim($str,' ')."...";
+                                         ?>
+                                    </a></h3>
                                     <div class="price_pro">
                                         <b>@if($tour->sale>0)
                                          <span class="crossline">{{number_format($tour->price)."đ"}}</span> 
@@ -43,7 +55,7 @@
                                     </div>
                                     <div class="addtocartdiv">
                                         <a href="#" class="add-tour">Đặt tour</a>
-                                        <a href="{{URL::to('/')}}/tour-detail/{{$TourRepository->convert_vi_to_en($tour->name)}}-{{$tour->id}}.html" class="tour-detail">Xem chi tiết</a>
+                                        <a href="{{URL::to('/')}}/tour-detail/{{$tour->id}}/{{$TourRepository->convert_vi_to_en($tour->name)}}.html" class="tour-detail">Xem chi tiết</a>
                                     </div>
                                 </div>
                             </div>

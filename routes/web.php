@@ -21,7 +21,7 @@ Route::post('postLogin','LoginController@postLogin');
 //frontend-kien
 Route::post('check-tour', 'MainController@checkTour');
 // page detail
-Route::get('tour-detail/{name}-{id}.html','MainController@getTourDetail');
+Route::get('tour-detail/{id}/{name}.html','MainController@getTourDetail');
 // page tour for category
 Route::get('category/{id}/{name}.html','MainController@getCategories');
 

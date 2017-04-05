@@ -12,14 +12,14 @@ use App\Repositories\Category\CategoryRepositoryInterface;
 class MainController extends Controller
 {
     //
-    protected $OrderRepository,$TourRepository;
+    protected $OrderRepository,$TourRepository,$CategoryRepository;
 
     public function __construct(OrderRepositoryInterface $OrderRepository,TourRepositoryInterface $TourRepository,CategoryRepositoryInterface $CategoryRepository )
     {
         $this->OrderRepository = $OrderRepository;
         $this->TourRepository=$TourRepository;
         $this->CategoryRepository=$CategoryRepository;
-        $this->catRepository=$catRepository;
+     
     }
 
     /**
