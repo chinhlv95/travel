@@ -18,7 +18,7 @@
             </div>
             <!-- /.col-lg-12 -->
             <div class="col-md-9">
-                <a href="admin/tour/add" title="" class="btn btn-info btn-md add-tour" data-name="tour"><i class="fa fa-plus-circle" aria-hidden="true"></i> ADD</a>
+                <a href="admin/tour/add" title="" class="btn btn-info btn-md add-tour"><i class="fa fa-plus-circle" aria-hidden="true"></i> ADD</a>
             </div>
 
             <div class="col-md-3">
@@ -59,7 +59,7 @@
                                     <td><button type="button" class="btn btn-info btn-sm detail" data-toggle="modal" data-id="{{$tour->id}}" data-target="#myModal"><i class="fa fa-caret-square-o-down" aria-hidden="true"></i> More</button></td>
 
                                     <td class="center"><i class="fa fa-trash-o  fa-fw"></i><a href="javascript:void(0)" class="del" data-name="tour" data-id="{{ $tour->id }}"> Delete</a></td>
-                                    <td class="center"><i class="fa fa-pencil fa-fw"></i> <a href="javascript:void(0)" data-id="{{ $tour->id }}" class="edit" data-name="tour" data-toggle="modal" data-target="#myModal">Edit</a></td>
+                                    <td class="center"><i class="fa fa-pencil fa-fw"></i> <a href="admin/tour/edit/{{$tour->id}}" title="" ">Edit</a></td>
                                 </tr>
                                 @endforeach
                             </tbody>

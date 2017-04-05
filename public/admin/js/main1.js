@@ -130,6 +130,7 @@ function getParameterByName(name, url) {
   return decodeURIComponent(results[2].replace(/\+/g, " "));
 }
 
+// Image Tour Modal
 $('body').on('click','#image-tour',function(){
 	$("#modal-tour").modal();
 });
@@ -142,4 +143,50 @@ $('#modal-tour').on('hidden.bs.modal', function () {
 	      'height':100,
 	    });
 	}
+});
+
+var x = 0;
+
+$(".add_image_field").click(function(e){ 
+  	e.preventDefault();
+  	x++;
+    $("#custom-div").append('<div class="form-group"><img id="image_'+x+'" src="" ><input type="text" placeholder="Inser image" count="'+x+'" id="imagetour_'+x+'" value="" class="form-control imagepro" name="imagepro[]"/><a href="#" class="btn-danger btn-circle icon_del remove_field"><i class="fa fa-times" aria-hidden="true"></i></a></div>'); //add input box
+});
+
+$("body").on("click",".remove_field", function(e)
+{
+    e.preventDefault();
+    $(this).parent('div').remove();
+})
+
+var count;
+$("body").on("click","input.imagepro", function(e){
+    e.preventDefault();
+    $("#imagetour").modal();
+    count=$(this).attr('count');
+    $('#imagetour').on('hidden.bs.modal', function () {
+        var val=$("#hidden-tour").val();
+        $("#imagetour_"+count).val(val);
+		if(val !=""){
+			$("#image_"+count).attr({
+		      'src':val,
+		      'width':150,
+		      'height':100,
+		    });
+		}
+    });
+    $("#hidden-tour").val('');
+});
+
+// Delete Image 
+$("body").on("click",".del-image", function(e){
+	var id = $(this).attr("data-id");
+	$.ajax({
+			type: "GET",
+			url : URL +"admin/tour/delimg/"+id,
+			success: function(data)
+			{
+				$(".alert").html(data.message);
+			}
+		});
 });

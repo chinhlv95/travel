@@ -9,6 +9,7 @@ use App\Repositories\Destination\DestinationRepositoryInterface;
 use App\Repositories\Province\ProvinceRepositoryInterface;
 use App\Repositories\Sale\SaleRepositoryInterface;
 use App\Repositories\Traffic\TrafficRepositoryInterface;
+use App\Repositories\TourImage\TourImageRepositoryInterface;
 use App\Repositories\User\UserRepositoryInterface;
 
 class TourController extends Controller
@@ -18,6 +19,7 @@ class TourController extends Controller
 	protected $saleReposity;
 	protected $provinceReposity;
 	protected $TrafficRepository;
+	protected $tourimageReposity;
 	protected $destiReposity;
 	protected $userRepository;
 
@@ -28,15 +30,17 @@ class TourController extends Controller
      * @param ProvinceRepositoryInterface $provinceReposity
      * @param TrafficRepositoryInterface $TrafficRepository
      * @param DestinationRepositoryInterface $destiReposity
+     * @param TourImageRepositoryInterface $tourimageReposity
      * @param UserRepositoryInterface $userRepository
      */
-    public function __construct( TourRepositoryInterface $tourReposity, SaleRepositoryInterface $saleReposity, ProvinceRepositoryInterface $provinceReposity, TrafficRepositoryInterface $TrafficRepository, DestinationRepositoryInterface $destiReposity, UserRepositoryInterface $userRepository )
+    public function __construct( TourRepositoryInterface $tourReposity, SaleRepositoryInterface $saleReposity, ProvinceRepositoryInterface $provinceReposity, TrafficRepositoryInterface $TrafficRepository, DestinationRepositoryInterface $destiReposity, TourImageRepositoryInterface $tourimageReposity, UserRepositoryInterface $userRepository )
     {
     	$this->tourReposity 	 = $tourReposity;
     	$this->saleReposity 	 = $saleReposity;
     	$this->provinceReposity  = $provinceReposity;
     	$this->TrafficRepository = $TrafficRepository;
     	$this->destiReposity 	 = $destiReposity;
+    	$this->tourimageReposity = $tourimageReposity;
     	$this->userRepository 	 = $userRepository;
     }
 
@@ -69,8 +73,13 @@ class TourController extends Controller
     */
     public function getEdit($id)
     {
-    	$cate = $this->cateReposity->find($id);
-    	return view('admin.category.edit',['cate' => $cate]);
+    	$tour       = $this->tourReposity->find($id);
+    	$province    = $this->provinceReposity->getAll();
+    	$desti       = $this->destiReposity->getAll();
+    	$sale        = $this->saleReposity->getAll();
+    	$tour_images = $this->tourimageReposity->FilterTourImage($id, ['tour']);
+    	$traffic     = $this->TrafficRepository->getAll();
+    	return view('admin.tour.edit',['tour' => $tour, 'province' => $province, 'desti' => $desti, 'sale' => $sale, 'tour_images' => $tour_images, 'traffic' => $traffic]);
     }
 
     /**
@@ -79,10 +88,10 @@ class TourController extends Controller
     * @param $id
     * @return mixed
     */
-    public function postEdit( CategoryRequest $request, $id )
+    public function postEdit( TourRequest $request, $id )
     {
-    	$data = $request->only(['name','meta_key','status']);
-    	$this->cateReposity->update($id, $data);
+    	$data    = $request->except(['imagepro','image-hidden','_token']);
+    	$this->tourReposity->update($id, $data);
         return Response(['message'=>'Category is edited successfully !']);
     }
 
@@ -104,10 +113,16 @@ class TourController extends Controller
     * @param TourRequest $request
     * @return mixed
     */
-    public function postAdd( Request $request)
+    public function postAdd( TourRequest $request)
     {
-        $data = $request->only(['name', 'content', 'description', 'note', 'quantity', 'booked', 'image', 'name', 'price', 'meta_key', 'name_seo', 'note', 'tag', 'start_date', 'end_date', 'status', 'is_hot', 'sale_id', 'province_id', 'traffic_id', 'destination_id', 'user_id']);
-        $this->tourReposity->create($data);
+        $data    = $request->except(['imagepro','image-hidden','_token']);
+        $tour_id = $this->tourReposity->getInsertID($data);
+        $images  = $request->only(['imagepro']);
+        $image_arr = array();
+        for( $i =0 ; $i < count($images['imagepro']) ; $i++) {
+        	$image_arr = array('name' => $images['imagepro'][$i], 'tour_id' => $tour_id);
+        	$this->tourimageReposity->create($image_arr);
+        }
         return redirect()->route('admin.tour.list');
     }
 
@@ -120,5 +135,16 @@ class TourController extends Controller
     {
     	$this->tourReposity->delete($id);
         return Response(['message'=>'Tour is deleted successfully !']);
+    }
+
+    /**
+    * Delete Image
+    * @param $id
+    * @return mixed
+    */
+    public function getDeleteImage($id)
+    {
+    	$this->tourimageReposity->delete($id);
+        return Response(['message'=>'Image is deleted successfully !']);
     }
 }

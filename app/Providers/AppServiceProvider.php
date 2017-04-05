@@ -44,6 +44,10 @@ class AppServiceProvider extends ServiceProvider
             \App\Repositories\Sale\SaleEloquentRepository::class
         );
         $this->app->singleton(
+            \App\Repositories\TourImage\TourImageRepositoryInterface::class,
+            \App\Repositories\TourImage\TourImageEloquentRepository::class
+        );
+        $this->app->singleton(
             \App\Repositories\Tour\TourRepositoryInterface::class,
             \App\Repositories\Tour\TourEloquentRepository::class
         );
