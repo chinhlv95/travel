@@ -53,7 +53,7 @@
                @foreach($dataTrafficList as $key => $value)
                      <tr class="odd gradeX" align="center">
                         <td>{{$i}}</td>
-                        <td>{{$value->name}}</td>  
+                        <td>{!!$value->name!!}</td>  
                         <td class="center"><i class="fa fa-trash-o  fa-fw"></i><a href="javascript:void(0)" class="delete-traffic" id="{{$value->id}}"> Delete</a></td>
                         <td class="center"><i class="fa fa-pencil fa-fw"></i> <a href="javascript:void(0)" class="update-traffic" id="{{$value->id}}">Edit</a></td>
                     </tr>

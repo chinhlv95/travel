@@ -17,7 +17,7 @@
                             <div class="collapse navbar-collapse navbar-ex1-collapse">
                                 <ul class="nav navbar-nav">
                                     @foreach ($dataCategories as $key => $value)
-                                         <li><a href="#" title="{{$value['name']}}">{{$value['name']}}</a></li>
+                                         <li><a href="{{URL::to('/')}}/category/{{$value['id']}}/{{$CategoryRepository->convert_vi_to_en($value['name'])}}.html" title="{{$value['name']}}">{{$value['name']}}</a></li>
                                      @endforeach 
                                     
                                  

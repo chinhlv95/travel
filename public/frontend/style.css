@@ -416,3 +416,210 @@ a.tour-detail {
     padding:0px;
     border-bottom: 1px solid #e5e5e5;
 }
+/*detail*/
+/*detail*/
+.breadcrumb-detail{
+    margin-top: 20px;
+}
+.image-top img{
+    width: 100%;
+    height: auto;
+}
+.right-tour-detail h1{
+   font-size: 25px;
+    color: #008fea;
+}
+.right-tour-detail h3{
+    margin-top: 10px;
+    font-size: 16px;
+    font-weight: bold;
+}
+.sapo-tour{
+    font-family:Arial;
+    text-align: justify;
+    padding: 10px 0px;
+    padding-bottom: 30px;
+    border-bottom: 1px solid #ddd;
+
+}
+.add-tour-left{
+    padding-top: 20px;
+    border-right: 1px solid #ddd;
+}
+.add-tour-left p{
+padding: 5px 0;
+}
+
+.add-tour-right{
+    padding-top:30px;
+    float: right;
+}
+.add-tour-right #tour-money{
+        font-size: 30px;
+    color: #e30050;
+    font-weight: bold;
+}
+.add-tour-right #money-unline{
+
+    color: #333;
+    font-size: 17px;
+    text-decoration: line-through;
+}
+.add-tour-order {
+    margin-top: 20px;
+}
+.add-tour-order a{
+    color: #fff;
+    padding: 7px 30px;
+    border: none;
+    font-size: 20px;
+    background-color: #e30050;
+    cursor: pointer;
+    text-decoration: none;
+}
+.tour-detail-img{
+    margin-top: 5px;
+}
+
+.slide{
+    width: 113px;
+}
+.slide  img{
+    width: 100%;
+    height: auto;
+    cursor: pointer;
+}
+.owl-pagination {
+    display: none;
+}
+.nav-tabs>li>a {
+  padding: 10px 20px;
+    color: #222;
+    text-transform: uppercase;
+    height: 40px;
+    border-radius: 0;
+    background-color: #e1e1e1;
+    font-size: 15px;
+    border-radius: 0px;
+    border: none;
+}
+.nav-tabs>li.active>a, .nav-tabs>li.active>a:focus, .nav-tabs>li.active>a:hover {
+     background-color: #008fea;
+    color: #fff;
+    border: none;
+}
+.title-tour-relation h3{
+    
+    padding: 0 0 10px 0;
+    font-size: 18px;
+    border-bottom: 1px solid #ccc;
+    margin-bottom: 20px;
+   text-transform: uppercase;
+}
+.description-tour-right{
+margin-top: 0px;
+    width: 365px;
+    padding: 10px;
+    border: 1px solid #ccc;
+}
+.box-relation-img {
+    width: 100%;
+    text-align: center;
+    overflow: hidden;
+}
+.box-relation-info p:first-child{
+    font-size: 16px;
+    color: #eb004f;
+    font-weight: bold;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 10px;
+}
+.box-relation-img img{
+    width: 100%;
+    height: auto;
+}
+.list-tour-relation a{
+    text-decoration: none;
+}
+.list-tour-relation ul li{
+    margin-bottom: 10px;
+}
+.box-relation {
+    height: auto;
+    overflow: hidden;
+}
+.box-relation-info p span.start-tour{
+    border-right: 1px solid #ddd;
+        color: #555555;
+        padding-right: 20px;
+}
+.box-relation-info p span.discount{
+    font-size: 20px;
+    font-weight: bold;
+    color: #eb004f;
+    float: right;
+}
+.box-relation-info p:last-child{
+    padding-top: 5px;
+}
+.tour-sale{
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+    margin-bottom: 20px;
+}
+.tour-sale-title h2 a{
+    padding: 0 20px;
+    font-size: 35px;
+    color: #333;
+    z-index: 3;
+    background-color: #fff;
+text-decoration: none;
+}
+.tour-sale-title{
+    margin: 10px auto;
+    text-align: center;
+    height: 52px;
+    position: relative;
+    padding: 0 5%;
+
+}
+.tour-sale-title .tour-sale-line{
+    height: 6px;
+    border-top: #b2b2b2 1px solid;
+    border-bottom: #b2b2b2 1px solid;
+    display: block;
+    width: initial;
+    margin-top: -19px;
+    z-index: 1;
+}
+.box-sale {
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+    border: 1px solid #ccc;
+}
+.box-sale img{
+    width: 100%;
+    height: auto;
+}
+.box-sale-info {
+       padding:5px;
+}
+.box-sale-info p,.box-sale-info p a{
+    color: #555555;
+}
+.box-sale-info p a{
+     color: #555555;
+    font-weight: bold;
+}
+.box-sale-info p .price-sale{
+font-size: 16px;
+    color: #eb004f;
+    font-weight: bold
+}
+.box-sale-info p .price-not-sale{
+    text-decoration: line-through;
+
+}
+    
