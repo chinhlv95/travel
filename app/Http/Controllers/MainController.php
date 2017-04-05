@@ -19,6 +19,7 @@ class MainController extends Controller
         $this->OrderRepository = $OrderRepository;
         $this->TourRepository=$TourRepository;
         $this->CategoryRepository=$CategoryRepository;
+        $this->catRepository=$catRepository;
     }
 
     /**
@@ -63,6 +64,7 @@ class MainController extends Controller
           'dataCat'            =>$dataCat
         ]);
     }
+
 
 
 }

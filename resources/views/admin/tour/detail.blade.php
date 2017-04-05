@@ -28,13 +28,13 @@
                                 <h3 class="head">Tour Name:</h3>
                                 <div>{{$tour->name}}</div>
                                 <h3 class="head">Journey:</h3>
-                                <div>{{$tour->journey}}</div>
+                                <div>{!!$tour->journey!!}</div>
                                 <h3 class="head">Content:</h3>
-                                <div>{{$tour->content}}</div>
+                                <div>{!!$tour->content!!}</div>
                                 <h3 class="head">Description:</h3>
-                                <div>{{$tour->description}}</div>
+                                <div>{!!$tour->description!!}</div>
                                 <h3 class="head">Note:</h3>
-                                <div>{{$tour->note}}</div>
+                                <div>{!!$tour->note!!}</div>
                                 <h3 class="head">Quantity:</h3>
                                 <div>{{$tour->quantity}} People</div>
                                 <h3 class="head">Booked:</h3>

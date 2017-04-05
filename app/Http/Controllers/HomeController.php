@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Repositories\Category\CategoryRepositoryInterface;
+
 use App\Repositories\Destination\DestinationRepositoryInterface;
 
 class HomeController extends Controller
@@ -14,6 +15,14 @@ class HomeController extends Controller
     {
         $this->catRepository=$catRepository;
         $this->desRepository=$desRepository;
+
+class HomeController extends Controller
+{
+	protected $catRepository;
+
+    public function __construct(CategoryRepositoryInterface $catRepository)
+    {
+        $this->catRepository=$catRepository;
     }
 
 	  /*
@@ -23,8 +32,10 @@ class HomeController extends Controller
      {
      	$dataCat=$this->catRepository->getCatPublic();
      	return view("index",[
+
              'dataCat' =>$dataCat,
              'desRepository'=>$this->desRepository
+             'dataCat' =>$dataCat
      		]);
      }
 }

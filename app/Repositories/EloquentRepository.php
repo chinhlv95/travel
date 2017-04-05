@@ -119,6 +119,7 @@ abstract class EloquentRepository implements RepositoryInterface
       	$result =  $this->make($with)->paginate($limit);
       	return $result;
 	}
+
 	/**
 	*sub two date
     *@param date $start
@@ -162,4 +163,5 @@ abstract class EloquentRepository implements RepositoryInterface
   $str = str_replace(" ", "-", str_replace("&*#39;","",$str));
   return $str;
   }
+  
 }

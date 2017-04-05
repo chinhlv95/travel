@@ -43,7 +43,11 @@
                 <div class="container">
                     <div class="logo">
                         <a href="{{URL::to('/')}}">
+<<<<<<< HEAD
                         <img src="{{asset('frontend/assets/images/logo.png')}}" alt="">
+=======
+                        <img src="frontend/assets/images/logo.png" alt="">
+>>>>>>> chinh
                         </a>
                         <div class="title-logo maincolor">Tận hưởng giá trị cuộc sống</div>
                     </div>
