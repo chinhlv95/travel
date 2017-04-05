@@ -15,4 +15,10 @@ class CategoryEloquentRepository extends EloquentRepository implements CategoryR
 	{
 		return \App\Models\Category::class;
 	}
+	 public function getCatPublic(){
+	   	$result=$this->make(['destination'])->where(['status'=>1])->get();
+	   	return  $result;
+	   }
+
+
 }
