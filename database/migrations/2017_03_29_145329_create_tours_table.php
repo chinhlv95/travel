@@ -18,7 +18,8 @@ class CreateToursTable extends Migration
             $table->string('name');
             $table->text('content');
             $table->text('description');
-            $table->string('note')->nullable();
+            $table->text('journey');
+            $table->text('note')->nullable();
             $table->tinyInteger('quantity');
             $table->tinyInteger('booked');
             $table->string('image');

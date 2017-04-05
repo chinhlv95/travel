@@ -27,6 +27,8 @@
                             <div id="tour" class="tab-pane fade in active">
                                 <h3 class="head">Tour Name:</h3>
                                 <div>{{$tour->name}}</div>
+                                <h3 class="head">Journey:</h3>
+                                <div>{{$tour->journey}}</div>
                                 <h3 class="head">Content:</h3>
                                 <div>{{$tour->content}}</div>
                                 <h3 class="head">Description:</h3>

@@ -12,3 +12,32 @@
 	color: red;
 	font-weight: 500;
 }
+
+.icon_del {
+	position: relative;
+	top: -32px;
+	right: -10px;
+	display: block;
+	float: right;
+}
+
+.imagepro {
+	width: 90%;
+}
+
+.show-image-edit {
+	margin-bottom: 20px;
+	display: inline-block;
+	margin-right: 10px;
+}
+
+.show-image-edit img {
+	display: block;
+	float: left;
+}
+.show-image-edit .remove_field {
+	margin-top: 40px;
+	margin-left: 20px;
+	display: block;
+	float: left;
+}
