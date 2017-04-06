@@ -16,7 +16,6 @@ class HomeController extends Controller
         $this->catRepository=$catRepository;
         $this->desRepository=$desRepository;
     }
-
 	  /*
 	  * display home page
 	  */
@@ -24,7 +23,6 @@ class HomeController extends Controller
      {
      	$dataCat=$this->catRepository->getCatPublic();
      	return view("index",[
-
              'dataCat' =>$dataCat,
              'desRepository'=>$this->desRepository,
              'dataCat' =>$dataCat
