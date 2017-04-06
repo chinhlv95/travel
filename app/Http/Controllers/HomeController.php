@@ -15,16 +15,7 @@ class HomeController extends Controller
     {
         $this->catRepository=$catRepository;
         $this->desRepository=$desRepository;
-
-class HomeController extends Controller
-{
-	protected $catRepository;
-
-    public function __construct(CategoryRepositoryInterface $catRepository)
-    {
-        $this->catRepository=$catRepository;
     }
-
 	  /*
 	  * display home page
 	  */
@@ -32,10 +23,9 @@ class HomeController extends Controller
      {
      	$dataCat=$this->catRepository->getCatPublic();
      	return view("index",[
-
              'dataCat' =>$dataCat,
              'desRepository'=>$this->desRepository
-             'dataCat' =>$dataCat
+           
      		]);
      }
 }
