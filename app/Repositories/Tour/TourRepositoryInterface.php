@@ -40,6 +40,23 @@ interface TourRepositoryInterface
 	*/
 	public function relationTour($destination_id,$id);
 
+	/**
+	*Tour sale
+	*@return mixed
+	*/
+	public function saleTour();
+
+	/**
+	*image Tour
+	*@param integer $id
+	*@return mixed
+	*/
+	public function imageTour($id);
+
+
+	
+
+
 
 }
 

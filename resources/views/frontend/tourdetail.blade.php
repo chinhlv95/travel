@@ -24,24 +24,15 @@
              <div class="row">
                  <div class="col-md-5">
                      <div class="image-top">
-                         <img id="img-first-detail" src="{{asset('frontend/assets/images/detail1.jpg')}}" alt="">
+                         <img id="img-first-detail" src="{{$dataTour->image}}" alt="{{$dataTour->image}}">
                      </div>
                      <div class="tour-detail-img owl-theme">
+                    @foreach ($TourRepository->imageTour($dataTour->id) as $key => $imageTour)
                      <div class="slide">
-                       <img   class="img-slide-detail"src="{{asset('frontend/assets/images/detail2.jpg')}}" alt="">
+                       <img   class="img-slide-detail"src="{{$imageTour->name}}" alt="{{$imageTour->name}}">
                      </div>
-                    <div class="slide">
-                            <img  class="img-slide-detail" src="{{asset('frontend/assets/images/detail3.jpg')}}" alt="">
-                     </div> 
-                      <div class="slide">
-                       <img  class="img-slide-detail" src="{{asset('frontend/assets/images/detail4.jpg')}}" alt="">
-                     </div>
-                    <div class="slide">
-                            <img  class="img-slide-detail" src="{{asset('frontend/assets/images/detail2.jpg')}}" alt="">
-                     </div>   
-                     <div class="slide">
-                            <img   class="img-slide-detail"src="{{asset('frontend/assets/images/detail1.jpg')}}" alt="">
-                     </div>                           
+                     @endforeach
+                                  
                      </div>
                  </div>
                  <div class="col-md-7">
@@ -184,62 +175,35 @@
                  <h2><a href="">Tour giảm giá</a></h2>
                  <p class="tour-sale-line"></p>
              </div>
+
              <ul class="row">
-                 <li class="col-md-3"><a href="">
+               @foreach ($dataTourSale as $key => $saleTour)
+                
+                 <li class="col-md-3"><a href="{{URL::to('/')}}/tour-detail/{{$saleTour->id}}/{{$TourRepository->convert_vi_to_en($saleTour->name)}}.html">
                      <div class="box-sale">
-                         <img src="{{asset('frontend/assets/images/sale1.jpg')}}" alt="">
+                         <img src="{!!$saleTour->image!!}" alt="">
                           <div class="box-sale-info">
-                          <p><a href="">Du lịch Quy Nhơn - Tuy Hoà khám phá biển hè 4 ngày giá tốt từ Hà Nội</a></p>
+                          <p><a href="">{{$saleTour->name}}</a></p>
                          <p>
                              <span>Giá từ:</span>
-                             <span class="price-sale">6,290,000đ </span>
-                             <span class="price-not-sale">6,590,000đ</span>
+                             @if($saleTour->sale>0)
+                             <span class="price-sale"> 
+                             {{number_format((int)($saleTour->price)*(1-(int)($saleTour->sale)/100))."đ"}}     
+                             </span>
+                             <span class="price-not-sale">
+                             {{number_format((int)($saleTour->price))."đ"}}     
+                              </span>
+                             @else
+                               <span class="price-sale"> 
+                             {{number_format((int)($saleTour->price))."đ"}}     
+                             </span>
+                             @endif
                          </p>
                      </div>
                      </div>
                  </a></li>
-                 <li class="col-md-3"><a href="">
-                     <div class="box-sale">
-                         <img src="{{asset('frontend/assets/images/sale2.jpg')}}" alt="">
-                          <div class="box-sale-info">
-                           <p><a href="">Du lịch Quy Nhơn - Tuy Hoà khám phá biển hè 4 ngày giá tốt từ Hà Nội</a></p>
-                         <p>
-                             <span>Giá từ:</span>
-                             <span class="price-sale">6,290,000đ </span>
-                             <span class="price-not-sale">6,590,000đ</span>
-                         </p>
-                     </div>
-                     </div>
-                 </a></li>
-                 <li class="col-md-3"><a href="">
-                     <div class="box-sale">
-                         <img src="{{asset('frontend/assets/images/sale3.jpg')}}" alt="">
-                          <div class="box-sale-info">
-                           <p><a href="">Du lịch Quy Nhơn - Tuy Hoà khám phá biển hè 4 ngày giá tốt từ Hà Nội</a></p>
-                         <p>
-                             <span>Giá từ:</span>
-                             <span class="price-sale">6,290,000đ </span>
-                             <span class="price-not-sale">6,590,000đ</span>
-                         </p>
-                     </div>
-                     </div>
-
-
-                 </a></li>
-                 <li class="col-md-3"><a href="">
-                     <div class="box-sale">
-                         <img src="{{asset('frontend/assets/images/sale.jpg')}}" alt="">
-                          <div class="box-sale-info">
-                           <p><a href="">Du lịch Quy Nhơn - Tuy Hoà khám phá biển hè 4 ngày giá tốt từ Hà Nội</a></p>
-                         <p>
-                             <span>Giá từ:</span>
-                             <span class="price-sale">6,290,000đ </span>
-                             <span class="price-not-sale">6,590,000đ</span>
-                         </p>
-                     </div>
-                     </div>
-                    
-                 </a></li>
+                 @endforeach 
+                 
              </ul>
          </div>
           </div>

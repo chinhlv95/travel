@@ -90,6 +90,32 @@ class TourEloquentRepository extends EloquentRepository implements TourRepositor
             ->get();
             return $result;
 	}
+	/**
+	*Tour sale
+	*@return mixed
+	*/
+	public function saleTour()
+	{
+		 $result = DB::table('tours')
+            ->join('sales', 'sales.id', '=','tours.sale_id')
+            ->select('tours.*','sales.sale_precent as sale')
+            ->where('sales.sale_precent','>',0)
+            ->orderBy('tours.created_at', 'desc')
+            ->take(4)->get();
+            return $result;
+	}
+
+	/**
+	*image Tour
+	*@param integer $id
+	*@return mixed
+	*/
+	public function imageTour($id){
+		 $result = DB::table('tour_images')
+            ->where('tour_id',$id)
+            ->get();
+            return $result;
+	}
 	
 
 }
