@@ -65,3 +65,7 @@
 	vertical-align: inherit;
 
 }
+
+.nav a {
+	font-size: 20px;
+}

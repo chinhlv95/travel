@@ -24,8 +24,8 @@ class HomeController extends Controller
      	$dataCat=$this->catRepository->getCatPublic();
      	return view("index",[
              'dataCat' =>$dataCat,
-             'desRepository'=>$this->desRepository
-           
+             'desRepository'=>$this->desRepository,
+             'dataCat' =>$dataCat
      		]);
      }
 }

@@ -196,7 +196,7 @@
                     </div>
                     <div class="col-lg-12">
                         <button type="submit" class="btn btn-default">Add Tour</button>
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Back</button>
+                        <a href="admin/tour/list" class="btn btn-default" title="">Back</a>
                     </div>
                 <form>
                 <div class="modal fade" id="modal-tour" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
