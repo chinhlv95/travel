@@ -9,5 +9,7 @@ Homestead.yaml
 .env
 
 *.lock
-public/uploads/**
-public/thumbs/**
+public/uploads/*.jpg
+public/thumbs/*.jpg
+public/uploads/*.png
+public/thumbs/*.png
