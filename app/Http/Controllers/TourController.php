@@ -10,6 +10,7 @@ use App\Repositories\Province\ProvinceRepositoryInterface;
 use App\Repositories\Sale\SaleRepositoryInterface;
 use App\Repositories\Traffic\TrafficRepositoryInterface;
 use App\Repositories\TourImage\TourImageRepositoryInterface;
+use App\Repositories\Category\CategoryRepositoryInterface;
 use App\Repositories\User\UserRepositoryInterface;
 
 class TourController extends Controller
@@ -21,6 +22,7 @@ class TourController extends Controller
 	protected $TrafficRepository;
 	protected $tourimageReposity;
 	protected $destiReposity;
+	protected $cateRepository;
 	protected $userRepository;
 
     /**
@@ -31,9 +33,10 @@ class TourController extends Controller
      * @param TrafficRepositoryInterface $TrafficRepository
      * @param DestinationRepositoryInterface $destiReposity
      * @param TourImageRepositoryInterface $tourimageReposity
+     * @param CategoryRepositoryInterface $cateRepository
      * @param UserRepositoryInterface $userRepository
      */
-    public function __construct( TourRepositoryInterface $tourReposity, SaleRepositoryInterface $saleReposity, ProvinceRepositoryInterface $provinceReposity, TrafficRepositoryInterface $TrafficRepository, DestinationRepositoryInterface $destiReposity, TourImageRepositoryInterface $tourimageReposity, UserRepositoryInterface $userRepository )
+    public function __construct( TourRepositoryInterface $tourReposity, SaleRepositoryInterface $saleReposity, ProvinceRepositoryInterface $provinceReposity, TrafficRepositoryInterface $TrafficRepository, DestinationRepositoryInterface $destiReposity, TourImageRepositoryInterface $tourimageReposity, CategoryRepositoryInterface $cateRepository, UserRepositoryInterface $userRepository )
     {
     	$this->tourReposity 	 = $tourReposity;
     	$this->saleReposity 	 = $saleReposity;
@@ -41,6 +44,7 @@ class TourController extends Controller
     	$this->TrafficRepository = $TrafficRepository;
     	$this->destiReposity 	 = $destiReposity;
     	$this->tourimageReposity = $tourimageReposity;
+    	$this->cateRepository    = $cateRepository;
     	$this->userRepository 	 = $userRepository;
     }
 
@@ -50,9 +54,13 @@ class TourController extends Controller
     */
     public function getList(Request $request)
     {
-    	$name  = $request->name;
-    	$tours = $this->tourReposity->FilterTourname($name, 2, ['sale', 'province', 'destination', 'user', 'traffic']);
-    	return view('admin.tour.list',['tours' => $tours]);
+
+    	$cates     = $this->cateRepository->getAll();
+    	$provinces = $this->provinceReposity->getAll();
+    	$destis    = $this->destiReposity->getAll();
+    	$name      = $request->name;
+    	$tours     = $this->tourReposity->FilterTourname($name, 2, ['sale', 'province', 'destination', 'user', 'traffic']);
+    	return view('admin.tour.list',['tours' => $tours, 'cates' => $cates, 'provinces' => $provinces, 'destis' => $destis]);
     }
 
     /**
@@ -74,7 +82,7 @@ class TourController extends Controller
     */
     public function getEdit($id)
     {
-    	$tour       = $this->tourReposity->find($id);
+    	$tour        = $this->tourReposity->find($id);
     	$province    = $this->provinceReposity->getAll();
     	$desti       = $this->destiReposity->getAll();
     	$sale        = $this->saleReposity->getAll();
@@ -92,6 +100,7 @@ class TourController extends Controller
     public function postEdit( TourRequest $request, $id )
     {
     	$data    = $request->except(['imagepro','image-hidden','_token']);
+    	$name    = $request->name;
     	$this->tourReposity->update($id, $data);
     	$images  = $request->only(['imagepro']);
         $image_arr = array();
@@ -99,6 +108,7 @@ class TourController extends Controller
         	$image_arr = array('name' => $images['imagepro'][$i], 'tour_id' => $id);
         	$this->tourimageReposity->create($image_arr);
         }
+        $request->session()->flash('message', $name.' is updated!');
         return redirect()->route('admin.tour.list');
     }
 
@@ -123,6 +133,7 @@ class TourController extends Controller
     public function postAdd( TourRequest $request)
     {
         $data    = $request->except(['imagepro','image-hidden','_token']);
+        $name    = $request->name;
         $tour_id = $this->tourReposity->getInsertID($data);
         $images  = $request->only(['imagepro']);
         $image_arr = array();
@@ -130,7 +141,7 @@ class TourController extends Controller
         	$image_arr = array('name' => $images['imagepro'][$i], 'tour_id' => $tour_id);
         	$this->tourimageReposity->create($image_arr);
         }
-        return redirect()->route('admin.tour.list');
+        return redirect()->route('admin.tour.list')->with('message', $name.' is added successfully!');
     }
 
     /**
@@ -153,5 +164,47 @@ class TourController extends Controller
     {
     	$this->tourimageReposity->delete($id);
         return Response(['message'=>'Image is deleted successfully !']);
+    }
+
+    /**
+    * Filter by Category
+    * @param $id
+    * @return mixed
+    */
+    public function getTourCategory($id)
+    {
+    	$cates     = $this->cateRepository->getAll();
+    	$provinces = $this->provinceReposity->getAll();
+    	$destis    = $this->destiReposity->getAll();
+    	$tours = $this->tourReposity->showAllTourCate( $id , 2 );
+    	return view('admin.tour.list',['tours' => $tours, 'cates' => $cates, 'provinces' => $provinces, 'destis' => $destis]);
+    }
+
+    /**
+    * Filter by Province
+    * @param $id
+    * @return mixed
+    */
+    public function getTourProvince($id)
+    {
+    	$cates     = $this->cateRepository->getAll();
+    	$provinces = $this->provinceReposity->getAll();
+    	$destis    = $this->destiReposity->getAll();
+    	$tours = $this->tourReposity->showAllTourProvince( $id , 2 );
+    	return view('admin.tour.list',['tours' => $tours, 'cates' => $cates, 'provinces' => $provinces, 'destis' => $destis]);
+    }
+
+    /**
+    * Filter by Destination
+    * @param $id
+    * @return mixed
+    */
+    public function getTourDestination($id)
+    {
+    	$cates     = $this->cateRepository->getAll();
+    	$provinces = $this->provinceReposity->getAll();
+    	$destis    = $this->destiReposity->getAll();
+    	$tours = $this->tourReposity->showAllTourDestination( $id , 2 );
+    	return view('admin.tour.list',['tours' => $tours, 'cates' => $cates, 'provinces' => $provinces, 'destis' => $destis]);
     }
 }

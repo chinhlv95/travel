@@ -81,6 +81,9 @@ Route::prefix('admin')->group(function(){
 		Route::post('add','TourController@postAdd');
 		Route::get('delete/{id}','TourController@getDelete');
 		Route::get('delimg/{id}','TourController@getDeleteImage');
+		Route::get('category/{id}','TourController@getTourCategory');
+		Route::get('province/{id}','TourController@getTourProvince');
+		Route::get('destination/{id}','TourController@getTourDestination');
 	});
 
 	//user

@@ -47,9 +47,7 @@ body {
     color: #FFF;
     text-decoration: none;
 }
-.alert-success{
-    display: none;
-}
+
 .error-form{
     color: red;
     font-size: 14px;

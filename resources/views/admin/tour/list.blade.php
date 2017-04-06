@@ -15,10 +15,19 @@
                 <div class="alert alert-success alert-show">
                     
                 </div>
+                @if(session('message'))
+                    <div class="alert alert-success alert-flash">
+                    {{ session('message') }}
+                    </div>
+                @endif
             </div>
             <!-- /.col-lg-12 -->
             <div class="col-md-9">
                 <a href="admin/tour/add" title="" class="btn btn-info btn-md add-tour"><i class="fa fa-plus-circle" aria-hidden="true"></i> ADD</a>
+
+                <!-- Dropdown Filter -->
+                @include('admin.tour.filter')
+
             </div>
 
             <div class="col-md-3">
@@ -41,7 +50,7 @@
                             <thead>
                                 <tr align="center">
                                     <th>Name</th>
-                                    <th>Content</th>
+                                    <th>Journey Planner</th>
                                     <th>Quantity</th>
                                     <th>Price</th>
                                     <th>More</th>
@@ -53,7 +62,7 @@
                                 @foreach( $tours as $tour)
                                 <tr class="odd gradeX" align="center">
                                     <td valign="center">{{ $tour->name }}</td>
-                                    <td valign="center">{!! $tour->content !!}</td>
+                                    <td valign="center">{!! $tour->journey !!}</td>
                                     <td valign="center">{{ $tour->quantity }} people</td>
                                     <td valign="center">{{number_format($tour->price, 0 , ",", "." )}} VND</td>
                                     <td valign="center"><button type="button" class="btn btn-info btn-sm detail" data-toggle="modal" data-id="{{$tour->id}}" data-target="#myModal"><i class="fa fa-caret-square-o-down" aria-hidden="true"></i> More</button></td>

@@ -20,11 +20,35 @@ interface TourRepositoryInterface
 	*/
 	public function getInsertID( array $attributes);
 
+	/**
+    *  Filter by Category
+    * @param integer $id
+    * @param $limit
+    * @return mixed
+    */
+	public function showAllTourCate( $id, $limit );
+
+	/**
+    *  Filter by Province
+    * @param integer $id
+    * @param $limit
+    * @return mixed
+    */
+	public function showAllTourProvince( $id, $limit );
+
+	/**
+    *  Filter by Destination
+    * @param integer $id
+    * @param $limit
+    * @return mixed
+    */
+	public function showAllTourDestination( $id, $limit );
 
      /**
      * display tour for categories
-     *@param integer $id
-     *@return mixed
+     * @param integer $id
+     * @param $limit
+     * @return mixed
      */
 	public function showTourCate($id,$limit);
 	/**

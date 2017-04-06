@@ -94,7 +94,7 @@
                                     {{"selected"}}
                                     @endif
                                     {{(old("sale_id") == $tour->sale_id ? "selected":"") }}>
-                                    {{$sale->sale_precent}}</option>
+                                    {{$sale->sale_precent}}%</option>
                                 @endforeach
                             </select>
                         </div>

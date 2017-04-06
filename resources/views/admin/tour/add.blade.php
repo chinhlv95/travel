@@ -89,7 +89,7 @@
                                 @foreach( $sale as $sale)
                                     <option value="{{$sale->id}}"
                                     {{(old("sale_id") == $sale->id ? "selected":"") }}
-                                    >{{$sale->sale_precent}}</option>
+                                    >{{$sale->sale_precent}}%</option>
                                 @endforeach
                             </select>
                         </div>

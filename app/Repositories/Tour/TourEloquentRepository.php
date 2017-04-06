@@ -40,10 +40,54 @@ class TourEloquentRepository extends EloquentRepository implements TourRepositor
   		return $id;
 	}
 
-     /* display tour for categories
-     *@param integer $id
-     *@return mixed
-     */
+	/**
+    *  display all tour for categories
+    * @param integer $id
+    * @return mixed
+    */
+	public function showAllTourCate( $id , $limit )
+	{
+	      $result = DB::table('tours')
+	        ->join('destinations', 'destinations.id', '=', 'tours.destination_id')
+	        ->select('tours.*')
+	        ->where(['destinations.cate_id'=>$id])
+	        ->paginate($limit);
+	        return $result;
+	}
+
+	/**
+    *  Filter by Province
+    * @param integer $id
+    * @param $limit
+    * @return mixed
+    */
+	public function showAllTourProvince( $id, $limit )
+	{
+		$result = DB::table('tours')
+	        ->where(['province_id' => $id])
+	        ->paginate($limit);
+	        return $result;
+	}
+
+	/**
+    *  Filter by Destination
+    * @param integer $id
+    * @param $limit
+    * @return mixed
+    */
+	public function showAllTourDestination( $id, $limit )
+	{
+		$result = DB::table('tours')
+	        ->where(['destination_id' => $id])
+	        ->paginate($limit);
+	        return $result;
+	}
+
+    /**
+    *  display tour for categories
+    * @param integer $id
+    * @return mixed
+    */
 	public function showTourCate($id,$limit)
 	{
           $result = DB::table('tours')

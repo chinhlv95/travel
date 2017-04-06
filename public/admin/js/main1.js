@@ -2,9 +2,9 @@ var host= window.location.href;
 host    = host.split('/');
 var URL = host[0]+"//"+host[2]+"/";
 $("div .alert-show").hide();
+$("div .alert-flash").delay(3000).slideUp();
 
 //  Delete
-
 $('body').on('click', '.del', function() {
 
 	var notification=confirm("Are you sure you want to delete ?");
@@ -49,7 +49,6 @@ $('body').on('click', '.add', function(e) {
 
 
 // Submit Form
-
 $('body').on('submit', '#form', function(event) {
 	event.preventDefault();
    $.ajax({
@@ -165,13 +164,20 @@ $("body").on("click","input.imagepro", function(e){
     $("#imagetour").modal();
     count=$(this).attr('count');
     $('#imagetour').on('hidden.bs.modal', function () {
-        var val=$("#hidden-tour").val();
+        var val  =$("#hidden-tour").val();
         $("#imagetour_"+count).val(val);
 		if(val !=""){
 			$("#image_"+count).attr({
 		      'src':val,
 		      'width':150,
 		      'height':100,
+		    });
+		}
+		else {
+			$("#image_"+count).attr({
+		      'src':'',
+		      'width':0,
+		      'height':0,
 		    });
 		}
     });
