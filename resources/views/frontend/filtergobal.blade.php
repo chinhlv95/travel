@@ -30,26 +30,36 @@
         			</tr>
         		</thead>
         		<tbody>
+
         		@foreach ($dataFilterTour as $key => $value)
+                     <?php 
+                      $dataSaleFilter=$SaleRepository->find($value->sale_id);
+                      ?>
         			 <tr>
         				<td>{{$value->id}}</td>
-        				<td></td>
-        				<td></td>
-        				<td></td>
-        				<td></td>
-        				<td></td>
-        				<td></td>
-        				<td></td>
+        				<td><a href="{{URL::to('/')}}/tour-detail/{{$value->id}}/{{$SaleRepository->convert_vi_to_en($value->name)}}.html" title="{{$value->name}}">{{$value->name}}</a></td>
+        				<td class="date-tour">{{$TourRepository->subDate($value->start_date,$value->end_date)}}</td>
+        				<td class="date-tour">{{date('d-m-Y', strtotime($value->start_date))}}</td>
+        				<td class="date-tour" >{{date('d-m-Y', strtotime($value->end_date))}}</td>
+        				<td> {{number_format((int)($value->price)*(1-(int)($dataSaleFilter->sale)/100))."đ"}} </td>
+        				<td>{{((int)($value->quantity)-(int)($value->booked))}}</td>
+        				<td>
+                         @if(((int)($value->quantity)-(int)($value->booked))==0)
+                         <div class="contact">
+                             <a href="#">Liên hệ</a>
+                         </div>
+                         @else
+                          <div class="add-tour">
+                             <a href="#">Đặt tour</a>
+                         </div>
+                         @endif            
+                        </td>
         			</tr>
         		@endforeach
         		</tbody>
         	</table>
         	<div id="pagination-filter">
-        	<?php 
-        
-
-        	 ?>
-        	{{$dataFilterTour->links()}}
+               {{$dataFilterTour->links()}}  
         	</div>
         </div>
 	</div>

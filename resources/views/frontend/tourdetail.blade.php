@@ -9,7 +9,7 @@
 {{$TourRepository->convert_vi_to_en($dataTour->name)}}
 @stop
 @section('content')
-{{dd(session('addTour'))}}
+
 <section class="detail-tour">
          <div class="container">
              <div class="row breadcrumb-detail">
@@ -25,7 +25,7 @@
                  <div class="col-md-5">
                      <div class="image-top">
                          <img id="img-first-detail" src="{{$dataTour->image}}" alt="{{$dataTour->image}}">
-                     </div>
+                     </div> 
                      <div class="tour-detail-img owl-theme">
                     @foreach ($TourRepository->imageTour($dataTour->id) as $key => $imageTour)
                      <div class="slide">
@@ -52,7 +52,7 @@
                              $str.=$value." ";    
                              }
                              $i++;
-                            }
+                             }
                              echo trim($str,' ')."...";
                              ?>
                             
