@@ -67,3 +67,68 @@ a:hover {
 .submit-btn {
 	padding-top: 20px;
 }
+.checkout .error {
+	color: red;
+	font-weight: 100;
+}
+
+/* Report Style */
+.report {
+	padding-top: 30px;
+}
+.sub-title-f {
+	color: #999;
+    font-size: 55px;
+    text-align: center;
+    margin-bottom: 15px;
+}
+.sub-title-t {
+	color: #ccc;
+    font-size: 20px;
+    text-align: center;
+    margin: 20px 0 10px 0;
+}
+.report ul li {
+	float: left;
+	width: 50%;
+	padding: 10px 20px;
+}
+.box-left {
+	width: 10%;
+	float: left;
+	height: 10px;
+}
+.box-right {
+	width: 80%;
+	float:left;
+}
+.report ul li:first-child {
+	list-style: none;
+    width: calc(100% / 2);
+    border-right: 1px solid #ccc;
+    float: left;
+    padding: 0 20px;
+    margin: 10px 0;
+}
+.report ul li .sub-title {
+	color: #222;
+    font-size: 17px;
+    padding-bottom: 10px;
+    font-weight: bold;
+}
+.sub-title-a {
+	text-align: center;
+	line-height: 1.5em;
+}
+.continue {
+	background-color: #000;
+    color: #fff;
+    padding: 10px 75px;
+    font-size: 17px;
+    float: right;
+    position: relative;
+    bottom: 10px;
+}
+.report a:hover {
+	color: #fff;
+}

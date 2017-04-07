@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Repositories\Order;
+namespace App\Repositories\Customer;
 
 use App\Repositories\EloquentRepository;
-use App\Repositories\Order\OrderRepositoryInterface;
+use App\Repositories\Customer\CustomerRepositoryInterface;
 
-class OrderEloquentRepository extends EloquentRepository implements OrderRepositoryInterface
+class CustomerEloquentRepository extends EloquentRepository implements CustomerRepositoryInterface
 {
 	/**
 	* get model
@@ -13,9 +13,9 @@ class OrderEloquentRepository extends EloquentRepository implements OrderReposit
 	*/
 	public function getModel()
 	{
-		return \App\Models\Order::class;
+		return \App\Models\Customer::class;
 	}
-	
+
 	/**
 	* InsertGetID
 	* @return mixed

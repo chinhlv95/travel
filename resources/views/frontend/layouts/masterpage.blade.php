@@ -60,7 +60,7 @@
             </div>
             @include('frontend.layouts.menuMain')
         </header>
-              <div id="modalTour" class="modal fade" role="dialog">
+          <div id="modalTour" class="modal fade" role="dialog">
           <div class="modal-dialog">
             <!-- Modal content-->
             <div class="modal-content">
@@ -84,7 +84,7 @@
 
           </div>
         </div>
-           <div id="modalAddTour" class="modal fade" role="dialog">
+        <div id="modalAddTour" class="modal fade" role="dialog">
           <div class="modal-dialog">
             <!-- Modal content-->
             <div class="modal-content">
@@ -109,7 +109,7 @@
              @include('frontend.layouts.slideshow')
              @include('frontend.layouts.filter')
         </section>
-          @yield('content')
+        @yield('content')
         <footer class="footer">
         	
         </footer>

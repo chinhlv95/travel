@@ -26,7 +26,7 @@
                 <div class="tour-row">Số chỗ còn nhận: <span style="font-weight:bold">{{((int)($tour->quantity)-(int)($tour->booked))}}</span></div>    
             </div>
         </div>
-        <form action="" method="POST">
+        <form action="{{URL::to('/')}}/report" method="post">
             <input type="hidden" name="_token" value="{{csrf_token()}}" />
             {{-- Thông tin liên hệ --}}
             <div class="checkout-title">
@@ -34,43 +34,47 @@
             </div>
             <div class="row">
                 <div class="form-group col-md-4">
-                    <label for="cusName">HỌ TÊN*:<span class="error"></span></label>
-                    <input type="text" name="cusName" id="cusName" class="form-control ">
+                    <label for="cusName">HỌ TÊN*:<span class="error">
+                        @if($errors->has('fullname'))
+                            {{$errors->first('fullname')}}
+                        @endif
+                    </span></label>
+                    <input type="text" name="fullname" id="cusName" class="form-control ">
                 </div>
                 <div class="form-group col-md-4">
                     <label for="cusEmail">Email*:<span class="error"></span></label>
-                    <input type="email" name="cusMail" id="cusEmail" class="form-control ">
+                    <input type="email" name="email" id="cusEmail" class="form-control ">
                 </div>
                 <div class="form-group col-md-4">
                     <label for="cusPhone">Số điện thoại *:<span class="error"></span></label>
-                    <input type="text" name="cusPhone" id="cusPhone" class="form-control">
+                    <input type="text" name="phone" id="cusPhone" class="form-control">
                 </div>
                 <p class="clearfix"></p>
                 <div class="form-group col-md-4">
                     <label for="cusBirthday">Ngày sinh *:<span class="error"></span></label>
-                    <input type="date" name="cusBirthday" id="cusBirthday" class="form-control ">
+                    <input type="date" name="birthday" id="cusBirthday" class="form-control ">
                 </div>
                 <div class="form-group col-md-4">
                     <label for="cusAddress">Địa chỉ *:<span class="error"></span></label>
-                    <input type="text" name="cusAddress" id="cusAddress" class="form-control">
+                    <input type="text" name="address" id="cusAddress" class="form-control">
                 </div>
                 <div class="form-group col-md-4">
                     <label for="cusGender">Giới tính :<span class="error"></span></label><br>
                     <label class="radio-inline">
-                        <input name="cusGender" value="0" checked type="radio">Nam
+                        <input name="gender" value="0" checked type="radio">Nam
                     </label>
                     <label class="radio-inline">
-                        <input name="cusGender" value="1" type="radio">Nữ
+                        <input name="gender" value="1" type="radio">Nữ
                     </label>
                 </div>
                 <p class="clearfix"></p>
                 <div class="form-group col-md-4">
-                    <label for="cusQuantity">Số lượng :<span class="error"></span></label>
+                    <label for="cusQuantity">Số lượng :<span class="error cusQuantity"></span></label>
                     <input type="number" id="cusQuantity" name="quantity" class="form-control" data-price="{{(int)(($tour->price)*(1-(int)($tour->sale)/100))}}" value="1" min="1" max="{{((int)($tour->quantity)-(int)($tour->booked))}}">
                 </div>
                 <div class="form-group col-md-4">
                     <label for="cusNote">Ghi chú:<span class="error"></span></label>
-                    <textarea name="cusNote" id="cusNote" class="form-control "></textarea>
+                    <textarea name="note" id="cusNote" class="form-control "></textarea>
                 </div>
             </div>
             <div class="checkout-title">
@@ -91,15 +95,15 @@
                         </thead>
                         <tbody class="tbody">
                             <tr>
-                                <td><input type="text" name="tourer[name]" class="form-control "></td>
-                                <td><input type="text" name="tourer[phone]" class="form-control "></td>
-                                <td><input type="date" name="tourer[birthday]" class="form-control "></td>
-                                <td><select class="form-control" name="tourer[gender]">
+                                <td><input type="text" name="tourer[name][]" class="form-control "></td>
+                                <td><input type="text" name="tourer[phone][]" class="form-control "></td>
+                                <td><input type="date" name="tourer[birthday][]" class="form-control "></td>
+                                <td><select class="form-control" name="tourer[gender][]">
                                         <option value="0">Nam</option>
                                         <option value="1">Nữ</option>
                                     </select>
                                 </td>
-                                <td><input type="text" name="tourer[address]" class="form-control "></td>
+                                <td><input type="text" name="tourer[address][]" class="form-control "></td>
                                 <td>{{number_format((int)($tour->price)*(1-(int)($tour->sale)/100), 0 , ",", "." )}} VNĐ</td>
                             </tr>
                         </tbody>
@@ -119,7 +123,7 @@
                 <div class="col-md-12">
                     @foreach( $pays as $pay)
                     <label class="radio-inline">
-                        <input name="pay" value="{{$pay->id}}"
+                        <input name="pay_id" value="{{$pay->id}}"
                         @if($pay->id == 1)
                         {{"checked"}}
                         @endif
@@ -131,8 +135,8 @@
             <div class="panel-body">
                 <div class=" clearfix pull-right submit-btn">
                         <input type="hidden" name="sale" class="form-control" value="{{$tour->sale}}">
-                        <input type="hidden" name="quantity_tourer" class="form-control">
-                        <input type="hidden" name="price" class="form-control">
+                        <input type="hidden" name="quantity_tourer" class="form-control" value="1">
+                        <input type="hidden" name="price"  class="form-control" value="{{(int)(($tour->price)*(1-(int)($tour->sale)/100))}}">
                         <input type="hidden" name="tour_id" class="form-control" value="{{$tour->id}}">
                         <input class="btn btn-success " type="submit" value="THANH TOÁN" />
                 </div>

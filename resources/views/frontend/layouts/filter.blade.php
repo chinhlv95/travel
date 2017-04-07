@@ -43,7 +43,7 @@
                                    
                                 </select>
                             </div>
-                            <button type="submit" class="btn btn-default search">Tìm Kiếm</button
+                            <button type="submit" class="btn btn-default search">Tìm Kiếm</button>
                         </form>
                     </div>
                 </div>

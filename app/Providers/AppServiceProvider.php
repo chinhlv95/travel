@@ -70,6 +70,14 @@ class AppServiceProvider extends ServiceProvider
             \App\Repositories\Tour\TourEloquentRepository::class
         );
         $this->app->singleton(
+            \App\Repositories\Tourer\TourerRepositoryInterface::class,
+            \App\Repositories\Tourer\TourerEloquentRepository::class
+        );
+        $this->app->singleton(
+            \App\Repositories\Customer\CustomerRepositoryInterface::class,
+            \App\Repositories\Customer\CustomerEloquentRepository::class
+        );
+        $this->app->singleton(
             \App\Repositories\User\UserRepositoryInterface::class,
             \App\Repositories\User\UserEloquentRepository::class
         );
