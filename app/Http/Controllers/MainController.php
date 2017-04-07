@@ -33,7 +33,7 @@ class MainController extends Controller
     public function checkTour(Request $request)
     {
        $code=$request->check;
-       $dataCodeOrder= $this->OrderRepository->find($code);
+       $dataCodeOrder= $this->OrderRepository->getInfoOrder( $code);
     	return view('frontend.checkcode',[
               'dataCodeOrder'=>$dataCodeOrder
     		]);

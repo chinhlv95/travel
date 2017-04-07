@@ -416,6 +416,50 @@ a.tour-detail {
     padding:0px;
     border-bottom: 1px solid #e5e5e5;
 }
+#checkout-image-tour {
+    width: 100%;
+    height: 250px;
+    overflow: hidden;
+}
+#checkout-image-tour img{
+    width: 100%;
+    height: auto;
+}
+.info-tour-title{
+    margin-bottom: 20px;
+}
+.info-order h3{
+    text-align: center;
+}
+.info-order-tour{
+    border-right: 1px solid #ddd;
+        padding: 10px;
+}
+#checkout-info-tour p,#info-order-customer-checkout p{
+ line-height: 30px;
+}
+.info-order-customer {
+    padding: 10px;
+}
+.info-tour-title{
+text-align: center;
+
+}
+.info-order{
+    border:1px solid #ddd;
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+    margin-bottom: 50px;
+}
+.header-list-tourer{
+    background: #ddd;
+}
+.first-name-tour{
+    color: #000;
+    font-size: 16px;
+    font-weight: bold;
+}
 /*detail*/
 /*detail*/
 .breadcrumb-detail{

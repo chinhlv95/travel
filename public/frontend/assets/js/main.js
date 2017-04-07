@@ -71,9 +71,9 @@ $(document).ready(function() {
        },
        error: function() {}
    });
-<<<<<<< HEAD
+
      });
-});
+
 
 
 $("body").on("change", "#cusQuantity", function (event) {
@@ -90,11 +90,11 @@ $("body").on("change", "#cusQuantity", function (event) {
 
 });
 
+
 function formatNumber (num) {
     return num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1.");
 }
-=======
-     }); 
+
 
   //pagination filter
       $('body').on('click',"#pagination-filter a ", function(event) {
@@ -120,4 +120,4 @@ function formatNumber (num) {
      if (!results[2]) return '';
      return decodeURIComponent(results[2].replace(/\+/g, " "));
  }
->>>>>>> kien
+
