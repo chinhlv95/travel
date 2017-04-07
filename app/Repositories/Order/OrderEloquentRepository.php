@@ -33,7 +33,7 @@ class OrderEloquentRepository extends EloquentRepository implements OrderReposit
     *@return mixed
     */
     }
-	public function getInfoOrder($code);
+	public function getInfoOrder($code)
 	{
        $resultInfoOrder = DB::table('orders')
         ->join('customers', 'customers.id', '=', 'orders.customer_id')
