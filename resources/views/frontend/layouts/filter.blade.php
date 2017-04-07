@@ -27,7 +27,6 @@
                                      @foreach ($dataDestination as $key => $value)
                                     <option  value="{{$value['id']}}">{{$value['name']}}</option>
                                     @endforeach
-                                   
                                 </select>
                             </div>
                             <div class="form-group">
@@ -36,7 +35,6 @@
                             <div class="form-group">
                                 <select class="selectpicker" data-size="4" data-live-search="true" name="price">
                                     <option value=""  data-icon="glyphicon-usd">Chọn giá tour</option>
-
                                       @foreach ($dataPriceRange as $key => $value)
                                     <option  value="{{$value['from_price']."-".$value['to_price']}}">{{$value['from_price']."-".$value['to_price']."(đ)"}}</option>
                                     @endforeach

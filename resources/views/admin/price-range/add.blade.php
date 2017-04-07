@@ -16,13 +16,11 @@
             <div class="col-lg-12">
                 <form action="{{URL::to('/')}}/admin/price-range/add" id="price-range-form" method="POST">
                    <input type="hidden" name="_token" value="{{csrf_token()}}" id="_token">
-                      
                     <div class="form-group">
                         <label>From price</label>
                         <input class="form-control" name="from_price" placeholder="Please Enter from price" required />
                         <span id="error-from_price" class="error-form"></span>
                     </div>
-                    
                     <div class="form-group">
                         <label>To price</label>
                         <input class="form-control" name="to_price" type="text" placeholder="Please Enter phone" required />

@@ -4,6 +4,7 @@ namespace App\Repositories\Order;
 
 use App\Repositories\EloquentRepository;
 use App\Repositories\Order\OrderRepositoryInterface;
+use DB;
 
 class OrderEloquentRepository extends EloquentRepository implements OrderRepositoryInterface
 {
@@ -15,6 +16,7 @@ class OrderEloquentRepository extends EloquentRepository implements OrderReposit
 	{
 		return \App\Models\Order::class;
 	}
+
 	
 	/**
 	* InsertGetID
@@ -24,5 +26,22 @@ class OrderEloquentRepository extends EloquentRepository implements OrderReposit
 	{
 		$id = $this->_model->insertGetId($attributes);
   		return $id;
+
+    /**
+    *Check code order
+    *@param string $code
+    *@return mixed
+    */
+    }
+	public function getInfoOrder($code);
+	{
+       $resultInfoOrder = DB::table('orders')
+        ->join('customers', 'customers.id', '=', 'orders.customer_id')
+        ->join('tours', 'tours.id', '=','orders.tour_id')
+        ->select('tours.*','orders.*','customers.*')
+        ->where(['orders.code'=>$code])
+        ->first();
+        return $resultInfoOrder;
+
 	}
 }
