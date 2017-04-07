@@ -4,6 +4,12 @@ namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use App\Repositories\Category\CategoryEloquentRepository;
+use App\Repositories\Province\ProvinceEloquentRepository;
+use App\Repositories\Destination\DestinationEloquentRepository;
+use App\Repositories\PriceRange\PriceRangeEloquentRepository;
+
+
+
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -16,9 +22,20 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
       $CategoryRepository=new CategoryEloquentRepository();
+      $destination=new DestinationEloquentRepository();
+      $province=new ProvinceEloquentRepository();
+      $prieRange=new PriceRangeEloquentRepository();
+      $dataProvince=$province->getAll();
       $dataCategories=$CategoryRepository->getAll()->toArray();
-      view()->share('dataCategories', $dataCategories);
-       view()->share('CategoryRepository', $CategoryRepository);
+      $dataDestination=$destination->getAll();
+      $dataPriceRange=$prieRange->getAll();
+      view()->share([
+        'dataCategories'    =>$dataCategories,
+        'CategoryRepository'=>$CategoryRepository,
+        'dataProvince'      =>$dataProvince,
+        'dataDestination'   =>$dataDestination,
+        'dataPriceRange'    =>$dataPriceRange
+        ]);
     }
 
     /**

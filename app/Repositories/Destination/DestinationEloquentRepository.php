@@ -45,5 +45,18 @@ class DestinationEloquentRepository extends EloquentRepository implements Destin
             return $result;
 	}
 
+    /**
+    *show destnation for categories
+    *@param integer $id
+    *@return mixed;
+    */
+	 public function showDestinationCate($id){
+         	$result = DB::table('destinations')
+         	->where(['cate_id'=>$id])
+         	->get()
+         	->toArray();
+         	return $result;
+	 }
+
 
 }

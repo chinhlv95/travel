@@ -160,6 +160,44 @@ class TourEloquentRepository extends EloquentRepository implements TourRepositor
             ->get();
             return $result;
 	}
-	
 
+	/**
+   *filter gobal
+   *@param integer $province
+   *@param integer $cate
+   *@param integer $destination
+   *@param date $start
+   *@param string $price
+   *@return mixed
+   */
+   public function filterTourGobal($province,$cate,$destination,$start,$price)
+   {
+   $result;
+   	//check $price null
+   	if($price!=""){
+   		$arrPrice=explode("-",$price);
+   		$result = DB::table('destinations')
+        ->join('categories', 'categories.id', '=', 'destinations.cate_id')
+        ->join('tours', 'tours.destination_id', '=', 'destinations.id')
+        ->select('tours.*')
+        ->where('tours.province_id','like','%'.$province.'%')
+        ->where('destinations.cate_id','like','%'.$cate.'%')
+        ->where('tours.destination_id','like','%'.$destination.'%')
+        ->where('tours.start_date','like','%'.$start.'%')
+        ->whereBetween('tours.price', [(int)$arrPrice[0],(int)$arrPrice[1]])
+        ->paginate(2);
+   	}else{
+        $result = DB::table('destinations')
+        ->join('categories', 'categories.id', '=', 'destinations.cate_id')
+        ->join('tours', 'tours.destination_id', '=', 'destinations.id')
+        ->select('tours.*')
+        ->where('tours.province_id','like','%'.$province.'%')
+        ->where('destinations.cate_id','like','%'.$cate.'%')
+        ->where('tours.destination_id','like','%'.$destination.'%')
+        ->where('tours.start_date','like','%'.$start.'%')
+        ->paginate(2);
+   	}
+        return $result;
+   }
+	
 }

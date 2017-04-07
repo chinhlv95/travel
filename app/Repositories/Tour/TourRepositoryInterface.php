@@ -76,12 +76,18 @@ interface TourRepositoryInterface
 	*@return mixed
 	*/
 	public function imageTour($id);
-
-
-	
-
-
-
+   
+   /**
+   *filter gobal
+   *@param integer $province
+   *@param integer $cate
+   *@param integer $destination
+   *@param date $start
+   *@param integer $from_price
+   *@param integer $to_price
+   *@return mixed
+   */
+   public function filterTourGobal($province,$cate,$destination,$start,$price);
 }
 
 
