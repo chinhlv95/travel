@@ -1,0 +1,69 @@
+/* Checkout Style */
+
+.checkout-title {
+	border-bottom: 1px solid #1d508d;
+    padding: 10px 0;
+    margin: 15px 0;
+}
+.checkout-title-name {
+	background-color: #1d508d;
+    color: #fff;
+    font-size: 15px;
+    padding: 10px 15px;
+}
+.info-img {
+	width: 265px;
+    float: left;
+    height: 145px;
+    margin-right: 10px;
+    margin-top: 5px;
+}
+.info-img img {
+	width: 100%;
+	height: 140px;
+}
+.info-tour {
+	margin-top: 5px;
+}
+.info-tour h2 a {
+	font-size: 20px;
+    color: #222;
+    font-weight: bold;
+}
+a:hover {
+	text-decoration: none;
+    border: none;
+}
+.tour-row {
+	margin-top: 7px;
+}
+
+.checkout label {
+	display: inline-block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    font-size: 15px;
+}
+.checkout thead {
+	background-color: #e6e6e6;
+}
+.checkout tbody td input {
+	max-width: 200px;
+}
+.checkout tfoot td:first-child {
+	text-align: right;
+	font-weight: bold;
+}
+.checkout tfoot td:last-child {
+	min-width: 150px;
+}
+
+.checkout tfoot {
+	background-color: #f2f2f2;
+}
+.accept-policy {
+	margin-top: 15px;
+}
+.submit-btn {
+	padding-top: 20px;
+}

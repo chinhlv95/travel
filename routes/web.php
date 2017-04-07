@@ -24,6 +24,8 @@ Route::post('check-tour', 'MainController@checkTour');
 Route::get('tour-detail/{id}/{name}.html','MainController@getTourDetail');
 // page tour for category
 Route::get('category/{id}/{name}.html','MainController@getCategories');
+// checkout
+Route::get('checkout/{id}','MainController@getCheckout');
 
 Route::prefix('admin')->group(function(){
 

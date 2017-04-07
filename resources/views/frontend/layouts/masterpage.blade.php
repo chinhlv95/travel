@@ -16,6 +16,7 @@
         <link rel="stylesheet" href="{{asset('frontend/assets/plugin/carousel/owl.carousel.css')}}">
         <link rel="stylesheet" href="{{asset('frontend/assets/css/reset.css')}}">
         <link rel="stylesheet" href="{{asset('frontend/style.css')}}">
+        <link rel="stylesheet" href="{{asset('frontend/style1.css')}}">
         <link rel="stylesheet" href="{{asset('frontend/assets/css/responsive.css')}}">
     </head>
     <body>
