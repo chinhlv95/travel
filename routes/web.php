@@ -36,8 +36,12 @@ Route::post('show-destination','HomeController@showDestination');
 
 // filter gobal
 Route::get('filter', 'MainController@filterGobal');
+
 // checkout
 Route::get('checkout/{id}','MainController@getCheckout');
+
+// report
+Route::post('report','MainController@postReport');
 
 Route::prefix('admin')->group(function(){
 

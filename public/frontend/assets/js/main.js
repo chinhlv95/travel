@@ -28,25 +28,6 @@ $(document).ready(function() {
      });
     });
 
-    // add tour
-     $('body').on('click', '.add-tour', function(event) {
-      event.preventDefault();
-      /* Act on the event */
-      var id=this.id;
-      var _token = $("#_token").val();
-      $.ajax({
-       url: url + 'add-tour',
-       type: 'post',
-       data: {
-           id: id,
-           _token: _token
-       },
-       success: function(data) {
-         $("#modalAddTour").modal();
-       },
-       error: function() {}
-   });
-  }); 
      //select categories
      $('body').on('change', '#cat-tour', function(event) {
        event.preventDefault();
@@ -77,11 +58,17 @@ $(document).ready(function() {
 
 $("body").on("change", "#cusQuantity", function (event) {
   var price    = $(this).attr("data-price");
-  var quantity = $(this).val();
-  var max      = $(this).attr("max");
+  var quantity = parseInt($(this).val());
+  var max      = parseInt($(this).attr("max"));
+  $(".cusQuantity").html("");
+  if(quantity > max) {
+    $(".cusQuantity").html(" Số chỗ tối đa cho chọn: " + max);
+    quantity = max;
+    $(this).val(max);
+  }
   $(".tbody").html('');
   for(var i = 0; i< quantity; i++) {
-    $(".tbody").append('<tr><td><input type="text" name="tourerName[]" class="form-control "></td><td><input type="text" name="tourerPhone[]" class="form-control "></td><td><input type="date" name="tourerBirthday[]" class="form-control "></td><td><select class="form-control" name="tourerGender[]"><option value="0">Nam</option><option value="1">Nữ</option></select></td><td><input type="text" name="tourerAddress" class="form-control "></td><td>'+formatNumber(price)+' VNĐ</td></tr>');
+    $(".tbody").append('<tr><td><input type="text" name="tourer[name][]" class="form-control "></td><td><input type="text" name="tourer[phone][]" class="form-control "></td><td><input type="date" name="tourer[birthday][]" class="form-control "></td><td><select class="form-control" name="tourer[gender][]"><option value="0">Nam</option><option value="1">Nữ</option></select></td><td><input type="text" name="tourer[address][]" class="form-control "></td><td>'+formatNumber(price)+' VNĐ</td></tr>');
   }
   $("#total_price").html(formatNumber(quantity*price)+"VNĐ");
   $("input[name='quantity_tourer']").val(quantity);

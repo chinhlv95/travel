@@ -8,18 +8,24 @@ use App\Repositories\Order\OrderRepositoryInterface;
 use App\Repositories\Tour\TourRepositoryInterface;
 use App\Repositories\Category\CategoryRepositoryInterface;
 use App\Repositories\Pay\PayRepositoryInterface;
+use App\Repositories\Tourer\TourerRepositoryInterface;
+use App\Repositories\Customer\CustomerRepositoryInterface;
+use App\Http\Requests\ReportRequest;
+
 
 class MainController extends Controller
 {
     //
-    protected $OrderRepository,$TourRepository,$CategoryRepository;
+    protected $OrderRepository,$TourRepository,$CategoryRepository,$PayRepository,$TourerRepository,$CustomerRepository;
 
-    public function __construct(OrderRepositoryInterface $OrderRepository,TourRepositoryInterface $TourRepository,CategoryRepositoryInterface $CategoryRepository, PayRepositoryInterface $PayRepository )
+    public function __construct(OrderRepositoryInterface $OrderRepository,TourRepositoryInterface $TourRepository,CategoryRepositoryInterface $CategoryRepository, PayRepositoryInterface $PayRepository, TourerRepositoryInterface $TourerRepository, CustomerRepositoryInterface $CustomerRepository )
     {
         $this->OrderRepository = $OrderRepository;
         $this->TourRepository=$TourRepository;
         $this->CategoryRepository=$CategoryRepository;
         $this->PayRepository=$PayRepository;
+        $this->TourerRepository=$TourerRepository;
+        $this->CustomerRepository=$CustomerRepository;
      
     }
 
@@ -67,17 +73,7 @@ class MainController extends Controller
           'dataCat'            =>$dataCat
         ]);
     }
-    /**
-    * add tour
-    *@param integer $id
-    *@return mixed
-    */
-    public function addTour(Request $request)
-    {
-      $dataFindTour=$this->TourRepository->find($request->id)->toArray();
-      session(['addTour'=>$dataFindTour]);
-      return Response(['message'=>'thêm tour thành công']);
-    }
+
     /**
     *Filter gobal
     *@param Request $request
@@ -91,11 +87,45 @@ class MainController extends Controller
         ]);
     }
 
+    /**
+    * Checkout
+    * @param Request $request
+    * @return mixed
+    */
     public function getCheckout(Request $request)
     {
       $dataTour=$this->TourRepository->findTour($request->id);
       $pays     = $this->PayRepository->getAll();
       return view('frontend.checkout', ['tour' => $dataTour, 'TourRepository'=>$this->TourRepository, 'pays' => $pays]);
+    }
+
+    /**
+    * Report
+    * @param ReportRequest $request
+    * @return mixed
+    */
+    public function postReport(ReportRequest $request)
+    {
+      $customer    = $request->only(['fullname', 'email', 'phone', 'birthday', 'gender', 'address', 'note']);
+      $customer_id = $this->CustomerRepository->getInsertID($customer);
+      $order       = $request->only(['sale','quantity_tourer','price','tour_id','pay_id']);
+      $order['customer_id'] = $customer_id;
+      $order['code']   = substr(str_shuffle("ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789"), 0, 6);
+      $order["status"] = 0;
+      $order_id        = $this->OrderRepository->getInsertID($order);
+      $tourers         = $request->only(['tourer']);
+      for( $i = 0; $i< count($tourers['tourer']['name']); $i++) {
+        $tourer['fullname'] = $tourers['tourer']['name'][$i];
+        $tourer['birthday'] = $tourers['tourer']['birthday'][$i];
+        $tourer['phone']    = $tourers['tourer']['phone'][$i];
+        $tourer['gender']   = $tourers['tourer']['gender'][$i];
+        $tourer['address']  = $tourers['tourer']['address'][$i];
+        $tourer['order_id'] = $order_id;
+        $this->TourerRepository->create($tourer);
+      }
+
+      return view('frontend.report', ['code' => $order['code']]);
+
     }
 
 }

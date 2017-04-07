@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Repositories\Order;
+namespace App\Repositories\Customer;
 
-interface OrderRepositoryInterface
+interface CustomerRepositoryInterface
 {
 	/**
 	* InsertGetID
