@@ -7,17 +7,19 @@ use Illuminate\Http\Request;
 use App\Repositories\Order\OrderRepositoryInterface;
 use App\Repositories\Tour\TourRepositoryInterface;
 use App\Repositories\Category\CategoryRepositoryInterface;
+use App\Repositories\Pay\PayRepositoryInterface;
 
 class MainController extends Controller
 {
     //
     protected $OrderRepository,$TourRepository,$CategoryRepository;
 
-    public function __construct(OrderRepositoryInterface $OrderRepository,TourRepositoryInterface $TourRepository,CategoryRepositoryInterface $CategoryRepository )
+    public function __construct(OrderRepositoryInterface $OrderRepository,TourRepositoryInterface $TourRepository,CategoryRepositoryInterface $CategoryRepository, PayRepositoryInterface $PayRepository )
     {
         $this->OrderRepository = $OrderRepository;
         $this->TourRepository=$TourRepository;
         $this->CategoryRepository=$CategoryRepository;
+        $this->PayRepository=$PayRepository;
      
     }
 
@@ -89,6 +91,11 @@ class MainController extends Controller
         ]);
     }
 
-
+    public function getCheckout(Request $request)
+    {
+      $dataTour=$this->TourRepository->findTour($request->id);
+      $pays     = $this->PayRepository->getAll();
+      return view('frontend.checkout', ['tour' => $dataTour, 'TourRepository'=>$this->TourRepository, 'pays' => $pays]);
+    }
 
 }

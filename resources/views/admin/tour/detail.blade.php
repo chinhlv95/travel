@@ -2,7 +2,7 @@
 
 @section('content')
 <!-- Page Content -->
-<div id="page-wrapper">
+<div id="page-wrapper" class="tour-detail">
     <div class="container-fluid">
         <div class="row">
             <div class="col-lg-12">

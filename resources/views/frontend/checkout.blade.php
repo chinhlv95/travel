@@ -1,0 +1,145 @@
+@extends('frontend.layouts.masterpage')
+@section('title','Checkout')
+@section('description','Checkout')
+@section('keywords','Checkout')
+@section('content')
+<section class="checkout">
+    <div class="container">
+        {{-- Thông tin tuor --}}
+        <div class="checkout-title">
+            <span class="checkout-title-name">Thông tin tour</span>
+        </div>
+        <div class="clearfix">
+            <div class="info-img">
+                <img src="{{$tour->image}}" />
+            </div>
+            <div class="info-tour">
+                <h2> <a href="#">{{$tour->name}}</a>  </h2>
+                <div class="tour-row">Thời gian: <span style="font-weight:bold">{{$TourRepository->subDate($tour->start_date,$tour->end_date)}}</span> </div>
+
+                <input type="hidden" id="total-all-hidden" value="0" />
+                <div class="tour-row">Giá: <span style="font-weight:bold" id="total-all">{{number_format((int)($tour->price)*(1-(int)($tour->sale)/100), 0 , ",", "." )}} VNĐ</span></div>
+                <div class="tour-row">Ngày khởi hành: <span style="font-weight:bold">{{date('d-m-Y', strtotime($tour->start_date))}}</span>
+                </div>
+                <div class="tour-row">Nơi khởi hành: <span style="font-weight:bold"> {{$tour->provice_name}}</span>
+                </div>
+                <div class="tour-row">Số chỗ còn nhận: <span style="font-weight:bold">{{((int)($tour->quantity)-(int)($tour->booked))}}</span></div>    
+            </div>
+        </div>
+        <form action="" method="POST">
+            <input type="hidden" name="_token" value="{{csrf_token()}}" />
+            {{-- Thông tin liên hệ --}}
+            <div class="checkout-title">
+                <span class="checkout-title-name">Thông tin liên hệ</span>
+            </div>
+            <div class="row">
+                <div class="form-group col-md-4">
+                    <label for="cusName">HỌ TÊN*:<span class="error"></span></label>
+                    <input type="text" name="cusName" id="cusName" class="form-control ">
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="cusEmail">Email*:<span class="error"></span></label>
+                    <input type="email" name="cusMail" id="cusEmail" class="form-control ">
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="cusPhone">Số điện thoại *:<span class="error"></span></label>
+                    <input type="text" name="cusPhone" id="cusPhone" class="form-control">
+                </div>
+                <p class="clearfix"></p>
+                <div class="form-group col-md-4">
+                    <label for="cusBirthday">Ngày sinh *:<span class="error"></span></label>
+                    <input type="date" name="cusBirthday" id="cusBirthday" class="form-control ">
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="cusAddress">Địa chỉ *:<span class="error"></span></label>
+                    <input type="text" name="cusAddress" id="cusAddress" class="form-control">
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="cusGender">Giới tính :<span class="error"></span></label><br>
+                    <label class="radio-inline">
+                        <input name="cusGender" value="0" checked type="radio">Nam
+                    </label>
+                    <label class="radio-inline">
+                        <input name="cusGender" value="1" type="radio">Nữ
+                    </label>
+                </div>
+                <p class="clearfix"></p>
+                <div class="form-group col-md-4">
+                    <label for="cusQuantity">Số lượng :<span class="error"></span></label>
+                    <input type="number" id="cusQuantity" name="quantity" class="form-control" data-price="{{(int)(($tour->price)*(1-(int)($tour->sale)/100))}}" value="1" min="1" max="{{((int)($tour->quantity)-(int)($tour->booked))}}">
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="cusNote">Ghi chú:<span class="error"></span></label>
+                    <textarea name="cusNote" id="cusNote" class="form-control "></textarea>
+                </div>
+            </div>
+            <div class="checkout-title">
+                <span class="checkout-title-name">Thông tin khách đi tour</span>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>Họ tên(*)</th>
+                                <th>Số điện thoại</th>
+                                <th>Ngày sinh</th>
+                                <th>Giới tính</th>
+                                <th>Địa chỉ</th>
+                                <th>Giá</th>
+                            </tr>
+                        </thead>
+                        <tbody class="tbody">
+                            <tr>
+                                <td><input type="text" name="tourer[name]" class="form-control "></td>
+                                <td><input type="text" name="tourer[phone]" class="form-control "></td>
+                                <td><input type="date" name="tourer[birthday]" class="form-control "></td>
+                                <td><select class="form-control" name="tourer[gender]">
+                                        <option value="0">Nam</option>
+                                        <option value="1">Nữ</option>
+                                    </select>
+                                </td>
+                                <td><input type="text" name="tourer[address]" class="form-control "></td>
+                                <td>{{number_format((int)($tour->price)*(1-(int)($tour->sale)/100), 0 , ",", "." )}} VNĐ</td>
+                            </tr>
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <td colspan="5">Tổng giá trị tour:</td>
+                                <td id="total_price">{{number_format((int)($tour->price)*(1-(int)($tour->sale)/100), 0 , ",", "." )}} VNĐ</td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+            </div>
+            <div class="checkout-title">
+                <span class="checkout-title-name">Hình thức thanh toán</span>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    @foreach( $pays as $pay)
+                    <label class="radio-inline">
+                        <input name="pay" value="{{$pay->id}}"
+                        @if($pay->id == 1)
+                        {{"checked"}}
+                        @endif
+                        class="form-group" type="radio">{{$pay->name}}
+                    </label>
+                    @endforeach
+                </div>
+            </div>
+            <div class="panel-body">
+                <div class=" clearfix pull-right submit-btn">
+                        <input type="hidden" name="sale" class="form-control" value="{{$tour->sale}}">
+                        <input type="hidden" name="quantity_tourer" class="form-control">
+                        <input type="hidden" name="price" class="form-control">
+                        <input type="hidden" name="tour_id" class="form-control" value="{{$tour->id}}">
+                        <input class="btn btn-success " type="submit" value="THANH TOÁN" />
+                </div>
+            </div>
+
+        </form>
+
+    </div>
+</section>
+@endsection

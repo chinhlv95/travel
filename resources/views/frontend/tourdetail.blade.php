@@ -85,7 +85,7 @@
                                          @endif
                                           @if(((int)($dataTour->quantity)-(int)($dataTour->booked))>0)
                                           <div class="add-tour-order">
-                                             <a href="#" title="">Đặt tour</a>
+                                             <a href="{{URL::to('/')}}/checkout/{{$dataTour->id}}" title="">Đặt tour</a>
                                          </div>                                         
                                          @else
                                          <div class="add-tour-order">

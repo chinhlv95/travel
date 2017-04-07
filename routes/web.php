@@ -18,18 +18,26 @@ Route::get('backend', function() {
    return view("admin.login");
 });
 Route::post('postLogin','LoginController@postLogin');
+
 //frontend-kien
 Route::post('check-tour', 'MainController@checkTour');
+
 // page detail
 Route::get('tour-detail/{id}/{name}.html','MainController@getTourDetail');
+
 // page tour for category
 Route::get('category/{id}/{name}.html','MainController@getCategories');
+
 //add tour
 Route::post('add-tour', 'MainController@addTour');
+
 //show destination
 Route::post('show-destination','HomeController@showDestination');
+
 // filter gobal
 Route::get('filter', 'MainController@filterGobal');
+// checkout
+Route::get('checkout/{id}','MainController@getCheckout');
 
 Route::prefix('admin')->group(function(){
 
