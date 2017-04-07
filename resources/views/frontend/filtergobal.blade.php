@@ -41,7 +41,7 @@
         				<td class="date-tour">{{$TourRepository->subDate($value->start_date,$value->end_date)}}</td>
         				<td class="date-tour">{{date('d-m-Y', strtotime($value->start_date))}}</td>
         				<td class="date-tour" >{{date('d-m-Y', strtotime($value->end_date))}}</td>
-        				<td> {{number_format((int)($value->price)*(1-(int)($dataSaleFilter->sale)/100))."đ"}} </td>
+        				<td> {{number_format((int)($value->price)*(1-(int)($dataSaleFilter->sale_precent)/100))."đ"}} </td>
         				<td>{{((int)($value->quantity)-(int)($value->booked))}}</td>
         				<td>
                          @if(((int)($value->quantity)-(int)($value->booked))==0)

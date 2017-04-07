@@ -450,7 +450,11 @@ text-align: center;
     width: 100%;
     height: auto;
     overflow: hidden;
-    margin-bottom: 50px;
+    margin-bottom: 15px;
+}
+#fix-height{
+    height: 500px;
+    overflow: hidden;
 }
 .header-list-tourer{
     background: #ddd;
@@ -637,6 +641,9 @@ text-decoration: none;
     margin-top: -19px;
     z-index: 1;
 }
+.info-tour-title-list{
+    margin-bottom: 10px;
+}
 .box-sale {
     width: 100%;
     height: auto;
@@ -666,6 +673,7 @@ font-size: 16px;
     text-decoration: line-through;
 
 }
+
 /*add tour*/
 .btn-checkout{
     float: right;
