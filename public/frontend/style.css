@@ -648,4 +648,32 @@ font-size: 16px;
   margin-top: 10px;
   opacity: 1 !important;
 }
-    
+.add-tour{
+    width: 77px;
+}
+.add-tour a{
+    padding:5px 10px;
+    text-decoration: none;
+    background:#F23636;
+    color: #FFFFFF;
+}
+.contact{
+    width: 77px;
+}
+.contact a{
+    padding:5px 10px;
+    text-decoration: none;
+    background:#1d508d;
+    color: #FFFFFF;
+}
+.date-tour{
+    width: 100px;
+}
+.content-search-tour{
+    text-align: center;
+}
+.content-search-tour table thead tr th{
+    text-align: center;
+    background: #3e58a4;
+    color: #FFFFFF;
+}

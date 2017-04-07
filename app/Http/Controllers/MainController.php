@@ -7,20 +7,20 @@ use Illuminate\Http\Request;
 use App\Repositories\Order\OrderRepositoryInterface;
 use App\Repositories\Tour\TourRepositoryInterface;
 use App\Repositories\Category\CategoryRepositoryInterface;
+use App\Repositories\Sale\SaleRepositoryInterface;
 
 class MainController extends Controller
 {
     //
     protected $OrderRepository,$TourRepository,$CategoryRepository;
 
-    public function __construct(OrderRepositoryInterface $OrderRepository,TourRepositoryInterface $TourRepository,CategoryRepositoryInterface $CategoryRepository )
+    public function __construct(OrderRepositoryInterface $OrderRepository,TourRepositoryInterface $TourRepository,CategoryRepositoryInterface $CategoryRepository,SaleRepositoryInterface $SaleRepository )
     {
-        $this->OrderRepository = $OrderRepository;
-        $this->TourRepository=$TourRepository;
+        $this->OrderRepository   =$OrderRepository;
+        $this->TourRepository    =$TourRepository;
         $this->CategoryRepository=$CategoryRepository;
-     
+        $this->SaleRepository    =$SaleRepository;
     }
-
     /**
     *check code tour
     *@param request $request
@@ -85,7 +85,9 @@ class MainController extends Controller
     {
       $dataFilterTour=$this->TourRepository->filterTourGobal($request->province,$request->cate,$request->destination,$request->start,$request->price);
       return view('frontend.filtergobal',[
-        'dataFilterTour'=>$dataFilterTour
+        'dataFilterTour'=>$dataFilterTour,
+        'TourRepository'=>$this->TourRepository,
+        'SaleRepository'      =>$this->SaleRepository
         ]);
     }
 

@@ -70,5 +70,29 @@ $(document).ready(function() {
        },
        error: function() {}
    });
-     });
+     }); 
+
+  //pagination filter
+      $('body').on('click',"#pagination-filter a ", function(event) {
+                 event.preventDefault();
+                 var page = $(this).attr('href').split('page=')[1];
+                 var province=getParameterByName('province');
+                 var cate=getParameterByName('cate');
+                 var destination=getParameterByName('destination');
+                 var start=getParameterByName('start');
+                 var price=getParameterByName('price')
+                 history.pushState({}, "", "?province="+province+"&cate="+cate+"&destination="+destination+"&start="+start+"&price="+price+"&page="+page);
+                 location.reload();                
+      });
 });
+  function getParameterByName(name, url) {
+     if (!url) {
+         url = window.location.href;
+     }
+     name = name.replace(/[\[\]]/g, "\\$&");
+     var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+         results = regex.exec(url);
+     if (!results) return '';
+     if (!results[2]) return '';
+     return decodeURIComponent(results[2].replace(/\+/g, " "));
+ }

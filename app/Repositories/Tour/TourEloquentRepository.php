@@ -185,7 +185,7 @@ class TourEloquentRepository extends EloquentRepository implements TourRepositor
         ->where('tours.destination_id','like','%'.$destination.'%')
         ->where('tours.start_date','like','%'.$start.'%')
         ->whereBetween('tours.price', [(int)$arrPrice[0],(int)$arrPrice[1]])
-        ->paginate(2);
+        ->paginate(10);
    	}else{
         $result = DB::table('destinations')
         ->join('categories', 'categories.id', '=', 'destinations.cate_id')
@@ -195,7 +195,7 @@ class TourEloquentRepository extends EloquentRepository implements TourRepositor
         ->where('destinations.cate_id','like','%'.$cate.'%')
         ->where('tours.destination_id','like','%'.$destination.'%')
         ->where('tours.start_date','like','%'.$start.'%')
-        ->paginate(2);
+        ->paginate(10);
    	}
         return $result;
    }

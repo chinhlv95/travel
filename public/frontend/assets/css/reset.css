@@ -24,6 +24,9 @@ time, mark, audio, video {
 	vertical-align: baseline;
 	font-family: Arial;
 }
+td,th{
+    text-align: center;
+}
 /* HTML5 display-role reset for older browsers */
 article, aside, details, figcaption, figure, 
 footer, header, hgroup, menu, nav, section {
