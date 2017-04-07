@@ -28,10 +28,8 @@ class MainController extends Controller
         $this->SaleRepository    =$SaleRepository;
         $this->TourerRepository  =$TourerRepository;
         $this->CustomerRepository=$CustomerRepository;
-     
-    
-
     }
+    
     /**
     *check code tour
     *@param request $request
