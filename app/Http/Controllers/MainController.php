@@ -8,7 +8,6 @@ use App\Repositories\Order\OrderRepositoryInterface;
 use App\Repositories\Tour\TourRepositoryInterface;
 use App\Repositories\Category\CategoryRepositoryInterface;
 
-
 class MainController extends Controller
 {
     //
@@ -64,6 +63,29 @@ class MainController extends Controller
           'dataCateTour'       =>$dataCateTour,
           'TourRepository'     =>$this->TourRepository,
           'dataCat'            =>$dataCat
+        ]);
+    }
+    /**
+    * add tour
+    *@param integer $id
+    *@return mixed
+    */
+    public function addTour(Request $request)
+    {
+      $dataFindTour=$this->TourRepository->find($request->id)->toArray();
+      session(['addTour'=>$dataFindTour]);
+      return Response(['message'=>'thêm tour thành công']);
+    }
+    /**
+    *Filter gobal
+    *@param Request $request
+    *@return mixed
+    */
+    public function filterGobal(Request $request)
+    {
+      $dataFilterTour=$this->TourRepository->filterTourGobal($request->province,$request->cate,$request->destination,$request->start,$request->price);
+      return view('frontend.filtergobal',[
+        'dataFilterTour'=>$dataFilterTour
         ]);
     }
 

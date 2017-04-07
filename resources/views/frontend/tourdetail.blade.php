@@ -9,7 +9,7 @@
 {{$TourRepository->convert_vi_to_en($dataTour->name)}}
 @stop
 @section('content')
-
+{{dd(session('addTour'))}}
 <section class="detail-tour">
          <div class="container">
              <div class="row breadcrumb-detail">

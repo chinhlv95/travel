@@ -24,6 +24,12 @@ Route::post('check-tour', 'MainController@checkTour');
 Route::get('tour-detail/{id}/{name}.html','MainController@getTourDetail');
 // page tour for category
 Route::get('category/{id}/{name}.html','MainController@getCategories');
+//add tour
+Route::post('add-tour', 'MainController@addTour');
+//show destination
+Route::post('show-destination','HomeController@showDestination');
+// filter gobal
+Route::get('filter', 'MainController@filterGobal');
 
 Route::prefix('admin')->group(function(){
 

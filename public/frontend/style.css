@@ -248,13 +248,13 @@ b, strong {
     padding: 10px;
     height: 70px;
 }
-
 .each-item .info_product h3, .each-item .info_product h3 a {
     color: #fff;
     height: 38px;
     font-size: 15px;
     line-height: 15px;
     font-weight: 700;
+    text-decoration: none;
 }
 
 .each-item .info_product .name_pro {
@@ -621,5 +621,31 @@ font-size: 16px;
 .box-sale-info p .price-not-sale{
     text-decoration: line-through;
 
+}
+/*add tour*/
+.btn-checkout{
+    float: right;
+    display: inline-block;
+}
+.btn-checkout a{
+    padding:5px 10px;
+    background: #1d508d;
+    color: #fff;
+    text-decoration: none;
+}
+.title-add-tour{
+    color: red;
+    font-size:16px;
+}
+#modalAddTour .modal-content{
+    border-radius: 0px !important;
+}
+#modalAddTour .modal-header{
+    padding:10px 0px;
+}
+#modalAddTour .modal-header button{
+  color: red;
+  margin-top: 10px;
+  opacity: 1 !important;
 }
     

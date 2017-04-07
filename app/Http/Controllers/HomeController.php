@@ -25,7 +25,16 @@ class HomeController extends Controller
      	return view("index",[
              'dataCat' =>$dataCat,
              'desRepository'=>$this->desRepository,
-             'dataCat' =>$dataCat
      		]);
+     }
+     /**
+    *show destnation for categories
+    *@param integer $id
+    *@return mixed;
+    */
+     public function showDestination(Request $request)
+     {
+        $dataDestination=  $this->desRepository->showDestinationCate($request->id);
+        return json_encode($dataDestination);
      }
 }

@@ -7,6 +7,7 @@
 {{'Trang chủ'}}
 @stop
 @section('content')
+
 <section class="tour">
             <div class="container">
             @foreach ($dataCat as $value)
@@ -53,7 +54,7 @@
                                         <span><i class="fa fa-calendar-check-o"></i> Khởi hành {{date('d-m-Y', strtotime($tour->start_date))}}</span>
                                     </div>
                                     <div class="addtocartdiv">
-                                        <a href="#" class="add-tour">Đặt tour</a>
+                                        <a href="javascript:void(0)" id={{$tour->id}} class="add-tour">Đặt tour</a>
                                         <a href="{{URL::to('/')}}/tour-detail/{{$tour->id}}/{{$desRepository->convert_vi_to_en($tour->name)}}.html" class="tour-detail">Xem chi tiết</a>
                                     </div>
                                 </div>

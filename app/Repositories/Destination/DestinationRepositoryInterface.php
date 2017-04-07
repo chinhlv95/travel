@@ -8,6 +8,6 @@ interface DestinationRepositoryInterface
 	public function FilterDestinationname($name= "", $limit = null, array $with = array());
 
 	public function showTourDestination($id,$limit);
-
+     public function showDestinationCate($id);
 
 }
