@@ -30,8 +30,7 @@ class MainController extends Controller
         $this->CustomerRepository=$CustomerRepository;
      
     }
-
-    }
+    
     /**
     *check code tour
     *@param request $request
