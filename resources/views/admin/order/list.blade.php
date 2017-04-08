@@ -124,7 +124,7 @@
                     <h4>list tourers</h4>
                     @if($order->status==0)
                      <div class="add-more-touers">
-                        <a href="" class="btn-add">
+                        <a href="javascript:void(0)" data-order="{{$order->order_id}}" data-booked="{{$order->booked}}" data-quantity="{{$order->quantity}}" id="add-tourer" class="btn-add">
                           Add tourers
                         </a>
                       </div>
@@ -155,7 +155,7 @@
                             <td>{{$tourer->phone}}</td>
                             <td>{{$tourer->address}}</td>
                             @if($order->status==0)
-                            <td class="center"><i class="fa fa-trash-o  fa-fw"></i><a href="javascript:void(0)" data-tour="{{$order->id}}" data-order="{{$order->order_id}}" data-id="{{$tourer->id}}"  class="delete-tourers" => Delete</a></td>
+                            <td class="center"><i class="fa fa-trash-o  fa-fw"></i><a href="javascript:void(0)" data-tour="{{$order->tour_id}}" data-order="{{$order->order_id}}" data-id="{{$tourer->id}}"  class="delete-tourers" => Delete</a></td>
                             <td class="center"><i class="fa fa-pencil fa-fw"></i> <a href="javascript:void(0)" id="{{$tourer->id}}" class="update-tourers" >Edit</a></td>
                             @endif
                           </tr>
