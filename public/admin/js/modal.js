@@ -134,6 +134,74 @@
          //update traffic
      createUpdateForm('#traffic-form-edit', "#content-table-traffic", "#modal-traffic");
 
+     //order
+     $('body').on('click', '#filter-order', function(event) {
+        var nameTour=$("#name-tour").val();
+        var status  =$('#order-status').val();
+          history.pushState({}, "name", "admin/order/list?name=" + name+"&status="+status);
+         $("#content-order-tabel").load(" #content-order-tabel");
+
+     });
+     // pagination order
+      $('body').on('click', '#pagination-order a', function(event) {
+         event.preventDefault();
+         var page = $(this).attr('href').split('page=')[1];
+         var name = getParameterByName('name');
+          var status = getParameterByName('status');
+         history.pushState({}, "", "admin/order/list?name=" + name +"&status="+status+"&page=" + page);
+         $("#content-order-tabel").load(" #content-order-tabel");
+     });
+     //update status order
+     $('body').on('click', '.update-order', function(event) {
+         event.preventDefault();
+         var id=$(this).data("id");
+         var _token = $("#_token").val();
+          $.ajax({
+                     type:"post",
+                     url: url+"admin/order/update-order",
+                     data: {id:id,_token:_token}, // serializes the form's elements.
+                     success: function(data) {
+                    console.log(data);
+                    $("#content-order-tabel").load(" #content-order-tabel");
+
+                     },
+                     error: function(data) {
+                     }
+                 });
+
+     }); 
+     // list tourers
+        //-getModalPost
+        getModalPost('.update-tourers','#modal-order','#contet-modal-order',"#edit-tourer-form","admin/tourer/edit/");
+        //update tourer
+        createUpdateForm("#tourer-form-update", "#content-table-tourer", "#modal-order");
+        //delete tourer
+         $('body').on('click', '.delete-tourers', function(event) {
+         event.preventDefault();
+         var id = $(this).data("id");
+         var tour_id=$(this).data('tour');
+         var order_id=$(this).data('order');
+         var _token = $("#_token").val();
+         var notification = confirm("are you delete item");
+         if (notification) {
+             $.ajax({
+                 url: url + 'admin/tourer/delete',
+                 type: 'post',
+                 data: {
+                     id: id,
+                     tour_id:tour_id,
+                     order_id:order_id,
+                     _token: _token
+                 },
+                 success: function(data) {
+                    
+                     $("#content-table-order").load(" #content-table-order");
+                 },
+                 error: function() {}
+             });
+         }
+     });
+
      // ===================================function dùng chung============================
      //get modal add
      function getModal(button, modal, content, urlname) {
@@ -229,13 +297,14 @@
  }
  // other
 $(document).ready(function() {
-    $(".order-tr").click(function(){
-     $('.order-show').hide();
+    $('body').on('click', '.order-tr', function(event) {
+        event.preventDefault();
+         $('.order-show').hide();
         if($(this).next().is(":visible")){
             $(this).next().hide();    
         }else{
             $(this).next().show();
         }
-  });
+    });
 
 });
