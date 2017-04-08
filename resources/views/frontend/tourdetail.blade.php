@@ -57,7 +57,7 @@
                              ?>
                             
                          </div>
-                         <div class="add-tour">
+                         <div class="add-tour-detail">
                              <div class="row">
                                  <div class="col-md-6">
                                      <div class="add-tour-left">
