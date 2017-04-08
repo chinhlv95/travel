@@ -17,7 +17,9 @@ body {
     min-height: 568px;
     background-color: #fff;
 }
-
+.filter{
+  margin-bottom: 20px;
+}
 @media(min-width:768px) {
     #page-wrapper {
         position: inherit;
@@ -407,6 +409,7 @@ table.dataTable thead .sorting:after {
 }
 .tour-order .tour-order-right{
     padding-left: 30px;
+    width: 50%;
 
 }
 .tour-order .tour-order-left img{
