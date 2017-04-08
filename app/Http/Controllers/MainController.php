@@ -147,5 +147,5 @@ class MainController extends Controller
       return view('frontend.report', ['code' => $order['code']]);
 
     }
-
+ 
 }
