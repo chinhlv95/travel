@@ -39,7 +39,7 @@
                             {{$errors->first('fullname')}}
                         @endif
                     </span></label>
-                    <input type="text" name="fullname" id="cusName" value="{{old('fullname')}}" class="form-control ">
+                    <input type="text" name="fullname" id="cusName" value="{{old('fullname')}}" class="form-control " required>
                 </div>
                 <div class="form-group col-md-4">
                     <label for="cusEmail">Email*:<span class="error">
@@ -47,7 +47,7 @@
                             {{$errors->first('email')}}
                         @endif
                     </span></label>
-                    <input type="email" name="email" id="cusEmail" value="{{old('email')}}" class="form-control ">
+                    <input type="email" name="email" id="cusEmail" value="{{old('email')}}" class="form-control " required>
                 </div>
                 <div class="form-group col-md-4">
                     <label for="cusPhone">Số điện thoại *:<span class="error">
@@ -55,7 +55,7 @@
                             {{$errors->first('phone')}}
                         @endif
                     </span></label>
-                    <input type="text" name="phone" id="cusPhone" value="{{old('phone')}}" class="form-control">
+                    <input type="text" name="phone" id="cusPhone" value="{{old('phone')}}" class="form-control" required>
                 </div>
                 <p class="clearfix"></p>
                 <div class="form-group col-md-4">
@@ -72,7 +72,7 @@
                             {{$errors->first('address')}}
                         @endif
                     </span></label>
-                    <input type="text" name="address" id="cusAddress" value="{{old('address')}}" class="form-control">
+                    <input type="text" name="address" id="cusAddress" value="{{old('address')}}" class="form-control" required>
                 </div>
                 <div class="form-group col-md-4">
                     <label for="cusGender">Giới tính :<span class="error"></span></label><br>
@@ -114,8 +114,8 @@
                                 <td><input type="text" name="tourer[name][]" 
                                 class="form-control "></td>
                                 <td><input type="text" name="tourer[phone][]" class="form-control "></td>
-                                <td><input type="date" name="tourer[birthday][]" class="form-control "></td>
-                                <td><select class="form-control" name="tourer[gender][]">
+                                <td><input type="date" name="tourer[birthday][]" class="form-control " ></td>
+                                <td><select class="form-control" name="tourer[gender][]" >
                                         <option value="0">Nam</option>
                                         <option value="1">Nữ</option>
                                     </select>
