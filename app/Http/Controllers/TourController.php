@@ -133,8 +133,8 @@ class TourController extends Controller
     public function postAdd( TourRequest $request)
     {
         $data    = $request->except(['imagepro','image-hidden','_token']);
-        $name    = $request->name;
         $tour_id = $this->tourReposity->getInsertID($data);
+        $name    = $request->name;
         $images  = $request->only(['imagepro']);
         $image_arr = array();
         for( $i =0 ; $i < count($images['imagepro']) ; $i++) {

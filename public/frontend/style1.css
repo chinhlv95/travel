@@ -145,3 +145,9 @@ a:hover {
 #modalTour .modal-header h4 {
 	background-color: #1d508d;color:white !important;text-align: center;font-size: 30px;
 }
+
+/* Tour detail */
+
+.description-tour-left .tab-content {
+	padding-top: 20px;
+}

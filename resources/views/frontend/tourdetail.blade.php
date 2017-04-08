@@ -14,8 +14,8 @@
          <div class="container">
              <div class="row breadcrumb-detail">
                  <ol class="breadcrumb">
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">Tour</a></li>
+                    <li><a href="{{URL::to('/')}}">Home</a></li>
+                    <li ><a href="#">Tour</a></li>
                     <li class="active">Vacation</li>        
                   </ol>
              </div>
@@ -39,7 +39,7 @@
                      <div class="right-tour-detail">
                          <h1>{{$dataTour->name}}</h1>
 
-                         <h3>Hành trình: Hà Nội – Đầm Vân Long – Chùa Bái Đính – Tràng An – Hạ Long</h3>
+                         <h3>Hành trình: {{$dataTour->journey}}</h3>
                          <div class="socail-fb">
                             
                          </div>
@@ -57,7 +57,7 @@
                              ?>
                             
                          </div>
-                         <div class="add-tour">
+                         <div class="add-tour-detail">
                              <div class="row">
                                  <div class="col-md-6">
                                      <div class="add-tour-left">
@@ -108,8 +108,7 @@
                          <ul class="nav nav-tabs">
                           <li class="active"><a data-toggle="tab" href="#home">Tổng quan</a></li>
                           <li><a data-toggle="tab" href="#menu1">Lịch trình</a></li>
-                          <li><a data-toggle="tab" href="#menu2">Lịch khởi hành</a></li>
-                          <li><a data-toggle="tab" href="#menu3">Bình luận</a></li>
+                          <li><a data-toggle="tab" href="#menu2">Ghi chú</a></li>
                         </ul>
 
                         <div class="tab-content">
@@ -123,11 +122,7 @@
                           </div>
                           <div id="menu2" class="tab-pane fade">
                           
-                            <p>Some content in menu 2.</p>
-                          </div>
-                          <div id="menu3" class="tab-pane fade">
-                          
-                            <p>Some content in menu 3.</p>
+                            <p>{!!$dataTour->note!!}</p>
                           </div>
                         </div>
                      </div>

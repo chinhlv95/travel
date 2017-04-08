@@ -3,44 +3,42 @@
             <ul class="nav" id="side-menu">
                
                 <li>
-                    <a href="#"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
+                    <a href="{{URL::to('/')}}/backend"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
                 </li>
                 <li>
-                    <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> User<span class="fa arrow"></span></a>
-                    <ul class="nav nav-second-level">
-                        <li>
-                            <a href="admin/theloai/danhsach">Danh Sách</a>
-                        </li>
-                        <li>
-                            <a href="admin/theloai/them">Add use</a>
-                        </li>
-                    </ul>
-                    <!-- /.nav-second-level -->
+                    <a href="{{URL::to('/')}}/admin/user/list"><i class="fa fa-users fa-fw"></i> User</a>
                 </li>
                 <li>
-                    <a href="#"><i class="fa fa-cube fa-fw"></i> Product<span class="fa arrow"></span></a>
-                    <ul class="nav nav-second-level">
-                        <li>
-                            <a href="#">List Product</a>
-                        </li>
-                        <li>
-                            <a href="#">Add Product</a>
-                        </li>
-                    </ul>
-                    <!-- /.nav-second-level -->
+                    <a href="admin/cate/list"><i class="fa fa-cube fa-fw"></i> Category </a>
                 </li>
                 <li>
-                    <a href="#"><i class="fa fa-users fa-fw"></i> User<span class="fa arrow"></span></a>
-                    <ul class="nav nav-second-level">
-                        <li>
-                            <a href="admin/user/danhsach">List User</a>
-                        </li>
-                        <li>
-                            <a href="admin/user/them">Add User</a>
-                        </li>
-                    </ul>
-                    <!-- /.nav-second-level -->
+                    <a href="admin/destination/list"><i class="fa fa-cloud-download" aria-hidden="true"></i> Destination </a>
                 </li>
+                <li>
+                    <a href="admin/province/list"><i class="fa fa-cloud-upload" aria-hidden="true"></i> Province </a>
+                </li>
+                <li>
+                    <a href="admin/tour/list"><i class="fa fa-hand-o-right" aria-hidden="true"></i> Tour </a>
+                </li>
+                <li>
+                    <a href="admin/sale/list"><i class="fa fa-long-arrow-down" aria-hidden="true"></i> Sales </a>
+                </li>
+                <li>
+                    <a href="admin/traffic/list"><i class="fa fa-plane" aria-hidden="true"></i> Traffic </a>
+                </li>
+                <li>
+                    <a href="admin/order/list"><i class="fa fa-file-text" aria-hidden="true"></i> Order </a>
+                </li>
+                <li>
+                    <a href="admin/pay/list"><i class="fa fa-credit-card" aria-hidden="true"></i> Pay </a>
+                </li>
+                <li>
+                    <a href="admin/price-range/list"><i class="fa fa-arrows-h" aria-hidden="true"></i> Price Ranger </a>
+                </li>
+                <li>
+                    <a href="admin/contact/list"><i class="fa fa-phone" aria-hidden="true"></i> Contact </a>
+                </li>
+
             </ul>
         </div>
         <!-- /.sidebar-collapse -->
