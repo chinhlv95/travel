@@ -4,22 +4,40 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Repositories\Order\OrderRepositoryInterface;
-
+use App\Repositories\Sale\SaleRepositoryInterface;
 class OrderController extends Controller
 {
-      protected $OrderRepository;
+      protected $OrderRepository,$SaleRepository;
 
-    public function __construct(OrderRepositoryInterface $OrderRepository)
+    public function __construct(OrderRepositoryInterface $OrderRepository,SaleRepositoryInterface $SaleRepository)
     {
-        $this->OrderRepository = $OrderRepository;
+        $this->OrderRepository =$OrderRepository;
+        $this->SaleRepository  =$SaleRepository;
     }
     /**
     *show  list contact
     *@return mixed
     */
-    public function getList()
+    public function getList(Request $r)
+    {   $name  =isset($r->name)?$r->name:"";
+        $status=isset($r->status)?$r->status:"";
+        $dataOrder=$this->OrderRepository->processOrder($name,$status);
+        return view('admin.order.list',[
+             'dataOrder'      =>$dataOrder,
+             'SaleRepository' =>$this->SaleRepository,
+             'OrderRepository'=>$this->OrderRepository
+            ]);
+    }
+    /**
+    * update status order
+    *@param request $r 
+    */
+    public function updateOrderStatus(Request $r)
     {
-        return view('admin.order.list');
+        $id=$r->id;
+        if($this->OrderRepository->update($id,['status'=>1])){
+         return Response(['message'=>'thành công']);
+        }
     }
     
     /**

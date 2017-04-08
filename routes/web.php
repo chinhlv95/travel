@@ -171,16 +171,24 @@ Route::prefix('admin')->group(function(){
 	});
 	//order
 	Route::prefix('order')->group(function(){
-		//list contact
+		//list order
 		Route::get('list','OrderController@getList');
-		// add contact
-		Route::get('add','TrafficController@getAdd');
-		Route::post('add','TrafficController@postAdd' );
+		Route::post('update-order','OrderController@updateOrderStatus' );
 		//update contact
-		Route::get('edit/{id}','TrafficController@getEdit');
+		Route::get('edit/{id}','OrderController@getEditTourer');
 		Route::post('edit/{id}','TrafficController@postEdit');
 		//delete contact
 		Route::post('delete','TrafficController@getDelete');
 	});
+	//order
+	Route::prefix('tourer')->group(function(){
+	    //update tourer
+		Route::get('edit/{id}','TourersController@getEdit');
+		
+		Route::post('edit/{id}','TourersController@postEdit');
+		//delete contact
+		Route::post('delete','TourersController@getDelete');
+	});
+
 
 });
