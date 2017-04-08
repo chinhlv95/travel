@@ -132,3 +132,16 @@ a:hover {
 .report a:hover {
 	color: #fff;
 }
+/* Check tour code */
+
+#modalTour .modal-header {
+	background-color: #1d508d;color:white !important;text-align: center;font-size: 30px; padding: 10px 0 !important;     border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+}
+#modalTour button.close {
+	color: white;
+    padding-right: 10px;
+}
+#modalTour .modal-header h4 {
+	background-color: #1d508d;color:white !important;text-align: center;font-size: 30px;
+}

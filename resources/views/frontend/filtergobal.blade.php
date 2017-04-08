@@ -50,7 +50,7 @@
                          </div>
                          @else
                           <div class="add-tour">
-                             <a href="#">Đặt tour</a>
+                             <a href="{{URL::to('/')}}/checkout/{{$value->id}}">Đặt tour</a>
                          </div>
                          @endif            
                         </td>

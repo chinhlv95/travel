@@ -55,7 +55,7 @@ $(document).ready(function() {
 
      });
 
-
+/* Checkout*/
 
 $("body").on("change", "#cusQuantity", function (event) {
   var price    = $(this).attr("data-price");
@@ -77,6 +77,19 @@ $("body").on("change", "#cusQuantity", function (event) {
 
 });
 
+$(document).ready(function() {
+  var price    = $("#cusQuantity").attr("data-price");
+  var quantity = parseInt($("#cusQuantity").val());
+  var max      = parseInt($("#cusQuantity").attr("max"));
+  $("#cusQuantity").html("");
+  $(".checkout .tbody").html('');
+  for(var i = 0; i< quantity; i++) {
+    $(".tbody").append('<tr><td><input type="text" name="tourer[name][]" class="form-control "></td><td><input type="text" name="tourer[phone][]" class="form-control "></td><td><input type="date" name="tourer[birthday][]" class="form-control "></td><td><select class="form-control" name="tourer[gender][]"><option value="0">Nam</option><option value="1">Nữ</option></select></td><td><input type="text" name="tourer[address][]" class="form-control "></td><td>'+formatNumber(price)+' VNĐ</td></tr>');
+  }
+  $("#total_price").html(formatNumber(quantity*price)+"VNĐ");
+  $("input[name='quantity_tourer']").val(quantity);
+  $("input[name='price']").val(quantity*price);
+});
 
 function formatNumber (num) {
     return num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1.");
