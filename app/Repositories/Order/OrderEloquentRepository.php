@@ -26,19 +26,19 @@ class OrderEloquentRepository extends EloquentRepository implements OrderReposit
 	{
 		$id = $this->_model->insertGetId($attributes);
   		return $id;
-
+     }
     /**
     *Check code order
     *@param string $code
     *@return mixed
     */
-    }
-	public function getInfoOrder($code);
+  
+	public function getInfoOrder($code)
 	{
        $resultInfoOrder = DB::table('orders')
         ->join('customers', 'customers.id', '=', 'orders.customer_id')
         ->join('tours', 'tours.id', '=','orders.tour_id')
-        ->select('tours.*','orders.*','customers.*')
+        ->select('tours.*','orders.*','customers.*','orders.id as order_id')
         ->where(['orders.code'=>$code])
         ->first();
         return $resultInfoOrder;

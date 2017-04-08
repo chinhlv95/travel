@@ -12,6 +12,8 @@ use App\Repositories\Sale\SaleRepositoryInterface;
 use App\Repositories\Tourer\TourerRepositoryInterface;
 use App\Repositories\Customer\CustomerRepositoryInterface;
 use App\Http\Requests\ReportRequest;
+use Mail;
+use App\Mail\OrderShipped;
 
 
 class MainController extends Controller
@@ -37,11 +39,23 @@ class MainController extends Controller
     */ 
     public function checkTour(Request $request)
     {
-       $code=$request->check;
-       $dataCodeOrder= $this->OrderRepository->getInfoOrder( $code);
+       $code          =$request->check;
+       $dataCodeOrder = $this->OrderRepository->getInfoOrder($code);
+       // check empty
+       if(!empty($dataCodeOrder)){
+       $dataSale      =$this->SaleRepository->find($dataCodeOrder->sale_id);
+       $dataTourerList=$this->TourerRepository->getListTourer($dataCodeOrder->order_id);
     	return view('frontend.checkcode',[
-              'dataCodeOrder'=>$dataCodeOrder
+              'dataCodeOrder' =>$dataCodeOrder,
+              'dataSale'      =>$dataSale,
+              'dataTourerList'=>$dataTourerList
     		]);
+      }else{
+            return view('frontend.checkcode',[
+              'dataCodeOrder' =>$dataCodeOrder,
+              ]);
+      }
+
     }
     /**
     *display detail page
@@ -127,6 +141,9 @@ class MainController extends Controller
         $this->TourerRepository->create($tourer);
       }
 
+      $mail = $request->email;
+      $data = ['code' => $order['code']];
+      Mail::to($mail)->send(new OrderShipped($data));
       return view('frontend.report', ['code' => $order['code']]);
 
     }
