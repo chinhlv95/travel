@@ -12,6 +12,8 @@ use App\Repositories\Sale\SaleRepositoryInterface;
 use App\Repositories\Tourer\TourerRepositoryInterface;
 use App\Repositories\Customer\CustomerRepositoryInterface;
 use App\Http\Requests\ReportRequest;
+use Mail;
+use App\Mail\OrderShipped;
 
 
 class MainController extends Controller
@@ -138,6 +140,10 @@ class MainController extends Controller
         $tourer['order_id'] = $order_id;
         $this->TourerRepository->create($tourer);
       }
+
+      $mail = $request->email;
+      $data = ['code' => $order['code']];
+      Mail::to($mail)->send(new OrderShipped($data));
       return view('frontend.report', ['code' => $order['code']]);
 
     }
