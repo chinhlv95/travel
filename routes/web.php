@@ -43,7 +43,7 @@ Route::get('checkout/{id}','MainController@getCheckout');
 // report
 Route::post('report','MainController@postReport');
 
-Route::prefix('admin')->group(function(){
+Route::prefix('admin')->middleware('MyMiddle')->group(function(){
 
 	// logout
 	Route::get('logout', 'LoginController@Logout');
