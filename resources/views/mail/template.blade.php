@@ -31,7 +31,7 @@
 
             <li style="float: left;width: 35%; list-style: none; padding: 10px 20px;">
                 <p style="color: #222;font-size: 17px;padding-bottom: 10px;font-weight: bold;">Đơn hàng</p>
-                    <p>Quý khách có thể kiểm tra thông tin tour đã đặt trên <a href="travel.com" title="">Việt Sun</a> bằng mã code: <b>{{$data['code']}}</b></p>
+                    <p>Quý khách có thể kiểm tra thông tin tour đã đặt trên <a href="{{URL::to('/')}}" title="">Việt Sun</a> bằng đoạn code sau: <b>{{$data['code']}}</b></p>
             </li>
         </ul>
     </div>

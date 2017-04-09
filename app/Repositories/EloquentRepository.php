@@ -163,5 +163,10 @@ abstract class EloquentRepository implements RepositoryInterface
   $str = str_replace(" ", "-", str_replace("&*#39;","",$str));
   return $str;
   }
+
+  public function test()
+  {
+  	return "2";
+  }
   
 }

@@ -112,7 +112,6 @@
         </section>
         @yield('content')
         <footer class="footer">
-        	
         </footer>
     </body>
 </html>

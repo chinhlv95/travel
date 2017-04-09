@@ -59,7 +59,7 @@ class TourController extends Controller
     	$provinces = $this->provinceReposity->getAll();
     	$destis    = $this->destiReposity->getAll();
     	$name      = $request->name;
-    	$tours     = $this->tourReposity->FilterTourname($name, 2, ['sale', 'province', 'destination', 'user', 'traffic']);
+    	$tours     = $this->tourReposity->FilterTourname($name, 5, ['sale', 'province', 'destination', 'user', 'traffic']);
     	return view('admin.tour.list',['tours' => $tours, 'cates' => $cates, 'provinces' => $provinces, 'destis' => $destis]);
     }
 
@@ -176,8 +176,8 @@ class TourController extends Controller
     	$cates     = $this->cateRepository->getAll();
     	$provinces = $this->provinceReposity->getAll();
     	$destis    = $this->destiReposity->getAll();
-    	$tours = $this->tourReposity->showAllTourCate( $id , 2 );
-    	return view('admin.tour.list',['tours' => $tours, 'cates' => $cates, 'provinces' => $provinces, 'destis' => $destis]);
+    	$tours = $this->tourReposity->showAllTourCate( $id , 5 );
+    	return view('admin.tour.filterlist',['tours' => $tours, 'cates' => $cates, 'provinces' => $provinces, 'destis' => $destis]);
     }
 
     /**
@@ -190,8 +190,8 @@ class TourController extends Controller
     	$cates     = $this->cateRepository->getAll();
     	$provinces = $this->provinceReposity->getAll();
     	$destis    = $this->destiReposity->getAll();
-    	$tours = $this->tourReposity->showAllTourProvince( $id , 2 );
-    	return view('admin.tour.list',['tours' => $tours, 'cates' => $cates, 'provinces' => $provinces, 'destis' => $destis]);
+    	$tours = $this->tourReposity->showAllTourProvince( $id , 5 );
+    	return view('admin.tour.filterlist',['tours' => $tours, 'cates' => $cates, 'provinces' => $provinces, 'destis' => $destis]);
     }
 
     /**
@@ -204,7 +204,7 @@ class TourController extends Controller
     	$cates     = $this->cateRepository->getAll();
     	$provinces = $this->provinceReposity->getAll();
     	$destis    = $this->destiReposity->getAll();
-    	$tours = $this->tourReposity->showAllTourDestination( $id , 2 );
-    	return view('admin.tour.list',['tours' => $tours, 'cates' => $cates, 'provinces' => $provinces, 'destis' => $destis]);
+    	$tours = $this->tourReposity->showAllTourDestination( $id , 5 );
+    	return view('admin.tour.filterlist',['tours' => $tours, 'cates' => $cates, 'provinces' => $provinces, 'destis' => $destis]);
     }
 }
