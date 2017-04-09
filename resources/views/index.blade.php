@@ -28,7 +28,7 @@
                                     </div>
                                 </div>
                                 <div class="info_product">
-                                    <h3 class="name_pro"><a href="" title="{{$tour->name}}">
+                                    <h3 class="name_pro"><a href="{{URL::to('/')}}/tour-detail/{{$tour->id}}/{{$desRepository->convert_vi_to_en($tour->name)}}.html" title="{{$tour->name}}">
                                       <?php $arrayDescription=explode(' ',$tour->name);
                                          $str="";
                                          $i=0;
@@ -67,4 +67,19 @@
                
             </div>
         </section>
+        <div class="footer-index">
+            <div class="clearfix footer-contact">
+            <ul>
+              @foreach( $contacts as $contact)
+              <li style="width: calc(100% / {{count($contacts)}});">
+              <p><span style="font-size:16px">{{$contact->name}}</span></p>
+
+              <p>Trụ sở: {{$contact->address}}</p>
+
+              <p>Điện thoại: {{$contact->address}}</p>
+              </li>
+              @endforeach
+            </ul>
+            </div>
+        </div>
      @endsection

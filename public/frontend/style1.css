@@ -151,3 +151,31 @@ a:hover {
 .description-tour-left .tab-content {
 	padding-top: 20px;
 }
+
+/* Footer */
+.footer-index {
+	height: auto;
+	display: inline-block;
+	background-color: #333;
+	width: 100%;
+}
+.footer-contact {
+	width: 95%;
+	margin: 30px 30px 30px 40px;
+}
+
+.footer-index ul li {
+	list-style: none;
+    padding-right: 10px;
+    color: #999;
+    float: left;
+}
+
+.footer-index ul li p {
+	padding: 0px 0;
+	line-height: 1.3em;
+}
+.footer-index ul li p:first-child {
+	font-weight: bold;
+	font-size: 20px;
+}
