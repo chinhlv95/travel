@@ -11,6 +11,7 @@ use App\Repositories\Pay\PayRepositoryInterface;
 use App\Repositories\Sale\SaleRepositoryInterface;
 use App\Repositories\Tourer\TourerRepositoryInterface;
 use App\Repositories\Customer\CustomerRepositoryInterface;
+use App\Repositories\Destination\DestinationRepositoryInterface;
 use App\Http\Requests\ReportRequest;
 use Mail;
 use App\Mail\OrderShipped;
@@ -19,9 +20,9 @@ use App\Mail\OrderShipped;
 class MainController extends Controller
 {
     //
-    protected $OrderRepository,$TourRepository,$CategoryRepository,$PayRepository,$SaleRepository,$TourerRepository,$CustomerRepository;
+    protected $OrderRepository,$TourRepository,$CategoryRepository,$PayRepository,$SaleRepository,$TourerRepository,$CustomerRepository,$DestiRepository;
 
-    public function __construct(OrderRepositoryInterface $OrderRepository,TourRepositoryInterface $TourRepository, CategoryRepositoryInterface $CategoryRepository, PayRepositoryInterface $PayRepository, SaleRepositoryInterface $SaleRepository, TourerRepositoryInterface $TourerRepository, CustomerRepositoryInterface $CustomerRepository )
+    public function __construct(OrderRepositoryInterface $OrderRepository,TourRepositoryInterface $TourRepository, CategoryRepositoryInterface $CategoryRepository, PayRepositoryInterface $PayRepository, SaleRepositoryInterface $SaleRepository, TourerRepositoryInterface $TourerRepository, CustomerRepositoryInterface $CustomerRepository, DestinationRepositoryInterface $DestiRepository)
     {
         $this->OrderRepository   =$OrderRepository;
         $this->TourRepository    =$TourRepository;
@@ -30,6 +31,7 @@ class MainController extends Controller
         $this->SaleRepository    =$SaleRepository;
         $this->TourerRepository  =$TourerRepository;
         $this->CustomerRepository=$CustomerRepository;
+        $this->DestiRepository   =$DestiRepository;
     }
     
     /**
@@ -146,6 +148,22 @@ class MainController extends Controller
       Mail::to($mail)->send(new OrderShipped($data));
       return view('frontend.report', ['code' => $order['code']]);
 
+    }
+
+    /**
+    * get tour by destination
+    *@param integer $id
+    *@return mixde
+    */
+    public function getTourbyDestination( Request $request)
+    {
+      $dataDestiTour= $this->TourRepository->showTourDesti($request->id,10);
+      $dataDesti=$this->DestiRepository->find($request->id);
+      return view('frontend.destitour',[
+          'dataDestiTour'       =>$dataDestiTour,
+          'TourRepository'     =>$this->TourRepository,
+          'dataDesti'            =>$dataDesti
+        ]);
     }
  
 }

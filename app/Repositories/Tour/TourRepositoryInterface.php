@@ -51,6 +51,15 @@ interface TourRepositoryInterface
      * @return mixed
      */
 	public function showTourCate($id,$limit);
+
+	/**
+     * display tour by destination
+     * @param integer $id
+     * @param $limit
+     * @return mixed
+     */
+	public function showTourDesti($id,$limit);
+
 	/**
     *find tour
     *@param  integer $id;

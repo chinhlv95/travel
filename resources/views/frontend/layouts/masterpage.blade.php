@@ -112,6 +112,24 @@
         </section>
         @yield('content')
         <footer class="footer">
+          <div class="container">
+            <div class="row">
+              @include('frontend.layouts.footer')
+            </div>
+          </div>
+          <div class="clearfix footer-contact">
+              <ul>
+                @foreach( $dataContacts as $dataContact)
+                <li style="width: calc(100% / {{count($dataContacts)}});">
+                <p><span style="font-size:16px">{{$dataContact->name}}</span></p>
+
+                <p>Trụ sở: {{$dataContact->address}}</p>
+
+                <p>Điện thoại: {{$dataContact->phone}}</p>
+                </li>
+                @endforeach
+              </ul>
+          </div>
         </footer>
     </body>
 </html>

@@ -34,6 +34,9 @@ Route::post('add-tour', 'MainController@addTour');
 //show destination
 Route::post('show-destination','HomeController@showDestination');
 
+//show tour by destination
+Route::get('destination/{id}','MainController@getTourbyDestination');
+
 // filter gobal
 Route::get('filter', 'MainController@filterGobal');
 

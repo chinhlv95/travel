@@ -100,6 +100,24 @@ class TourEloquentRepository extends EloquentRepository implements TourRepositor
             ->paginate($limit);
             return $result;
 	}
+
+  /**
+    *  display tour by destination
+    * @param integer $id
+    * @return mixed
+    */
+  public function showTourDesti($id,$limit)
+  {
+          $result = DB::table('tours')
+            ->join('destinations', 'destinations.id', '=', 'tours.destination_id')
+            ->join('traffic', 'traffic.id', '=','tours.traffic_id')
+            ->join('sales', 'sales.id', '=','tours.sale_id')
+            ->join('provinces', 'provinces.id', '=','tours.province_id')
+            ->select('tours.*','traffic.name as traffic_name','sales.sale_precent as sale','provinces.name as provice_name')
+            ->where(['destinations.id'=>$id,'tours.status'=>1])
+            ->paginate($limit);
+            return $result;
+  }
 	/**
     * find tour
     *@param $id
