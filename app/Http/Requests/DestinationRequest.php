@@ -25,7 +25,7 @@ class DestinationRequest extends FormRequest
     {
         return [
             //
-            'name'     => 'required|min:3',
+            'name'     => 'required|min:2',
         ];
     }
 
@@ -38,7 +38,7 @@ class DestinationRequest extends FormRequest
     {
         return [
             'name.required' => 'Destination field is required',
-            'name.min' => 'Destination field must be at least 3 characters long',
+            'name.min' => 'Destination field must be at least 2 characters long',
         ];
     }
 }
