@@ -69,7 +69,14 @@ interface TourRepositoryInterface
 	*@return mixed
 	*/
 	public function saleTour();
-
+    
+     /**
+	  *Tour same start_date
+	  *@param date $start_date
+	  *@return mixed
+	  */
+	  public function sameStartDate($start_date);
+  
 	/**
 	*image Tour
 	*@param integer $id

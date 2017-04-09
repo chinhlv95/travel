@@ -64,7 +64,7 @@ class MainController extends Controller
     */ 
     public function getTourDetail(Request $request)
     {  
-        $dataTour=$this->TourRepository->findTour($request->id);
+        $dataTour    =$this->TourRepository->findTour($request->id);
         $dataTourSale=$this->TourRepository->saleTour();
        return view('frontend.tourdetail',[
            'dataTour'      =>$dataTour,

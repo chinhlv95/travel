@@ -20,7 +20,7 @@ class LoginController extends Controller
        session('username',  $username);
        session('password',  $password);
         if (Auth::attempt(['name' => $username, 'password' => $password])) {
-              return redirect('admin/user/list');
+              return redirect('admin/tour/list');
         }
         else{
          return redirect('/backend')->with("message","lỗi đăng nhập");

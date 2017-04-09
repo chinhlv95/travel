@@ -201,6 +201,45 @@
                  
              </ul>
          </div>
+         <div class="tour-sale">
+             <div class="tour-sale-title">
+                 <h2><a href="">Tour Cùng Ngày</a></h2>
+                 <p class="tour-sale-line"></p>
+             </div>
+             <?php 
+               $dataTourDate=$TourRepository->sameStartDate($dataTour->start_date);
+              ?>
+             <ul class="row">
+               @foreach ($dataTourDate as $key => $sameTourDate)
+                
+                 <li class="col-md-3"><a href="{{URL::to('/')}}/tour-detail/{{$sameTourDate->id}}/{{$TourRepository->convert_vi_to_en($sameTourDate->name)}}.html">
+                     <div class="box-sale">
+                         <img src="{!!$sameTourDate->image!!}" alt="">
+                          <div class="box-sale-info">
+                          <p><a href="">{{$sameTourDate->name}}</a></p>
+                         <p>
+                             <span>Giá từ:</span>
+                             @if($sameTourDate->sale>0)
+                             <span class="price-sale"> 
+                             {{number_format((int)($sameTourDate->price)*(1-(int)($sameTourDate->sale)/100))."đ"}}     
+                             </span>
+                             <span class="price-not-sale">
+                             {{number_format((int)($sameTourDate->price))."đ"}}     
+                              </span>
+                             @else
+                               <span class="price-sale"> 
+                             {{number_format((int)($sameTourDate->price))."đ"}}     
+                             </span>
+                             @endif
+                         </p>
+                     </div>
+                     </div>
+                 </a></li>
+                 @endforeach 
+                 
+             </ul>
+         </div>
           </div>
+    
         </section>
 @endsection

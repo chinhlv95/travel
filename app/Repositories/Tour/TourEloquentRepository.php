@@ -148,6 +148,21 @@ class TourEloquentRepository extends EloquentRepository implements TourRepositor
             ->take(4)->get();
             return $result;
 	}
+  /**
+  *Tour same start_date
+  *@param date $start_date
+  *@return mixed
+  */
+  public function sameStartDate($start_date)
+  {
+     $resultSameDate = DB::table('tours')
+            ->join('sales', 'sales.id', '=','tours.sale_id')
+            ->select('tours.*','sales.sale_precent as sale')
+            ->whereDate('tours.start_date', $start_date)
+            ->orderBy('tours.created_at', 'desc')
+            ->take(4)->get();
+            return $resultSameDate;
+  }
 
 	/**
 	*image Tour

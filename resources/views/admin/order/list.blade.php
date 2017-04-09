@@ -54,7 +54,7 @@
                 <input type="hidden" name="_token" value="{{csrf_token()}}" id="_token">
                     <tr align="center">
                         <th></th>
-                        <th>Id order</th>
+                        <th>Id</th>
                         <th>tour</th>
                         <th>code</th>
                         <th>quantity touers</th>
@@ -80,7 +80,7 @@
                     <td>{{$order->pay_name}}</td>
                     <td>{{($order->status)?'success':'processing'}}</td>
                     @if($order->status==0)
-                    <td><a href="javascript:void(0)" class="update-order" data-id="{{$order->order_id}}"><i class="fa fa-pencil" aria-hidden="true"></i></a></td>
+                    <td><a href="javascript:void(0)" data-toggle="tooltip" title="update status" class="update-order" data-id="{{$order->order_id}}"><i class="fa fa-refresh" aria-hidden="true"></i></a></td>
                     @endif
                  </tr>
                   <tr class="order-show">
@@ -98,9 +98,9 @@
                             </div>
                             <div class="tour-order-right">
                               <p>Tour:{{$order->name}}</p>
-                               <p>Ngày khởi hành:{{date('d-m-Y', strtotime($order->start_date))}}</p>
-                               <p>Số lượng:{{$order->quantity_tourer."(người)"}}</p>
-                               <p>Giá:{{number_format((int)($order->price)*(1-(int)($dataSale->sale_precent)/100))."đ"}} </p>
+                               <p>start date:{{date('d-m-Y', strtotime($order->start_date))}}</p>
+                               <p>Booked:{{$order->quantity_tourer."(người)"}}</p>
+                               <p>Price:{{number_format((int)($order->price)*(1-(int)($dataSale->sale_precent)/100))."đ"}} </p>
                             </div>
                           </div>
                         </div>
