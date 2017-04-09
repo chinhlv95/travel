@@ -5,17 +5,15 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Repositories\Category\CategoryRepositoryInterface;
 use App\Repositories\Destination\DestinationRepositoryInterface;
-use App\Repositories\Contact\ContactRepositoryInterface;
 
 class HomeController extends Controller
 {
-	protected $catRepository, $desRepository, $contactRepository;
+	protected $catRepository, $desRepository;
 
-    public function __construct(CategoryRepositoryInterface $catRepository,DestinationRepositoryInterface $desRepository, ContactRepositoryInterface $contactRepository)
+    public function __construct(CategoryRepositoryInterface $catRepository,DestinationRepositoryInterface $desRepository)
     {
         $this->catRepository=$catRepository;
         $this->desRepository=$desRepository;
-        $this->contactRepository=$contactRepository;
     }
 	  /*
 	  * display home page
@@ -23,11 +21,9 @@ class HomeController extends Controller
      public function Home()
      {
      	$dataCat  = $this->catRepository->getCatPublic();
-        $contacts = $this->contactRepository->getAll();
      	return view("index",[
              'dataCat'      =>$dataCat,
-             'desRepository'=>$this->desRepository,
-             'contacts'     => $contacts
+             'desRepository'=>$this->desRepository
      		]);
      }
      /**

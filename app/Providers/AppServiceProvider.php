@@ -7,7 +7,7 @@ use App\Repositories\Category\CategoryEloquentRepository;
 use App\Repositories\Province\ProvinceEloquentRepository;
 use App\Repositories\Destination\DestinationEloquentRepository;
 use App\Repositories\PriceRange\PriceRangeEloquentRepository;
-
+use App\Repositories\Contact\ContactEloquentRepository;
 
 
 
@@ -25,16 +25,19 @@ class AppServiceProvider extends ServiceProvider
       $destination=new DestinationEloquentRepository();
       $province=new ProvinceEloquentRepository();
       $prieRange=new PriceRangeEloquentRepository();
+      $contact=new ContactEloquentRepository();
       $dataProvince=$province->getAll();
       $dataCategories=$CategoryRepository->getAll()->toArray();
       $dataDestination=$destination->getAll();
       $dataPriceRange=$prieRange->getAll();
+      $dataContact=$contact->getAll();
       view()->share([
         'dataCategories'    =>$dataCategories,
         'CategoryRepository'=>$CategoryRepository,
         'dataProvince'      =>$dataProvince,
         'dataDestination'   =>$dataDestination,
-        'dataPriceRange'    =>$dataPriceRange
+        'dataPriceRange'    =>$dataPriceRange,
+        'dataContacts'       =>$dataContact
         ]);
     }
 
