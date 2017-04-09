@@ -54,6 +54,19 @@ return [
             'engine' => null,
         ],
 
+        //cấu hình kết nối data test cho
+        'mysql_test' => [
+            'driver'    => 'mysql',
+            'host'      => env('DB_HOST_TEST', 'localhost'),
+            'database'  => env('DB_DATABASE_TEST', 'testtravel'),
+            'username'  => env('DB_USERNAME_TEST', 'root'),
+            'password'  => env('DB_PASSWORD_TEST', ''),
+            'charset'   => 'utf8',
+            'collation' => 'utf8_unicode_ci',
+            'prefix'    => '',
+            'strict'    => false,
+        ],
+
         'pgsql' => [
             'driver' => 'pgsql',
             'host' => env('DB_HOST', '127.0.0.1'),
