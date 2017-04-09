@@ -201,6 +201,44 @@
              });
          }
      });
+   //get modal add
+     $("body").on('click', "#add-tourer", function(event) {
+        var booked  =$(this).data('booked');
+        var quantity=$(this).data('quantity');
+        var orderId=$(this).data('order');
+       
+         if(booked== quantity){
+         alert("đã hết chỗ");
+        }else{
+            $.ajax({
+                 url: url + 'admin/tourer/add/'+orderId,
+                 type: 'get',
+                 success: function(data) {
+                    
+                 $("#modal-order").modal().find("#contet-modal-order").load(url +"admin/tourer/add/"+orderId+" #add-tourer-form");
+                 },
+                 error: function() {}
+             });
+         
+         }
+     });
+     //add tourer order
+      $('body').on('submit', "#tourer-form-add", function(event) {
+                 $.ajax({
+                     type: $("#tourer-form-add").attr('method'),
+                     url: $("#tourer-form-add").attr('action'),
+                     data: $("#tourer-form-add").serialize(), // serializes the form's elements.
+                     success: function(data) {
+                         $("#content-table-order").load(" #content-table-order");
+                         $("#modal-order").modal('hide');
+                         alert(data.message);
+
+                     },
+                     error: function(data) {
+                         }
+                 });
+                 event.preventDefault();
+             });
 
      // ===================================function dùng chung============================
      //get modal add

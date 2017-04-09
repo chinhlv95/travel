@@ -23,9 +23,12 @@ class TourersController extends Controller
     /**
     *display page add contact
     */
-    public function getAdd()
+    public function getAdd(Request $request)
     {
-    	return view("admin.contact.add");
+        $orderId=$request->id;
+    	return view("admin.tourer.add",[
+           'orderId'=>$orderId
+    		]);
     }
     /**
     *create contact
@@ -34,9 +37,16 @@ class TourersController extends Controller
     */
     public function postAdd(Request $request)
     {
+       $orderId=$request->order_id;
+       $dataOrder=$this->OrderRepository->find($orderId); 
+       $tourId=$dataOrder->tour_id;
+       $dataTour=$this->TourRepository->find($tourId);
        if($this->TourerRepository->create($request->all())){
-       	   return Response(['message'=>'thành công']);
-        }
+       	 // if booked equal 0 ,delete order
+       	    $this->TourRepository->update($tourId,['booked'=>(int)($dataTour->booked)+1]);
+       	    $this->OrderRepository->update($orderId,['quantity_tourer'=>(int)($dataOrder->quantity_tourer)+1]);
+          
+       }
     }
 
     /**
@@ -52,9 +62,8 @@ class TourersController extends Controller
        ]);
          
      }
-
     /**
-    *delete contect
+    *delete order
     *@param Request $request
     *@return mixed
     */
@@ -63,11 +72,19 @@ class TourersController extends Controller
        $idTourer=$request->id;
        $tourId=$request->tour_id;
        $orderId=$request->order_id;
-
+       $dataTour=$this->TourRepository->find($tourId);
+       $dataOrder=$this->OrderRepository->find($orderId); 
        if($this->TourerRepository->delete($idTourer)){
-       	  $this->TourRepository->update($tourId,['booked'=>'booked-1']);
-       	  $this->OrderRepository->update($orderId,['quantity_tourer'=>'quantity_tourer-1']);
+       	 // if booked equal 0 ,delete order
+            if((int)($dataTour->booked)==0){
+             $this->OrderRepository->delete($orderId);
+            }
+           else{
+       	    $this->TourRepository->update($tourId,['booked'=>(int)($dataTour->booked)-1]);
+       	    $this->OrderRepository->update($orderId,['quantity_tourer'=>(int)($dataOrder->quantity_tourer)-1]);
+          }
        }
+    
     }
     /**
     *update user

@@ -183,6 +183,8 @@ Route::prefix('admin')->group(function(){
 	//order
 	Route::prefix('tourer')->group(function(){
 	    //update tourer
+	    Route::get('add/{id}', 'TourersController@getAdd');
+	    Route::post('add', 'TourersController@postAdd');
 		Route::get('edit/{id}','TourersController@getEdit');
 		
 		Route::post('edit/{id}','TourersController@postEdit');
