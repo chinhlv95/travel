@@ -54,5 +54,6 @@ interface RepositoryInterface
 	public function subDate($start,$end);
 	/**convert vi to en*/
 	public function convert_vi_to_en($str) ;
+	public function test();
 
 }
