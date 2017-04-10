@@ -130,6 +130,13 @@
                 @endforeach
               </ul>
           </div>
+          <div class="container">
+            <div class="row">
+                <div class="col-sm-12 text-center">
+                  Copyright © 2017 Travel. Powered by Chinh vs Kien.
+                </div>
+            </div>
+          </div>
         </footer>
     </body>
 </html>

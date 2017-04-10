@@ -12,7 +12,7 @@
             <div class="container">
             @foreach ($dataCat as $value)
                 <div class="title-tour">
-                    <h3><a href="">{{$value->name}}</a></h3>
+                    <h3><a href="{{URL::to('/')}}/category/{{$value['id']}}/{{$CategoryRepository->convert_vi_to_en($value['name'])}}.html">{{$value->name}}</a></h3>
                 </div>
                 <div class="tour-content">
                     <ul class="row">

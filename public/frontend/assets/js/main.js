@@ -48,7 +48,6 @@ $(document).ready(function() {
         out+='<option value="'+arr[i]["id"]+'">'+arr[i]["name"]+'</option>';
       }
       $("#destination-tour").html(out);
-         
        },
        error: function() {}
    });

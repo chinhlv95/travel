@@ -24,7 +24,7 @@
                                     </div>
                                 </div>
                                 <div class="info_product">
-                                    <h3 class="name_pro"><a href="" title="{{$tour->name}}">
+                                    <h3 class="name_pro"><a href="{{URL::to('/')}}/tour-detail/{{$tour->id}}/{{$TourRepository->convert_vi_to_en($tour->name)}}.html" title="{{$tour->name}}">
                                      <?php $arrayDescription=explode(' ',$tour->name);
                                          $str="";
                                          $i=0;
@@ -59,7 +59,9 @@
                          @endforeach
                     </ul>
                 </div>
-         
+                <div class="text-center">
+                    {{$dataDestiTour->links()}}
+                </div>
                
             </div>
         </section>
