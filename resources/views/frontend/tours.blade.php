@@ -66,6 +66,9 @@
 @endforeach
 </ul>
 </div>
+<div id="pagination-tour">
+  {{$dataTourAll->links()}}
+</div>
 </div>
 </section>
 @endsection
