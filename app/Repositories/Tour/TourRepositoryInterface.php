@@ -110,6 +110,11 @@ interface TourRepositoryInterface
    *@return mixed
    */
    public function showAllTour();
+   /**
+   *show tour hot
+   *@return mixed
+   */
+   public function tourHot();
 }
 
 
