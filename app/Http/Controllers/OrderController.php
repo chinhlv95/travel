@@ -5,14 +5,17 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Repositories\Order\OrderRepositoryInterface;
 use App\Repositories\Sale\SaleRepositoryInterface;
+use App\Repositories\Tour\TourRepositoryInterface;
+
 class OrderController extends Controller
 {
-      protected $OrderRepository,$SaleRepository;
+      protected $OrderRepository,$SaleRepository,$TourRepository;
 
-    public function __construct(OrderRepositoryInterface $OrderRepository,SaleRepositoryInterface $SaleRepository)
+    public function __construct(OrderRepositoryInterface $OrderRepository,SaleRepositoryInterface $SaleRepository,TourRepositoryInterface $TourRepository)
     {
         $this->OrderRepository =$OrderRepository;
         $this->SaleRepository  =$SaleRepository;
+        $this->TourRepository  =$TourRepository;
     }
     /**
     *show  list contact
@@ -34,8 +37,12 @@ class OrderController extends Controller
     */
     public function updateOrderStatus(Request $r)
     {
-        $id=$r->id;
+        $id      =$r->id;
+        $quantity=$r->quantity;
+        $tourId  =$r->tourId;
+        $updateTourorder=$this->TourRepository->find($tourId);
         if($this->OrderRepository->update($id,['status'=>1])){
+            $this->TourRepository->update($tourId,['booked'=>(int)($updateTourorder->booked)+$quantity]);
          return Response(['message'=>'thành công']);
         }
     }

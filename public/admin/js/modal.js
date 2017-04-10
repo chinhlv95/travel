@@ -214,11 +214,13 @@
      $('body').on('click', '.update-order', function(event) {
          event.preventDefault();
          var id=$(this).data("id");
+         var quantity=$(this).data("quantity");
+         var tourId  =$(this).data("tourorder");
          var _token = $("#_token").val();
           $.ajax({
                      type:"post",
                      url: url+"admin/order/update-order",
-                     data: {id:id,_token:_token}, // serializes the form's elements.
+                     data: {id:id,quantity:quantity,tourId:tourId,_token:_token}, // serializes the form's elements.
                      success: function(data) {
                     console.log(data);
                     $("#content-order-tabel").load(" #content-order-tabel");

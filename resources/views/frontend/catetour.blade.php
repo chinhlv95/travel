@@ -62,9 +62,14 @@
                         </li>
                          @endforeach
                     </ul>
-                </div>
-         
-               
+                    <div id="pagination-cate">
+                        <div class="row">
+                            <div class="col-md-12">
+                                {{$dataCateTour->links()}}
+                            </div>
+                        </div>
+                    </div>
+                </div>  
             </div>
         </section>
      @endsection
