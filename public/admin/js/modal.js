@@ -197,7 +197,7 @@
      $('body').on('click', '#filter-order', function(event) {
         var nameTour=$("#name-tour").val();
         var status  =$('#order-status').val();
-          history.pushState({}, "name", "admin/order/list?name=" + name+"&status="+status);
+          history.pushState({}, "name", "admin/order/list?name=" + nameTour+"&status="+status);
          $("#content-order-tabel").load(" #content-order-tabel");
 
      });
