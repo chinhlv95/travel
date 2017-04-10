@@ -178,7 +178,7 @@
                      <div class="box-sale">
                          <img src="{!!$saleTour->image!!}" alt="">
                           <div class="box-sale-info">
-                          <p><a href="{{URL::to('/')}}/tour-detail/{{$saleTour->id}}/{{$TourRepository->convert_vi_to_en($saleTour->name)}}.htmls">{{$saleTour->name}}</a></p>
+                          <p><a href="{{URL::to('/')}}/tour-detail/{{$saleTour->id}}/{{$TourRepository->convert_vi_to_en($saleTour->name)}}.html">{{$saleTour->name}}</a></p>
                          <p>
                              <span>Giá từ:</span>
                              @if($saleTour->sale>0)
