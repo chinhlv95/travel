@@ -28,32 +28,6 @@ $(document).ready(function() {
      });
     });
 
-     //select categories
-     $('body').on('change', '#cat-tour', function(event) {
-       event.preventDefault();
-       var id=$('#cat-tour').val();
-       var _token = $("#_token").val();
-       $.ajax({
-       url: url + 'show-destination',
-       type: 'post',
-       data: {
-           id: id,
-           _token: _token
-       },
-       success: function(data) {
-        console.log(data);
-        var arr=$.parseJSON(data);
-        var out='';
-      for (var i = 0; i < arr.length; i++) {
-        out+='<option value="'+arr[i]["id"]+'">'+arr[i]["name"]+'</option>';
-      }
-      $("#destination-tour").html(out);
-       },
-       error: function() {}
-   });
-
-     });
-
 /* Checkout*/
 
 $("body").on("change", "#cusQuantity", function (event) {
@@ -107,6 +81,12 @@ function formatNumber (num) {
                  history.pushState({}, "", "?province="+province+"&cate="+cate+"&destination="+destination+"&start="+start+"&price="+price+"&page="+page);
                  location.reload();                
       });
+    $(".start-date").datepicker({
+    dateFormat: 'yy-mm-dd',
+    changeMonth: true,
+    changeYear: true,
+    yearRange: '1900:' + new Date().getFullYear()
+  });
 });
   function getParameterByName(name, url) {
      if (!url) {

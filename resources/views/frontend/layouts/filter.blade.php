@@ -5,19 +5,20 @@
                     </div>
                     <div class="filter-content">
                         <form class="form-inline" action="{{URL::to('/')}}/filter" method="get">
-                            <div class="form-group">
-                                <select class="selectpicker" data-size="4" data-live-search="true" name="province">
-                                    <option value=""  data-icon="glyphicon-map-marker">Điểm Khởi hành</option>
-                                   @foreach ($dataProvince as $key => $value)
-                                    <option  value="{{$value->id}}">{{$value->name}}</option>
-                                    @endforeach
-                                </select>
-                            </div>
+                           
                             <div class="form-group">
                                 <select class="selectpicker" data-size="3" id="cat-tour" data-live-search="true" name="cate">
                                     <option value="" >-Chọn tuyến-</option>
                                      @foreach ($dataCategories as $key => $value)
                                     <option  value="{{$value['id']}}">{{$value['name']}}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                              <div class="form-group">
+                                <select class="selectpicker" data-size="4" data-live-search="true" name="province">
+                                    <option value=""  data-icon="glyphicon-map-marker">Điểm Khởi hành</option>
+                                   @foreach ($dataProvince as $key => $value)
+                                    <option  value="{{$value->id}}">{{$value->name}}</option>
                                     @endforeach
                                 </select>
                             </div>
@@ -29,8 +30,9 @@
                                     @endforeach
                                 </select>
                             </div>
+
                             <div class="form-group">
-                                <input type="date" class="form-control start-date" value="{{old('start')}}" data-toggle="tooltip" title="Ngày khởi đầu" name="start">
+                                <input type="text" class="form-control start-date" placeholder="Ngày khởi hành" value="{{old('start')}}" data-toggle="tooltip" title="Ngày khởi đầu" name="start">
                             </div>
                             <div class="form-group">
                                 <select class="selectpicker" data-size="4" data-live-search="true" name="price">

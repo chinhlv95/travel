@@ -15,6 +15,12 @@
             <li class="active">Tìm tour</li>        
           </ol>
         </div>
+
+        @if($dataFilterTour->isEmpty())
+         <h4>Không tìm thấy tour</h4>
+         <div id="fix-height"></div>
+
+        @else
         <div class="content-search-tour">
         	<table class="table table-bordered table-hover">
         		<thead>
@@ -62,6 +68,7 @@
                {{$dataFilterTour->links()}}  
         	</div>
         </div>
+        @endif
 	</div>
 </section>
 @endsection
