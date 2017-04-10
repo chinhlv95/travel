@@ -36,7 +36,7 @@
                     <div class="form-group">
                         <label>role</label>
                         <label class="radio-inline">
-                            <input name="level" value="2"  type="radio">Manager
+                            <input name="level" value="2" checked type="radio">Manager
                         </label>
                         <label class="radio-inline">
                             <input name="level" value="3" type="radio">Member

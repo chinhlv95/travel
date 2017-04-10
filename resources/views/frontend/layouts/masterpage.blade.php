@@ -24,14 +24,6 @@
             <div class="top-header">
                 <div class="container">
                     <div class="left">
-                        <ul>
-                            <li><a title="Giới thiệu" href="http://vietsuntravel.com/tai-sao-chon-viet-sun-travel-.html">Giới thiệu</a></li>
-                            <li><a title="Lịch khởi hành" href="http://vietsuntravel.com/lich-khoi-hanh.html">Lịch khởi hành</a></li>
-                            <li><a title="Hình ảnh kỷ niệm đoàn" href="http://vietsuntravel.com/hinh-anh.html">Hình ảnh kỷ niệm đoàn</a></li>
-                            <li><a title="Khách hàng thân thiết" href="http://vietsuntravel.com/khach-hang-than-thiet.html">Khách hàng thân thiết</a></li>
-                            <li><a title="Chính sách chung" href="http://vietsuntravel.com/chinh-sach-chung.html">Chính sách chung</a></li>
-                            <li><a title="Tuyển dụng" href="http://vietsuntravel.com/tuyen-dung.html">Tuyển dụng</a></li>
-                        </ul>
                     </div>
                     <div class="right">
                         <ul>
