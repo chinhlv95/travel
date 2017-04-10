@@ -101,7 +101,7 @@
                     <table class="table table-striped">
                         <thead>
                             <tr>
-                                <th>Họ tên(*)</th>
+                                <th>Họ tên</th>
                                 <th>Số điện thoại</th>
                                 <th>Ngày sinh</th>
                                 <th>Giới tính</th>

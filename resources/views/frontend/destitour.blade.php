@@ -7,7 +7,7 @@
             <div class="container">
                 <div class="row breadcrumb-detail">
                  <ol class="breadcrumb">
-                    <li><a href="#">Home</a></li>
+                    <li><a href="{{URL::to('/')}}">Home</a></li>
                  
                     <li class="active">{{$dataDesti->name}}</li>        
                   </ol>
