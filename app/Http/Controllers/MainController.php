@@ -119,6 +119,19 @@ class MainController extends Controller
     }
 
     /**
+   *show all tour
+   *@return mixed
+   */
+   public function showTour(){
+      $dataTourAll=$this->TourRepository->showAllTour();
+      return view('frontend.tours',[
+            'dataTourAll'   =>$dataTourAll,
+            'TourRepository'=>$this->TourRepository
+
+      ]);
+   }
+
+    /**
     * Report
     * @param ReportRequest $request
     * @return mixed

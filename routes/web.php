@@ -39,6 +39,8 @@ Route::get('destination/{id}','MainController@getTourbyDestination');
 
 // filter gobal
 Route::get('filter', 'MainController@filterGobal');
+// tours
+Route::get('tours','MainController@showTour');
 
 // checkout
 Route::get('checkout/{id}','MainController@getCheckout');

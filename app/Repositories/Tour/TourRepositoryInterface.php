@@ -104,6 +104,12 @@ interface TourRepositoryInterface
    *@return mixed
    */
    public function filterTourGobal($province,$cate,$destination,$start,$price);
+   
+   /**
+   *show all tour
+   *@return mixed
+   */
+   public function showAllTour();
 }
 
 

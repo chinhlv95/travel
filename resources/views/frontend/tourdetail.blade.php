@@ -15,8 +15,8 @@
              <div class="row breadcrumb-detail">
                  <ol class="breadcrumb">
                     <li><a href="{{URL::to('/')}}">Home</a></li>
-                    <li ><a href="#">Tour</a></li>
-                    <li class="active">Vacation</li>        
+                    <li ><a href="{{url('/tours')}}">Tour</a></li>
+                    <li class="active">{{$dataTour->name}}</li>        
                   </ol>
              </div>
         
@@ -139,7 +139,7 @@
                                  
                             
                                  <li>
-                                     <a href="#">
+                                     <a href="{{URL::to('/')}}/tour-detail/{{$relation->id}}/{{$TourRepository->convert_vi_to_en($relation->name)}}.html">
                                          <div class="box-relation">
                                              <div class="box-relation-img">
                                                  <img src="{{$relation->image}}" alt="">
