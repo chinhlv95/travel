@@ -20,7 +20,7 @@
                         </div>
                     <div class="form-group">
                         <label>username</label>
-                        <input class="form-control"  value="{{$dataUserFind->name}}" name="name" placeholder="Please Enter username" />
+                        <input class="form-control"  value="{{$dataUserFind->name}}" id="username" name="name" placeholder="Please Enter username" />
                         <span id="error-name"></span>
                     </div>
                     <div class="form-group">
@@ -28,12 +28,20 @@
                         <input class="form-control"  name="email" value="{{$dataUserFind->email}}" type="email" placeholder="Please Enter email" />
                          <span id="error-email"></span>
                     </div>
+                     <div class="form-group">
+                      @if(Auth::user()->level!=1)
+                        <label>password old</label>
+                        <input class="form-control" required type="password"  id="passwordold" name="passwordold" value="" placeholder="Please Enter password old" />
+                        <span id="error-password-old"></span>
+                      @endif
+                    </div>
                     <div class="form-group">
                       @if(Auth::user()->level!=1)
                         <label>password</label>
                         <input class="form-control" required type="password" name="password" value="" placeholder="Please Enter password" />
                       @endif
                     </div>
+
                     <div class="form-group">
                     @if(Auth::user()->level==1&&$dataUserFind->level!=1)
                         <label>role</label>

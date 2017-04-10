@@ -116,6 +116,8 @@ Route::prefix('admin')->middleware('MyMiddle')->group(function(){
 		// add user
 		Route::get('add','UserController@getAdd');
 		Route::post('add','UserController@postAdd' );
+		//checkpassword
+		Route::post('checkpassword','UserController@checkPasswordOld');
 		//update user
 		Route::get('edit/{id}','UserController@getEdit');
 		Route::post('edit/{id}','UserController@postEdit');

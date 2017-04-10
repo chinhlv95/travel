@@ -14,7 +14,39 @@
      // add submit user
      createUpdateForm('#user-form', "#content-table-user", "#modal-users");
      //update submmit user
-     createUpdateForm('#user-form-update', "#content-table-user", "#modal-user");
+      $('body').on('submit', '#user-form-update', function(event) {
+             var errorPasswors=$("#error-password-old").html();
+             if(errorPasswors=="")
+             {
+                 $.ajax({
+                     type: $('#user-form-update').attr('method'),
+                     url: $('#user-form-update').attr('action'),
+                     data: $('#user-form-update').serialize(), // serializes the form's elements.
+                     success: function(data) {
+                         $("#content-table-user").load(" #content-table-user");
+                         $("#modal-user").modal('hide');
+                         alert(data.message);
+
+                     },
+                     error: function(data) {
+                         var errors = data.responseJSON;
+                         var keys = Object.keys(errors);
+                         var values = Object.values(errors);
+                         console.log(errors);
+                         for (var i = 0; i < keys.length; i++) {
+                             var key = keys[i];
+                             var value = values[i][0];
+                             $("#error-" + key).html(value);
+                         };
+                     }
+                 });
+            }else{
+                alert("wrong password old ");
+
+            }
+                 event.preventDefault();
+             });
+
      // pagination user
      $('body').on('click', '.pagination-user a', function(event) {
          event.preventDefault();
@@ -23,6 +55,33 @@
          history.pushState({}, "", "admin/user/list?name=" + name + "&page=" + page);
          $('#content-table-user').load(' #content-table-user');
      });
+     //check password old
+     $('body').on('blur', '#passwordold', function(event) {
+         event.preventDefault();
+          var passwordOld=$(this).val();
+          var username   =$("#username").val();
+          var _token = $("#_token").val();
+          $.ajax({
+                 url: url + 'admin/user/checkpassword',
+                 type: 'post',
+                 data: {
+                     passwordOld: passwordOld,
+                     username   :username,
+                     _token     : _token
+                 },
+                 success: function(data) {
+                    if(data==0){
+                     alert("wrong password old ");
+                     $("#error-password-old").html("wrong password old");
+                    }else{
+                        $("#error-password-old").html("")
+                    }
+                 },
+                 error: function() {}
+             });
+
+     });
+
      // delete user
      $('body').on('click', '.delete-user', function(event) {
          event.preventDefault();

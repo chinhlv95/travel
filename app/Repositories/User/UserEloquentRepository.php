@@ -21,4 +21,10 @@ class UserEloquentRepository extends EloquentRepository implements UserRepositor
   	$dataUser=$this->_model->where('name','like','%'.$name.'%')->paginate(10);
   	return $dataUser;
   }
+  /**
+  *check password old
+  *@param string $password
+  *@return mixed
+  */ 
+  
 }

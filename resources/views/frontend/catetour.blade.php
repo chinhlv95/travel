@@ -11,7 +11,7 @@
             <div class="container">
                 <div class="row breadcrumb-detail">
                  <ol class="breadcrumb">
-                    <li><a href="#">Home</a></li>
+                    <li><a href="">Home</a></li>
                  
                     <li class="active">{{$dataCat->name}}</li>        
                   </ol>
@@ -22,13 +22,13 @@
                         <li class="col-xs-12 col-sm-6 col-md-3 item">
                             <div class="each-item">
                                 <div class="image">
-                                    <a href=""><img src="{{$tour->image}}" class="img-responsive" alt=""></a>
+                                    <a href="{{URL::to('/')}}/tour-detail/{{$tour->id}}/{{$TourRepository->convert_vi_to_en($tour->name)}}.html"><img src="{{$tour->image}}" class="img-responsive" alt=""></a>
                                     <div class="address-tour">
                                         <span><i class="fa fa-map-marker"></i> {{$tour->provice_name}}</span>
                                     </div>
                                 </div>
                                 <div class="info_product">
-                                    <h3 class="name_pro"><a href="" title="{{$tour->name}}">
+                                    <h3 class="name_pro"><a href="{{URL::to('/')}}/tour-detail/{{$tour->id}}/{{$TourRepository->convert_vi_to_en($tour->name)}}.html" title="{{$tour->name}}">
                                      <?php $arrayDescription=explode(' ',$tour->name);
                                          $str="";
                                          $i=0;

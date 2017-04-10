@@ -120,4 +120,19 @@ class UserController extends Controller
         }
        
     }
+    /**
+  *check password old
+  *@param string $password
+  *@return mixed
+  */ 
+  public function checkPasswordOld(Request $request){
+    $username=$request->username;
+    $password=$request->passwordOld;
+    if (Auth::attempt(['name' => $username, 'password' => $password])) {
+              echo "1";
+        }else{
+          echo "0";
+        }
+
+  }
 }
