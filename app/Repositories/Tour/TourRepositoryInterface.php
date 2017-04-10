@@ -84,7 +84,7 @@ interface TourRepositoryInterface
 	  *@param date $start_date
 	  *@return mixed
 	  */
-	  public function sameStartDate($start_date);
+	  public function sameStartDate($start_date,$id);
   
 	/**
 	*image Tour

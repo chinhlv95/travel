@@ -207,7 +207,7 @@
                  <p class="tour-sale-line"></p>
              </div>
              <?php 
-               $dataTourDate=$TourRepository->sameStartDate($dataTour->start_date);
+               $dataTourDate=$TourRepository->sameStartDate($dataTour->start_date,$dataTour->id);
               ?>
              <ul class="row">
                @foreach ($dataTourDate as $key => $sameTourDate)

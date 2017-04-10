@@ -200,12 +200,13 @@ class TourEloquentRepository extends EloquentRepository implements TourRepositor
   *@param date $start_date
   *@return mixed
   */
-  public function sameStartDate($start_date)
+  public function sameStartDate($start_date,$id)
   {
      $resultSameDate = DB::table('tours')
             ->join('sales', 'sales.id', '=','tours.sale_id')
             ->select('tours.*','sales.sale_precent as sale')
             ->whereDate('tours.start_date', $start_date)
+            ->where('tours.id','<>',$id)
             ->orderBy('tours.created_at', 'desc')
             ->take(4)->get();
             return $resultSameDate;
