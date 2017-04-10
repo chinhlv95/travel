@@ -54,7 +54,7 @@ class OrderEloquentRepository extends EloquentRepository implements OrderReposit
         ->join('customers', 'customers.id', '=', 'orders.customer_id')
         ->join('tours', 'tours.id', '=','orders.tour_id')
         ->join('pays','pays.id','=','orders.pay_id')
-        ->select('tours.*','orders.*','customers.*','orders.id as order_id','pays.name as pay_name','tours.id as tour_id')
+        ->select('tours.*','orders.*','customers.*','orders.id as order_id','pays.name as pay_name','tours.sale_id as sale_id')
         ->where('tours.name','like','%'.$name.'%')
         ->where('orders.status','like','%'.$status.'%')
         ->paginate(5);

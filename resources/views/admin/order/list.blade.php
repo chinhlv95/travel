@@ -65,9 +65,11 @@
                     </tr>
                 </thead>
                 <tbody>
-                @foreach ($dataOrder as $key => $order)
+                @foreach ($dataOrder as $order)
+
                 <?php 
-                 $dataSale=$SaleRepository->find($order->id);
+                 $dataSale=$SaleRepository->find($order->sale_id);
+
                  ?>
                  <tr class="order-tr {{($order->status)?'success':'processing'}}">
                  <td><i class="fa fa-eye" aria-hidden="true"></i></td>
@@ -80,7 +82,7 @@
                     <td>{{$order->pay_name}}</td>
                     <td>{{($order->status)?'success':'processing'}}</td>
                     @if($order->status==0)
-                    <td><a href="javascript:void(0)" data-toggle="tooltip" title="update status" class="update-order" data-id="{{$order->order_id}}"><i class="fa fa-refresh" aria-hidden="true"></i></a></td>
+                    <td><a href="javascript:void(0)" data-toggle="tooltip" title="update status" class="update-order"  data-tourorder="{{$order->tour_id}}" data-quantity="{{$order->quantity_tourer}}" data-id="{{$order->order_id}}"><i class="fa fa-refresh" aria-hidden="true"></i></a></td>
                     @endif
                  </tr>
                   <tr class="order-show">
@@ -146,7 +148,7 @@
                           $i=1;
                           $total=0;
                             ?>
-                            @foreach ($dataListTourer as $key => $tourer)
+                            @foreach ($dataListTourer as  $tourer)
                             <tr>
                             <td>{{$i}}</td>
                             <td>{{$tourer->fullname}}</td>
