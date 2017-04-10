@@ -3,7 +3,7 @@
             <ul class="nav" id="side-menu">
                
                 <li>
-                    <a href="{{URL::to('/')}}/backend"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
+                    <a href="javascript:void(0)"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
                 </li>
                 <li>
                     <a href="{{URL::to('/')}}/admin/user/list"><i class="fa fa-users fa-fw"></i> User</a>
