@@ -33,7 +33,7 @@
               <div class="form-inline">
               <div class="form-group">
                 <label for="name">Tour:</label>
-                <input type="text" placeholder="choose tour..." class="form-control" id="name-tour">
+                <input type="text" placeholder="code" class="form-control" id="name-tour">
               </div>
               <div class="form-group">
               <label for="sel1">Status:</label>

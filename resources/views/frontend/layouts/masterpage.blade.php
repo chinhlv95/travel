@@ -14,6 +14,7 @@
         <link rel="stylesheet" href="{{asset('frontend/assets/plugin/carousel/owl.theme.css')}}">
         <link rel="stylesheet" href="{{asset('frontend/assets/plugin/carousel/owl.transitions.css')}}">
         <link rel="stylesheet" href="{{asset('frontend/assets/plugin/carousel/owl.carousel.css')}}">
+        <link rel="stylesheet" href="{{asset('frontend/assets/css/jquery-ui.css')}}">
         <link rel="stylesheet" href="{{asset('frontend/assets/css/reset.css')}}">
         <link rel="stylesheet" href="{{asset('frontend/style.css')}}">
         <link rel="stylesheet" href="{{asset('frontend/style1.css')}}">
@@ -141,6 +142,7 @@
     </body>
 </html>
 <script src="{{asset('frontend/assets/plugin/jquery/jquery-2.1.4.js')}}"></script>
+<script src="{{asset('frontend/assets/plugin/jquery/jquery-ui.js')}}"></script>
 <script src="{{asset('frontend/assets/plugin/bootstrap/js/bootstrap.min.js')}}" ></script>
 <script src="{{asset('frontend/assets/plugin/select/bootstrap-select.js')}}"></script>
 <script src="{{asset('frontend/assets/plugin/carousel/owl.carousel.min.js')}}"></script>

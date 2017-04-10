@@ -21,7 +21,7 @@ class PriceRangeController extends Controller
     */
     public function getList()
     {
-    	$dataPriceRangeList=$this->PriceRangeRepository->paginate(10);
+    	$dataPriceRangeList=$this->PriceRangeRepository->paginate(5);
         return view('admin.price-range.list',[
              'dataPriceRangeList' =>$dataPriceRangeList
         	]);
