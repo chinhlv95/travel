@@ -1,6 +1,6 @@
 <div class="destination">
   @for( $i=0; $i<count($dataCategories); $i++ )
-  <div class=" col-sm-6">
+  <div class="col-md-{{12/count($dataCategories)}}">
       <div class="foot-header">
         {{ $dataCategories[$i]['name'] }}
       </div>
