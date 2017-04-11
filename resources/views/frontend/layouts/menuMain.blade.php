@@ -14,12 +14,19 @@
                                 <a class="navbar-brand" href="{{URL::to('/')}}">TRANG CHỦ</a>
                             </div>
                             <!-- Collect the nav links, forms, and other content for toggling -->
-                            <div class="collapse navbar-collapse navbar-ex1-collapse">
                                 <ul class="nav navbar-nav">
-                                    @foreach ($dataCategories as $key => $value)
-                                         <li><a href="{{URL::to('/')}}/category/{{$value['id']}}/{{$CategoryRepository->convert_vi_to_en($value['name'])}}.html" title="{{$value['name']}}">{{$value['name']}}</a>
+                                    @for( $i=0; $i<count($dataCategories); $i++ )
+                                         <li class="dropdown">
+                                         <a href="{{URL::to('/')}}/category/{{$dataCategories[$i]['id']}}/{{$CategoryRepository->convert_vi_to_en($dataCategories[$i]["name"])}}.html" title="{{$dataCategories[$i]["name"]}}"  class="dropdown-toggle" data-toggle="dropdown">{{$dataCategories[$i]["name"]}}</a>
+                                            <ul class="dropdown-menu">
+                                             @for( $j=0; $j<count($dataDestination); $j++ )
+                                             @if( $dataDestination[$j]['cate_id'] == $dataCategories[$i]['id'] )
+                                              <li><a href="{{URL::to('/')}}/destination/{{$dataDestination[$j]['id']}}">{{$dataDestination[$j]['name']}}</a></li>
+                                              @endif
+                                              @endfor
+                                            </ul>
                                          </li>
-                                     @endforeach 
+                                     @endfor
                                     
                                  
                                     <li><a href="#">CẨM NANG DU LỊCH</a></li>
@@ -31,7 +38,6 @@
                                         <div>01665.431.893 - 0123.456.789</div>
                                     </div>
                                 </ul>
-                            </div>
                             <!-- /.navbar-collapse -->
                         </div>
                     </nav>
