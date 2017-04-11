@@ -160,10 +160,12 @@ a:hover {
 	width: 100%;
 	padding: 30px 0;
 	margin-top: 30px;
+	background: url(assets/images/images.png) repeat center center fixed; 
+
 }
 .footer-contact {
 	width: 95%;
-	padding: 30px 0px 30px 50px;
+	padding: 30px 0px 30px 60px;
 }
 
 .footer ul li {
@@ -199,7 +201,7 @@ a:hover {
 	text-align: center;
 }
 .footer a:hover {
-	color: #1d508d;
+	color: #e66b17;
 }
 
 .footer .destination {
@@ -235,7 +237,7 @@ a:hover {
 }
 
 .dropdown-menu {
-	width: 250%;
+	min-width: 350px;
 	padding: 10px 10px 20px 10px;
 	background-color: #f2f2f2;
 }
