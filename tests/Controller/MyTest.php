@@ -7,6 +7,7 @@ use Illuminate\Foundation\Testing\WithoutMiddleware;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 use App\Http\Controllers\UserController;
+use App\Models\User;
 
 class MyTest extends TestCase
 {
@@ -17,19 +18,14 @@ class MyTest extends TestCase
      *
      * @return void
      */
-
-    public function testVariablesInView()
+    public function testExample()
     {
-        $response = $this->get('/tours');
+        $this->assertTrue(true);
+    }
 
-        // $this->assertViewHas('name', 'Lê Anh');
-        // $this->assertViewHas('age', 25);
-        
-        //Hoặc có thể viết như sau
-        //Kiểm tra sự tồn tại
+    public function testVariablesGetAdd()
+    {
+        $response = $this->call('GET', 'admin/user/list');
         $response->assertViewHasAll(['dataUser']);
-        
-        //Kiểm tra tồn tại và giá trị của chúng
-        // $this->assertViewHasAll(['name' => 'Lê Anh', 'age' => 25]);
     }
 }
