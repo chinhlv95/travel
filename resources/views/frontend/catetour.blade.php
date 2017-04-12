@@ -1,14 +1,25 @@
 @extends('frontend.layouts.masterpage')
 @section('title','Trang chủ')
 @section('description')
+  @if(empty($dataCat))
+  @else
 {{ $dataCat->name}}
+  @endif
 @stop
 @section('keywords')
+@if(empty($dataCat))
+  @else
 {{$TourRepository->convert_vi_to_en($dataCat->name)}}
+  @endif
 @stop
 @section('content')
 <section class="tour">
             <div class="container">
+             @if(empty($dataCat))
+         <h4>Không tìm thấy tour</h4>
+         <div id="fix-height"></div>
+
+            @else
                 <div class="row breadcrumb-detail">
                  <ol class="breadcrumb">
                     <li><a href="{{URL::to('/')}}">Home</a></li>
@@ -69,7 +80,8 @@
                             </div>
                         </div>
                     </div>
-                </div>  
+                </div>
+                @endif  
             </div>
         </section>
      @endsection
