@@ -30,6 +30,8 @@ Route::get('category/{id}/{name}.html','MainController@getCategories')->where('i
 
 //add tour
 Route::post('add-tour', 'MainController@addTour');
+//Contacts
+Route::get('lien-he','MainController@getContacts');
 
 //show destination
 Route::post('show-destination','HomeController@showDestination');
