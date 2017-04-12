@@ -41,10 +41,13 @@ class ContactController extends Controller
     *@param ContactRequest $request
     *@return mixed
     */
-    public function postAdd(Request $request)
+    public function postAdd(ContactRequest $request)
     {
        if($this->ContactRepository->create($request->all())){
-       	   return Response(['message'=>'thành công']);
+       	   return Response(['message'=>'successfull']);
+        }
+        else{
+            return Response(['message'=>'error insert']);
         }
     }
 
@@ -70,9 +73,10 @@ class ContactController extends Controller
     public function getDelete(Request $request)
     {
         if($this->ContactRepository->delete($request->id)) {
-          return Response(['message'=>'xóa thành công']);
-        }else{
-          return Response(['message'=>'xóa Lỗi']);
+            return Response(['message'=>'successfull']);
+        }
+        else{
+            return Response(['message'=>'errors']);
         }
 
     }
@@ -85,10 +89,11 @@ class ContactController extends Controller
      public function postEdit(ContactRequest $request,$id)
      {
      	if($this->ContactRepository->update($id,$request->all())){
-          return Response(['message'=>'sửa thành công']);
-     	}else{
-          return Response(['message'=>'sửa Lỗi']);
-     	}
+            return Response(['message'=>'successfull']);
+        }
+        else{
+            return Response(['message'=>'error']);
+        }
      }
 
 

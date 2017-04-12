@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Requests\UserRequest;
+use App\Http\Requests\UserEditRequset;
 use App\Repositories\User\UserRepositoryInterface;
 use Auth;
 
@@ -45,10 +46,10 @@ class UserController extends Controller
     {
         $User=["name"=> $request->name,"email"=>$request->email,"password"=>bcrypt($request->password),"level"=>$request->level];
         if($this->postRepository->create($User)){
-            return Response(['message'=>'thành công']);
+            return Response(['message'=>'successfull']);
         }
         else{
-            return Response(['message'=>'Lỗi']);
+            return Response(['message'=>'error insert']);
         }
       
     }
@@ -79,24 +80,24 @@ class UserController extends Controller
     *@param integer $id
     *@return mixed
     */
-     public function postEdit(UserRequest $request,$id)
+     public function postEdit(UserEditRequset $request,$id)
      {
         $check=Auth::user()->level;
         if($check==1){
         $User=["name"=> $request->name,"email"=>$request->email,"level"=>$request->level];
         if($this->postRepository->update($id,$User)){
-            return Response(['message'=>'thành công']);
+             return Response(['message'=>'successfull']);
         }
         else{
-            return Response(['message'=>'Lỗi']);
-        }}
-        else{
+            return Response(['message'=>'errors']);
+        }
+       }else{
         $User=["name"=> $request->name,"email"=>$request->email,"password"=>bcrypt($request->password),"level"=>$request->level];
         if($this->postRepository->update($id,$User)){
-            return Response(['message'=>'thành công']);
+              return Response(['message'=>'successfull']);
         }
         else{
-            return Response(['message'=>'Lỗi']);
+            return Response(['message'=>'errors']);
         }
        }
       
@@ -114,9 +115,10 @@ class UserController extends Controller
         $levelSuperAdmin=$this->postRepository->find($request->id);
         if($check==1&&$levelSuperAdmin->level!=1){
          $this->postRepository->delete($request->id);
-          return Response(['message'=>'thành công']);
-        }else{
-           return Response(['message'=>'bạn không có quyền xóa']);
+              return Response(['message'=>'successfull']);
+        }
+        else{
+            return Response(['message'=>'error insert']);
         }
        
     }

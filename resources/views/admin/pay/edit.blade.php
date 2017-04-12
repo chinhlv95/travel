@@ -20,7 +20,7 @@
                     <div class="form-group">
                         <label>name</label>
                         <input class="form-control" value="{{$dataPayFind->name}}" name="name" placeholder="Please Enter name" required />
-                        <span id="error-pay" class="error-form"></span>
+                        <span id="error-name" class="error-form"></span>
                     </div>
                     <button type="submit" class="btn btn-default">Pay edit</button>
 

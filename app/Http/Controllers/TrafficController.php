@@ -41,7 +41,9 @@ class TrafficController extends Controller
     public function postAdd(TrafficRequest $request)
     {
        if($this->TrafficRepository->create($request->all())){
-       	   return Response(['message'=>'thành công']);
+       	 return Response(['message'=>'successfull']);
+        }else{
+            return Response(['message'=>'error']);
         }
     }
 
@@ -67,10 +69,10 @@ class TrafficController extends Controller
      public function postEdit(TrafficRequest $request,$id)
      {
      	if($this->TrafficRepository->update($id,$request->all())){
-          return Response(['message'=>'sửa thành công']);
-     	}else{
-          return Response(['message'=>'sửa Lỗi']);
-     	}
+          return Response(['message'=>'successfull']);
+        }else{
+            return Response(['message'=>'error']);
+        }
      }
 
 
@@ -82,9 +84,9 @@ class TrafficController extends Controller
     public function getDelete(Request $request)
     {
         if($this->TrafficRepository->delete($request->id)) {
-          return Response(['message'=>'xóa thành công']);
+         return Response(['message'=>'successfull']);
         }else{
-          return Response(['message'=>'xóa Lỗi']);
+            return Response(['message'=>'error']);
         }
 
     }

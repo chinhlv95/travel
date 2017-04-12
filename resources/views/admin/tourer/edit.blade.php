@@ -15,18 +15,16 @@
             <div class="col-lg-12">
                 <form action="{{URL::to('/')}}/admin/tourer/edit/{{$dataTourerFind->id}}" id="tourer-form-update" method="POST">
                    <input type="hidden" name="_token" value="{{csrf_token()}}" id="_token">
-                      <div class="alert alert-success alert-user">
-                         
-                      </div>
+                    
                     <div class="form-group">
                         <label>Full name</label>
                         <input class="form-control" value="{{$dataTourerFind->fullname}}" name="fullname" placeholder="Please Enter fullname" />
-                        <span id="error-fullname"></span>
+                        <span id="error-fullname" class="error-form"></span>
                     </div>
                     <div class="form-group">
                         <label>Birthday</label>
                         <input class="form-control" name="birthday" value="{{$dataTourerFind->birthday}}" type="date" placeholder="Please Enter birthday" />
-                         <span id="error-birthday"></span>
+                         <span id="error-birthday" class="error-form"></span>
                     </div>
                       <div class="form-group">
                         <label>Gender</label>
@@ -41,12 +39,12 @@
                      <div class="form-group">
                         <label>phone</label>
                         <input class="form-control" name="phone" value="{{$dataTourerFind->phone}}" type="number" placeholder="Please Enter phone" />
-                         <span id="error-phone"></span>
+                         <span id="error-phone" class="error-form"></span>
                     </div>
                      <div class="form-group">
                         <label>address</label>
                         <input class="form-control" name="address" value="{{$dataTourerFind->address}}" type="text" placeholder="Please Enter address" />
-                         <span id="error-address"></span>
+                         <span id="error-address" class="error-form"></span>
                     </div>
                     
                     

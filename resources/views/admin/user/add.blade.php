@@ -22,16 +22,18 @@
                     <div class="form-group">
                         <label>username</label>
                         <input class="form-control" name="name" placeholder="Please Enter username" />
-                        <span id="error-name"></span>
+                        <span id="error-name" class="error-form"></span>
                     </div>
                     <div class="form-group">
                         <label>email</label>
                         <input class="form-control" name="email" type="email" placeholder="Please Enter email" />
-                         <span id="error-email"></span>
+                         <span id="error-email" class="error-form"></span>
                     </div>
                     <div class="form-group">
                         <label>password</label>
                         <input class="form-control" type="password" name="password" placeholder="Please Enter password" />
+                         <span id="error-password" class="error-form"></span>
+
                     </div>
                     <div class="form-group">
                         <label>role</label>
