@@ -1,22 +1,16 @@
 <?php
 
-namespace Tests\Feature;
+namespace Tests\Controller;
 
 use Tests\TestCase;
 use Illuminate\Foundation\Testing\WithoutMiddleware;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
-use App\Repositories\EloquentRepository;
+use App\Http\Controllers\UserController;
 
 class MyTest extends TestCase
 {
-	private $repository;
     use WithoutMiddleware;
-    public function getModel() {}
-	protected function set()
-    {
-    	$this->repository = new EloquentRepository();
-    }
 
     /**
      * A basic test example.
@@ -24,9 +18,18 @@ class MyTest extends TestCase
      * @return void
      */
 
-    public function testExample()
+    public function testVariablesInView()
     {
-    	$result = $this->set->test();
-        $this->assertEquals( 2, $result);
+        $response = $this->get('/tours');
+
+        // $this->assertViewHas('name', 'Lê Anh');
+        // $this->assertViewHas('age', 25);
+        
+        //Hoặc có thể viết như sau
+        //Kiểm tra sự tồn tại
+        $response->assertViewHasAll(['dataUser']);
+        
+        //Kiểm tra tồn tại và giá trị của chúng
+        // $this->assertViewHasAll(['name' => 'Lê Anh', 'age' => 25]);
     }
 }
