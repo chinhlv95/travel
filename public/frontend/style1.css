@@ -196,10 +196,9 @@ a:hover {
 	float: left;
 	color: #595959;
 	line-height: 1.5em;
+	padding-left: 15%;
 }
-.foot-links {
-	text-align: center;
-}
+
 .footer a:hover {
 	color: #e66b17;
 }

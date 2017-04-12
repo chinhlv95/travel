@@ -8,7 +8,7 @@ use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 use App\Repositories\EloquentRepository;
 
-class MyTest extends EloquentRepository
+class MyTest extends TestCase
 {
 	private $repository;
     use WithoutMiddleware;

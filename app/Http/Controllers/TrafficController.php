@@ -20,7 +20,7 @@ class TrafficController extends Controller
     */
     public function getList()
     {
-    	$dataTrafficList=$this->TrafficRepository->paginate(1);
+    	$dataTrafficList=$this->TrafficRepository->paginate(5);
         return view('admin.Traffic.list',[
              'dataTrafficList' =>$dataTrafficList
         	]);
