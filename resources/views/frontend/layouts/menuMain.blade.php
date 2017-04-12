@@ -27,10 +27,7 @@
                                             </ul>
                                          </li>
                                      @endfor
-                                    
-                                 
-                                    <li><a href="#">CẨM NANG DU LỊCH</a></li>
-                                    <li><a href="#">LIÊN HỆ</a></li>
+                                    <li><a href="{{URL::to('/')}}/lien-he">LIÊN HỆ</a></li>
                                 </ul>
                                 <ul class="nav navbar-nav navbar-right">
                                     <div class="mainmenu_support">

@@ -8,8 +8,22 @@
     height: 40px;
     border-bottom: 1px solid #dcdcdc;
 }
+.contact-title {
+    padding:10px 0px;
+}
+.contact-title h3{
+    color: #2d9ad9;
 
-
+}
+.contact-left p{
+    line-height: 25px;
+}
+.contact-left p span:first-child{
+    padding-right: 10px;
+}
+.contact-left p span i{
+    color: #2d9ad9;
+}
 /*menu top*/
 
 .top-header .left {
