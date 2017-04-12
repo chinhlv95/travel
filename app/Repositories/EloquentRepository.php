@@ -46,7 +46,7 @@ abstract class EloquentRepository implements RepositoryInterface
 	*/
 	public function getAll( array $with = array() )
 	{
-		return $this->make($with)->get();
+		return $this->make($with)->orderBy('created_at', 'desc')->get();
 	}
 	/**
 	* Get one
@@ -105,7 +105,7 @@ abstract class EloquentRepository implements RepositoryInterface
 	*/
 	public function paginate($limit = null)
 	{
-      	$result =  $this->_model->paginate($limit);
+      	$result =  $this->_model->orderBy('created_at', 'desc')->paginate($limit);
       	return $result;
 	}
 
@@ -116,7 +116,7 @@ abstract class EloquentRepository implements RepositoryInterface
 	*/
 	public function pagination($limit = null, array $with = array())
 	{
-      	$result =  $this->make($with)->paginate($limit);
+      	$result =  $this->make($with)->orderBy('created_at', 'desc')->paginate($limit);
       	return $result;
 	}
 
