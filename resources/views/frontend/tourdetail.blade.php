@@ -1,17 +1,30 @@
 @extends('frontend.layouts.masterpage')
 @section('title')
+ @if(empty($dataTour))
+ @else
 {{$dataTour->name}}
+@endif
 @stop
 @section('description')
+ @if(empty($dataTour))
+ @else
 {{$dataTour->name}}
+@endif
 @stop
 @section('keywords')
+@if(empty($dataTour))
+ @else
 {{$TourRepository->convert_vi_to_en($dataTour->name)}}
+@endif
 @stop
 @section('content')
 
 <section class="detail-tour">
          <div class="container">
+          @if(empty($dataTour))
+         <h4>Không tìm thấy tour</h4>
+         <div id="fix-height"></div>
+          @else
              <div class="row breadcrumb-detail">
                  <ol class="breadcrumb">
                     <li><a href="{{URL::to('/')}}">Home</a></li>
@@ -239,6 +252,7 @@
                  
              </ul>
          </div>
+         @endif
           </div>
     
         </section>

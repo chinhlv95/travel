@@ -23,10 +23,10 @@ Route::post('postLogin','LoginController@postLogin');
 Route::post('check-tour', 'MainController@checkTour');
 
 // page detail
-Route::get('tour-detail/{id}/{name}.html','MainController@getTourDetail');
+Route::get('tour-detail/{id}/{name}.html','MainController@getTourDetail')->where('id', '[0-9]+');
 
 // page tour for category
-Route::get('category/{id}/{name}.html','MainController@getCategories');
+Route::get('category/{id}/{name}.html','MainController@getCategories')->where('id', '[0-9]+');
 
 //add tour
 Route::post('add-tour', 'MainController@addTour');
@@ -35,7 +35,7 @@ Route::post('add-tour', 'MainController@addTour');
 Route::post('show-destination','HomeController@showDestination');
 
 //show tour by destination
-Route::get('destination/{id}','MainController@getTourbyDestination');
+Route::get('destination/{id}','MainController@getTourbyDestination')->where('id', '[0-9]+');
 
 // filter gobal
 Route::get('filter', 'MainController@filterGobal');

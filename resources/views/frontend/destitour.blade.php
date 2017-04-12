@@ -5,10 +5,15 @@
 @section('content')
 <section class="tour">
             <div class="container">
+              @if(empty($dataDesti))
+         <h4>Không tìm thấy tour</h4>
+         <div id="fix-height"></div>
+
+            @else
                 <div class="row breadcrumb-detail">
                  <ol class="breadcrumb">
                     <li><a href="{{URL::to('/')}}">Home</a></li>
-                 
+                   
                     <li class="active">{{$dataDesti->name}}</li>        
                   </ol>
                 </div>
@@ -62,7 +67,7 @@
                 <div class="text-center">
                     {{$dataDestiTour->links()}}
                 </div>
-               
+               @endif
             </div>
         </section>
      @endsection
