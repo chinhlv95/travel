@@ -41,8 +41,12 @@ class PayController extends Controller
     public function postAdd(PayRequest $request)
     {
        if($this->PayRepository->create($request->all())){
-       	   return Response(['message'=>'thành công']);
+       	     return Response(['message'=>'successfull']);
         }
+        else{
+            return Response(['message'=>'error']);
+        }
+      
     }
 
     /**
@@ -67,10 +71,10 @@ class PayController extends Controller
      public function postEdit(PayRequest $request,$id)
      {
      	if($this->PayRepository->update($id,$request->all())){
-          return Response(['message'=>'sửa thành công']);
-     	}else{
-          return Response(['message'=>'sửa Lỗi']);
-     	}
+          return Response(['message'=>'successfull']);
+        }else{
+            return Response(['message'=>'error']);
+        }
      }
 
 
@@ -82,9 +86,9 @@ class PayController extends Controller
     public function getDelete(Request $request)
     {
         if($this->PayRepository->delete($request->id)) {
-          return Response(['message'=>'xóa thành công']);
+         return Response(['message'=>'successfull']);
         }else{
-          return Response(['message'=>'xóa Lỗi']);
+            return Response(['message'=>'error']);
         }
 
     }
