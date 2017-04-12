@@ -17,7 +17,7 @@
                                 <ul class="nav navbar-nav">
                                     @for( $i=0; $i<count($dataCategories); $i++ )
                                          <li class="dropdown">
-                                         <a href="{{URL::to('/')}}/category/{{$dataCategories[$i]['id']}}/{{$CategoryRepository->convert_vi_to_en($dataCategories[$i]["name"])}}.html" title="{{$dataCategories[$i]["name"]}}"  class="dropdown-toggle" data-toggle="dropdown">{{$dataCategories[$i]["name"]}}</a>
+                                         <a href="{{URL::to('/')}}/category/{{$dataCategories[$i]['id']}}/{{$CategoryRepository->convert_vi_to_en($dataCategories[$i]["name"])}}.html" title="{{$dataCategories[$i]["name"]}}" >{{$dataCategories[$i]["name"]}}</a>
                                             <ul class="dropdown-menu">
                                              @for( $j=0; $j<count($dataDestination); $j++ )
                                              @if( $dataDestination[$j]['cate_id'] == $dataCategories[$i]['id'] )

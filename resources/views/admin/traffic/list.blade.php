@@ -7,13 +7,13 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-lg-12">
-                <h1 class="page-header">traffic
+                <h1 class="page-header">Traffic
                 </h1>
             </div>
            <div id="add">
            <div class="row">
                <div class="col-md-3">
-                    <a href="javascript:void(0)"  id="add-traffic" class="btn-add"> <i class="fa fa-plus" aria-hidden="true"></i> Add traffic</a>
+                    <a href="javascript:void(0)"  id="add-traffic" class="btn-add"> <i class="fa fa-plus" aria-hidden="true"></i> Add Traffic</a>
                </div>
            </div>
            </div>

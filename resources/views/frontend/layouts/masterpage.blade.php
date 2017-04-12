@@ -113,7 +113,7 @@
           <div class="clearfix footer-contact">
               <ul>
                 @foreach( $dataContacts as $dataContact)
-                <li style="width: calc(100% / {{count($dataContacts)}});">
+                <li class="col-md-{{12/count($dataContacts)}}">
                 <p><span style="font-size:16px">{{$dataContact->name}}</span></p>
 
                 <p>Trụ sở: {{$dataContact->address}}</p>
