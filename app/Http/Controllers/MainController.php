@@ -74,12 +74,19 @@ class MainController extends Controller
            'dataTourSale'  =>$dataTourSale
         ]);    
     }
+    /**
+    *display page contacts
+    */
 
     /**
     *get categories
     *@param integer $id
     *@return mixde
     */
+    public function getContacts()
+    {
+      return view('frontend.contacts');
+    }
     public function getCategories(Request $request)
     {
      $dataCateTour= $this->TourRepository->showTourCate($request->id,10);
