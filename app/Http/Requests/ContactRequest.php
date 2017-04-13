@@ -24,23 +24,24 @@ class ContactRequest extends FormRequest
     public function rules()
     {
         return [
-           'name'   =>'max:255|min:4',
+           'name'   =>'max:255|min:4|regex:/^[a-zA-Z]/',
            'phone'  =>'max:12',
            'address'=>'max:255'
         ];
     }
     /**
-     * messages
+     * messages 
      *
      * @return array
      */
       public function messages()
     {
         return [
-            'name.max'=>'too short 4-255 character',
-            'name.min'=>'too short 4-255 character',
+            'name.max'   =>'too short 4-255 character',
+            'name.min'   =>'too short 4-255 character',
+            'name.regex' =>"Specially character ",
             // phone
-            'phone.max'=>'too short 11 character',
+            'phone.max'  =>'too short 11 character',
             'address.max'=>'too short 0-255 character'
         ];
     }

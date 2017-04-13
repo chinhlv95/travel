@@ -12,7 +12,7 @@ class PriceRangeController extends Controller
 
     public function __construct(PriceRangeRepositoryInterface $PriceRangeRepository)
     {
-        $this->PriceRangeRepository = $PriceRangeRepository;
+      $this->PriceRangeRepository = $PriceRangeRepository;
     }
 
     /**
@@ -24,7 +24,7 @@ class PriceRangeController extends Controller
     	$dataPriceRangeList=$this->PriceRangeRepository->paginate(5);
         return view('admin.price-range.list',[
              'dataPriceRangeList' =>$dataPriceRangeList
-        	]);
+        ]);
     }
     
     /**
@@ -42,7 +42,9 @@ class PriceRangeController extends Controller
     public function postAdd(PriceRangeRequest $request)
     {
        if($this->PriceRangeRepository->create($request->all())){
-       	   return Response(['message'=>'thành công']);
+       	 return Response(['message'=>'successfull']);
+        }else{
+            return Response(['message'=>'error']);
         }
     }
 
@@ -53,8 +55,8 @@ class PriceRangeController extends Controller
     */ 
      public function getEdit($id)
      {
-       $dataPriceRangeFind=$this->PriceRangeRepository->find($id);
-        return view('admin.price-range.edit',[
+      $dataPriceRangeFind=$this->PriceRangeRepository->find($id);
+      return view('admin.price-range.edit',[
        'dataPriceRangeFind'=>$dataPriceRangeFind
        ]);
          
@@ -68,10 +70,10 @@ class PriceRangeController extends Controller
      public function postEdit(PriceRangeRequest $request,$id)
      {
      	if($this->PriceRangeRepository->update($id,$request->all())){
-          return Response(['message'=>'sửa thành công']);
-     	}else{
-          return Response(['message'=>'sửa Lỗi']);
-     	}
+         return Response(['message'=>'successfull']);
+      }else{
+            return Response(['message'=>'error']);
+        }
      }
 
 
@@ -83,9 +85,9 @@ class PriceRangeController extends Controller
     public function getDelete(Request $request)
     {
         if($this->PriceRangeRepository->delete($request->id)) {
-          return Response(['message'=>'xóa thành công']);
+          return Response(['message'=>'successfull']);
         }else{
-          return Response(['message'=>'xóa Lỗi']);
+            return Response(['message'=>'error']);
         }
 
     }

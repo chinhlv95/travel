@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Repositories\Tourer\TourerRepositoryInterface;
 use App\Repositories\Tour\TourRepositoryInterface;
+use App\Http\Requests\TourerRequset;
 use App\Repositories\Order\OrderRepositoryInterface;
 
 
@@ -35,7 +36,7 @@ class TourersController extends Controller
     *@param ContactRequest $request
     *@return mixed
     */
-    public function postAdd(Request $request)
+    public function postAdd(TourerRequset $request)
     {
        $orderId=$request->order_id;
        $dataOrder=$this->OrderRepository->find($orderId); 
@@ -45,7 +46,7 @@ class TourersController extends Controller
        	 // if booked equal 0 ,delete order
        	    $this->TourRepository->update($tourId,['booked'=>(int)($dataTour->booked)+1]);
        	    $this->OrderRepository->update($orderId,['quantity_tourer'=>(int)($dataOrder->quantity_tourer)+1]);
-          
+            return Response(['message'=>'successfull']);
        }
     }
 
@@ -56,7 +57,7 @@ class TourersController extends Controller
     */ 
      public function getEdit($id)
      {
-       $dataTourerFind=$this->TourerRepository->find($id);
+      $dataTourerFind=$this->TourerRepository->find($id);
         return view('admin.tourer.edit',[
        'dataTourerFind'=>$dataTourerFind
        ]);
@@ -77,9 +78,9 @@ class TourersController extends Controller
        if($this->TourerRepository->delete($idTourer)){
        	 // if booked equal 0 ,delete order
             if((int)($dataTour->booked)==0){
-             $this->OrderRepository->delete($orderId);
+            $this->OrderRepository->delete($orderId);
             }
-           else{
+            else{
        	    $this->TourRepository->update($tourId,['booked'=>(int)($dataTour->booked)-1]);
        	    $this->OrderRepository->update($orderId,['quantity_tourer'=>(int)($dataOrder->quantity_tourer)-1]);
           }
@@ -87,17 +88,17 @@ class TourersController extends Controller
     
     }
     /**
-    *update user
-    *@param UserRequest $request
+    *update tourer
+    *@param TourerRequest $request
     *@param integer $id
     *@return mixed
     */
-     public function postEdit(Request $request,$id)
+     public function postEdit(TourerRequset $request,$id)
      {
      	if($this->TourerRepository->update($id,$request->all())){
-          return Response(['message'=>'sửa thành công']);
+          return Response(['message'=>'update success']);
      	}else{
-          return Response(['message'=>'sửa Lỗi']);
+          return Response(['message'=>'error']);
      	}
      }
 

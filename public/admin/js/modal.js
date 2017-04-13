@@ -12,12 +12,10 @@
          }
      });
      // add submit user
-     createUpdateForm('#user-form', "#content-table-user", "#modal-users");
+     createUpdateForm('#user-form', "#content-table-user", "#modal-user");
      //update submmit user
       $('body').on('submit', '#user-form-update', function(event) {
              var errorPasswors=$("#error-password-old").html();
-             if(errorPasswors=="")
-             {
                  $.ajax({
                      type: $('#user-form-update').attr('method'),
                      url: $('#user-form-update').attr('action'),
@@ -40,10 +38,6 @@
                          };
                      }
                  });
-            }else{
-                alert("wrong password old ");
-
-            }
                  event.preventDefault();
              });
 
@@ -71,7 +65,6 @@
                  },
                  success: function(data) {
                     if(data==0){
-                     alert("wrong password old ");
                      $("#error-password-old").html("wrong password old");
                     }else{
                         $("#error-password-old").html("")
@@ -235,7 +228,7 @@
         //-getModalPost
         getModalPost('.update-tourers','#modal-order','#contet-modal-order',"#edit-tourer-form","admin/tourer/edit/");
         //update tourer
-        createUpdateForm("#tourer-form-update", "#content-table-tourer", "#modal-order");
+        createUpdateForm("#tourer-form-update", "#content-table-order", "#modal-order");
         //delete tourer
          $('body').on('click', '.delete-tourers', function(event) {
          event.preventDefault();
@@ -258,7 +251,17 @@
                     
                      $("#content-table-order").load(" #content-table-order");
                  },
-                 error: function() {}
+                 error: function(data) {
+                     var errors = data.responseJSON;
+                         var keys = Object.keys(errors);
+                         var values = Object.values(errors);
+                         console.log(errors);
+                         for (var i = 0; i < keys.length; i++) {
+                             var key = keys[i];
+                             var value = values[i][0];
+                             $("#error-" + key).html(value);
+                         };
+                 }
              });
          }
      });
@@ -296,6 +299,15 @@
 
                      },
                      error: function(data) {
+                         var errors = data.responseJSON;
+                         var keys = Object.keys(errors);
+                         var values = Object.values(errors);
+                         console.log(errors);
+                         for (var i = 0; i < keys.length; i++) {
+                             var key = keys[i];
+                             var value = values[i][0];
+                             $("#error-" + key).html(value);
+                         }
                          }
                  });
                  event.preventDefault();

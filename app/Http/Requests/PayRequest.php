@@ -24,7 +24,7 @@ class PayRequest extends FormRequest
     public function rules()
     {
         return [
-            'name'=>'required|max:255'
+            'name'=>'required|max:255:|regex:/^[a-zA-Z]/'
         ];
     }
 
@@ -37,7 +37,8 @@ class PayRequest extends FormRequest
     {
         return [
             'name.required'=>'field name not null',
-            'name.max'     =>'too short 0-255 charater'
+            'name.max'     =>'too short 0-255 charater',
+            'name.regex'   =>'Specially character'
         ];
     }
 }

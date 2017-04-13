@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Requests\UserRequest;
+use App\Http\Requests\UserEditRequset;
 use App\Repositories\User\UserRepositoryInterface;
 use Auth;
 
@@ -14,7 +15,7 @@ class UserController extends Controller
 
     public function __construct(UserRepositoryInterface $postRepository)
     {
-        $this->postRepository = $postRepository;
+      $this->postRepository = $postRepository;
     }
 
     /**
@@ -25,7 +26,7 @@ class UserController extends Controller
     {
       $name=$r->name;
       $dataUser=  $this->postRepository->FilterUsername($name);
-    	 return view("admin.user.list",[
+    	return view("admin.user.list",[
              'dataUser'=>$dataUser
             ]);
     }
@@ -45,10 +46,10 @@ class UserController extends Controller
     {
         $User=["name"=> $request->name,"email"=>$request->email,"password"=>bcrypt($request->password),"level"=>$request->level];
         if($this->postRepository->create($User)){
-            return Response(['message'=>'thành công']);
+          return Response(['message'=>'successfull']);
         }
         else{
-            return Response(['message'=>'Lỗi']);
+          return Response(['message'=>'error insert']);
         }
       
     }
@@ -64,10 +65,9 @@ class UserController extends Controller
        $dataUserFind=$this->postRepository->find($id);
        // check user Authentication  is passed
        if(Auth::user()->id!=$id && $check!=1){
-            echo 0;
-           }
-       else{
-            return view('admin.user.edit',[
+          echo 0;
+          }else{
+          return view('admin.user.edit',[
            'dataUserFind'=>$dataUserFind
            ]);
          }
@@ -79,30 +79,26 @@ class UserController extends Controller
     *@param integer $id
     *@return mixed
     */
-     public function postEdit(UserRequest $request,$id)
+     public function postEdit(UserEditRequset $request,$id)
      {
         $check=Auth::user()->level;
         if($check==1){
         $User=["name"=> $request->name,"email"=>$request->email,"level"=>$request->level];
         if($this->postRepository->update($id,$User)){
-            return Response(['message'=>'thành công']);
+            return Response(['message'=>'successfull']);
+        }else{
+            return Response(['message'=>'errors']);
         }
-        else{
-            return Response(['message'=>'Lỗi']);
-        }}
-        else{
+       }else{
         $User=["name"=> $request->name,"email"=>$request->email,"password"=>bcrypt($request->password),"level"=>$request->level];
         if($this->postRepository->update($id,$User)){
-            return Response(['message'=>'thành công']);
-        }
-        else{
-            return Response(['message'=>'Lỗi']);
+            return Response(['message'=>'successfull']);
+        }else{
+            return Response(['message'=>'errors']);
         }
        }
       
     }
-
-
     /**
     *delete user
     *@param Request $request
@@ -114,9 +110,9 @@ class UserController extends Controller
         $levelSuperAdmin=$this->postRepository->find($request->id);
         if($check==1&&$levelSuperAdmin->level!=1){
          $this->postRepository->delete($request->id);
-          return Response(['message'=>'thành công']);
+            return Response(['message'=>'successfull']);
         }else{
-           return Response(['message'=>'bạn không có quyền xóa']);
+            return Response(['message'=>'error insert']);
         }
        
     }
