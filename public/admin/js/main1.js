@@ -149,7 +149,7 @@ var x = 0;
 $(".add_image_field").click(function(e){ 
   	e.preventDefault();
   	x++;
-    $("#custom-div").append('<div class="form-group"><img id="image_'+x+'" src="" ><input type="text" placeholder="Inser image" count="'+x+'" id="imagetour_'+x+'" value="" class="form-control imagepro" name="imagepro[]"/><a href="#" class="btn-danger btn-circle icon_del remove_field"><i class="fa fa-times" aria-hidden="true"></i></a></div>'); //add input box
+    $("#custom-div").append('<div class="form-group"><img id="image_'+x+'" src="" ><input type="text" placeholder="Inser image" count="'+x+'" id="imagetour_'+x+'" value="" class="form-control imagepro" name="imagepro[]" required/><a href="#" class="btn-danger btn-circle icon_del remove_field"><i class="fa fa-times" aria-hidden="true"></i></a></div>'); //add input box
 });
 
 $("body").on("click",".remove_field", function(e)
