@@ -145,6 +145,7 @@ class TourEloquentRepository extends EloquentRepository implements TourRepositor
             ->join('sales', 'sales.id', '=','tours.sale_id')
             ->join('provinces', 'provinces.id', '=','tours.province_id')
             ->select('tours.*','traffic.name as traffic_name','sales.sale_precent as sale','provinces.name as provice_name')
+            ->where(['tours.is_hot'=>1])
             ->orderBy('tours.created_at', 'desc')
             ->take(4)
             ->get();
