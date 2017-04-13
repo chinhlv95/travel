@@ -116,7 +116,7 @@ class TourEloquentRepository extends EloquentRepository implements TourRepositor
             ->select('tours.*','traffic.name as traffic_name','sales.sale_precent as sale','provinces.name as provice_name')
             ->where(['destinations.id'=>$id,'tours.status'=>1])
             ->paginate($limit);
-            return $showTourDesti;
+            return $datashowTourDesti;
   }
 	/**
     * find tour
