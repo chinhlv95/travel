@@ -97,6 +97,7 @@ class TourEloquentRepository extends EloquentRepository implements TourRepositor
             ->join('provinces', 'provinces.id', '=','tours.province_id')
             ->select('tours.*','traffic.name as traffic_name','sales.sale_precent as sale','provinces.name as provice_name')
             ->where(['destinations.cate_id'=>$id,'tours.status'=>1])
+            ->orderBy('tours.created_at', 'desc')
             ->paginate($limit);
             return $dataShowTourCate;
 	}
@@ -115,6 +116,7 @@ class TourEloquentRepository extends EloquentRepository implements TourRepositor
             ->join('provinces', 'provinces.id', '=','tours.province_id')
             ->select('tours.*','traffic.name as traffic_name','sales.sale_precent as sale','provinces.name as provice_name')
             ->where(['destinations.id'=>$id,'tours.status'=>1])
+            ->orderBy('tours.created_at', 'desc')
             ->paginate($limit);
             return $showTourDesti;
   }
@@ -144,6 +146,7 @@ class TourEloquentRepository extends EloquentRepository implements TourRepositor
             ->join('sales', 'sales.id', '=','tours.sale_id')
             ->join('provinces', 'provinces.id', '=','tours.province_id')
             ->select('tours.*','traffic.name as traffic_name','sales.sale_precent as sale','provinces.name as provice_name')
+            ->orderBy('tours.created_at', 'desc')
             ->take(4)
             ->get();
             return $dataTourhot;
@@ -163,6 +166,7 @@ class TourEloquentRepository extends EloquentRepository implements TourRepositor
             ->select('tours.*','traffic.name as traffic_name','sales.sale_precent as sale','provinces.name as provice_name')
             ->where(['tours.status'=>1,'destinations.id'=>$destination_id])
             ->where('tours.id','<>',$id)
+            ->orderBy('tours.created_at', 'desc')
             ->take(3)
             ->get();
             return $dataRelationTour;
@@ -179,6 +183,7 @@ class TourEloquentRepository extends EloquentRepository implements TourRepositor
             ->join('provinces', 'provinces.id', '=','tours.province_id')
             ->select('tours.*','traffic.name as traffic_name','sales.sale_precent as sale','provinces.name as provice_name')
             ->where(['tours.status'=>1])
+            ->orderBy('tours.created_at', 'desc')
             ->paginate(10);
             return $dataShowAllTour;
    }
@@ -249,6 +254,7 @@ class TourEloquentRepository extends EloquentRepository implements TourRepositor
         ->where('tours.destination_id','like','%'.$destination.'%')
         ->where('tours.start_date','like','%'.$start.'%')
         ->whereBetween('tours.price', [(int)$arrPrice[0],(int)$arrPrice[1]])
+        ->orderBy('tours.created_at', 'desc')
         ->paginate(10);
    	}else{
         $dataFilterGobal = DB::table('destinations')
@@ -259,6 +265,7 @@ class TourEloquentRepository extends EloquentRepository implements TourRepositor
         ->where('destinations.cate_id','like','%'.$cate.'%')
         ->where('tours.destination_id','like','%'.$destination.'%')
         ->where('tours.start_date','like','%'.$start.'%')
+        ->orderBy('tours.created_at', 'desc')
         ->paginate(10);
    	}
         return $dataFilterGobal;
