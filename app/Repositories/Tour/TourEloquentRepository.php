@@ -52,7 +52,7 @@ class TourEloquentRepository extends EloquentRepository implements TourRepositor
 	        ->select('tours.*')
 	        ->where(['destinations.cate_id'=>$id])
 	        ->paginate($limit);
-	        return $dataTourCate;
+	        return $dataAllTourCate;
 	}
 
 	/**
@@ -80,7 +80,7 @@ class TourEloquentRepository extends EloquentRepository implements TourRepositor
 		$dataShowAllTourDestination = DB::table('tours')
 	        ->where(['destination_id' => $id])
 	        ->paginate($limit);
-	        return $dataShowTourDestination;
+	        return $dataShowAllTourDestination;
 	}
 
     /**
