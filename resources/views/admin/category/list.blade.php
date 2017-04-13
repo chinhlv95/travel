@@ -20,12 +20,6 @@
             <div class="col-md-9">
                 <button type="button" class="btn btn-info btn-md add" data-name="cate" data-toggle="modal" data-target="#myModal"><i class="fa fa-plus-circle" aria-hidden="true"></i> ADD</button>
             </div>
-            <div class="col-md-3">
-                <div class="input-group">
-                    <input type="text" name="search" placeholder="search..." class="form-control" id="search">
-                    <span class="input-group-addon"><i class="fa fa-search" aria-hidden="true"></i></span>
-                </div>
-            </div>
             <div class="col-md-12">
                 <div class="modal fade" id="myModal" role="dialog">
                     <div class="modal-dialog">

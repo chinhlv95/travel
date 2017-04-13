@@ -32,10 +32,10 @@
                         <div class="form-group">
                             <label>Category Status:</label>
                             <label class="radio-inline">
-                                <input name="status" value="0" checked type="radio">Private
+                                <input name="status" value="1" checked type="radio">Published
                             </label>
                             <label class="radio-inline">
-                                <input name="status" value="1" type="radio">Published
+                                <input name="status" value="0" type="radio">Private
                             </label>
                         </div>
                         <button type="submit" class="btn btn-default">Add Category</button>

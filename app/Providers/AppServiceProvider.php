@@ -27,7 +27,7 @@ class AppServiceProvider extends ServiceProvider
       $prieRange=new PriceRangeEloquentRepository();
       $contact=new ContactEloquentRepository();
       $dataProvince=$province->getAll();
-      $dataCategories=$CategoryRepository->getAll()->toArray();
+      $dataCategories=$CategoryRepository->getCatPublic()->toArray();
       $dataDestination=$destination->getAll();
       $dataPriceRange=$prieRange->getAll();
       $dataContact=$contact->getAll();
