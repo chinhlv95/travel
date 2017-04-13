@@ -118,7 +118,7 @@ class TourEloquentRepository extends EloquentRepository implements TourRepositor
             ->where(['destinations.id'=>$id,'tours.status'=>1])
             ->orderBy('tours.created_at', 'desc')
             ->paginate($limit);
-            return $showTourDesti;
+            return $datashowTourDesti;
   }
 	/**
     * find tour
