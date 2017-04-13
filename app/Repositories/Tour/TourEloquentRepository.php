@@ -39,7 +39,6 @@ class TourEloquentRepository extends EloquentRepository implements TourRepositor
 		$id = $this->_model->insertGetId($attributes);
   		return $id;
 	}
-
 	/**
     *  display all tour for categories
     * @param integer $id

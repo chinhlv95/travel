@@ -32,7 +32,7 @@
              <div class="col-md-6 col-md-offset-6">
               <div class="form-inline">
               <div class="form-group">
-                <label for="name">Tour:</label>
+                <label for="name">Code:</label>
                 <input type="text" placeholder="code" class="form-control" id="name-tour">
               </div>
               <div class="form-group">
