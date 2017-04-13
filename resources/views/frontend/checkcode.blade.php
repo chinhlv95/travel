@@ -43,6 +43,7 @@
        <p><span class="first-name-tour">Ngày khởi hành:</span><span>{{date('d-m-Y', strtotime($dataCodeOrder->start_date))}}</span></p>
        <p><span class="first-name-tour">Số lượng:</span><span>{{$dataCodeOrder->booked}}(người)</span></p>
        <p><span class="first-name-tour">Giá:</span>{{number_format((int)($dataCodeOrder->price)*(1-(int)($dataSale->sale_precent)/100))."đ"}}  </p>
+       <p><span class="first-name-tour">Trạng thái:</span><span>{{($dataCodeOrder->status)?" Đã kỹ hợp đồng":"Đang xử lý"}}</span></p>
      </div>
    </div>
  </div>

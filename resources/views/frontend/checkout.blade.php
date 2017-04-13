@@ -23,7 +23,7 @@
                 </div>
                 <div class="tour-row">Nơi khởi hành: <span style="font-weight:bold"> {{$tour->provice_name}}</span>
                 </div>
-                <div class="tour-row">Số chỗ còn nhận: <span style="font-weight:bold">{{((int)($tour->quantity)-(int)($tour->booked))}}</span></div>    
+                <div class="tour-row">Số chỗ còn nhận: <span style="font-weight:bold">{{((int)($tour->quantity)-(int)($tour->booked))}}</span></div>
             </div>
         </div>
         <form action="{{URL::to('/')}}/report" method="post" id="checkout">

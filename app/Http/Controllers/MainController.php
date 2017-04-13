@@ -173,7 +173,7 @@ class MainController extends Controller
     /**
     * get tour by destination
     *@param integer $id
-    *@return mixde
+    *@return mixed
     */
     public function getTourbyDestination( Request $request)
     {
