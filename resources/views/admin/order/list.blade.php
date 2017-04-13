@@ -113,10 +113,10 @@
                               <p><span>Fullname:</span>{{$order->fullname}}</p>
                               <p><span>Email:</span>{{$order->email}}</p>
                               <p><span>Phone:</span>{{$order->phone}}</p>
-                              <p><span>Birthday:</span>{{date('d-m-Y', strtotime($order->birthday))}}5</p>
-                              <p><span>Gender</span>{{($order->gender)?"male":"female"}}</p>
-                              <p><span>Address</span>{{$order->address}}</p>
-                              <p><span>note</span>{{$order->note}}</p>
+                              <p><span>Birthday:</span>{{date('d-m-Y', strtotime($order->birthday))}}</p>
+                              <p><span>Gender:</span>{{($order->gender)?"male":"female"}}</p>
+                              <p><span>Address:</span>{{$order->address}}</p>
+                              <p><span>note:</span>{{$order->note}}</p>
                             </div>
                           </div>
                         </div>
@@ -152,8 +152,8 @@
                             <tr>
                             <td>{{$i}}</td>
                             <td>{{$tourer->fullname}}</td>
-                            <td>{{$tourer->birthday}}</td>
-                            <td>{{($tourer->gender)?"Nam":"Nữ"}}</td>
+                            <td>{{date('d-m-Y', strtotime($tourer->birthday))}}</td>
+                            <td>{{($tourer->gender)?"male":"female"}}</td>
                             <td>{{$tourer->phone}}</td>
                             <td>{{$tourer->address}}</td>
                             @if($order->status==0)

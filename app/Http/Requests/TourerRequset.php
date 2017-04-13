@@ -25,7 +25,7 @@ class TourerRequset extends FormRequest
     {
         return [
             'fullname'=>'required|max:255:|regex:/^[a-zA-Z]/',
-            'phone'   =>'required|integer',
+            'phone'   =>'required|digits_between:1,11',
             'address' =>'required|max:255:|regex:/^[a-zA-Z]/'
 
         ];
@@ -40,17 +40,17 @@ class TourerRequset extends FormRequest
     {
         return [
             //fullname
-            'fullname.required'=>'field fullname not null',
-            'fullname.max'     =>'too short 0-255 charater',
-            'fullname.regex'   =>'Specially character',
+            'fullname.required'   =>'field fullname not null',
+            'fullname.max'        =>'too short 0-255 charater',
+            'fullname.regex'      =>'Specially character',
             // phone
-            'phone.required'   =>'field phone not null',
-            'phone.integer'    =>'type number',
+            'phone.required'      =>'field phone not null',
+            'phone.digits_between'=>'too short 0-11 charater',
             //address
             //fullname
-            'address.required' =>'field address not null',
-            'address.max'      =>'too short 0-255 charater',
-            'address.regex'    =>'Specially character',
+            'address.required'    =>'field address not null',
+            'address.max'         =>'too short 0-255 charater',
+            'address.regex'       =>'Specially character',
         ];
     }
 }
