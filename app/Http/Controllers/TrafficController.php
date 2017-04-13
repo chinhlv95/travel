@@ -12,7 +12,7 @@ class TrafficController extends Controller
 
     public function __construct(TrafficRepositoryInterface $TrafficRepository)
     {
-        $this->TrafficRepository = $TrafficRepository;
+      $this->TrafficRepository = $TrafficRepository;
     }
     /**
     *show  list contact
@@ -22,8 +22,8 @@ class TrafficController extends Controller
     {
     	$dataTrafficList=$this->TrafficRepository->paginate(5);
         return view('admin.Traffic.list',[
-             'dataTrafficList' =>$dataTrafficList
-        	]);
+          'dataTrafficList' =>$dataTrafficList
+        ]);
     }
     
     /**
@@ -43,7 +43,7 @@ class TrafficController extends Controller
        if($this->TrafficRepository->create($request->all())){
        	 return Response(['message'=>'successfull']);
         }else{
-            return Response(['message'=>'error']);
+         return Response(['message'=>'error']);
         }
     }
 
@@ -71,7 +71,7 @@ class TrafficController extends Controller
      	if($this->TrafficRepository->update($id,$request->all())){
           return Response(['message'=>'successfull']);
         }else{
-            return Response(['message'=>'error']);
+          return Response(['message'=>'error']);
         }
      }
 
@@ -84,9 +84,9 @@ class TrafficController extends Controller
     public function getDelete(Request $request)
     {
         if($this->TrafficRepository->delete($request->id)) {
-         return Response(['message'=>'successfull']);
+          return Response(['message'=>'successfull']);
         }else{
-            return Response(['message'=>'error']);
+          return Response(['message'=>'error']);
         }
 
     }

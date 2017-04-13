@@ -30,14 +30,5 @@ class HomeController extends Controller
              'dataTourHot'  =>$dataTourHot
      		]);
      }
-     /**
-    *show destnation for categories
-    *@param integer $id
-    *@return mixed;
-    */
-     public function showDestination(Request $request)
-     {
-        $dataDestination=  $this->desRepository->showDestinationCate($request->id);
-        return json_encode($dataDestination);
-     }
+     
 }

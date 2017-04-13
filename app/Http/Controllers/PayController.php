@@ -22,7 +22,7 @@ class PayController extends Controller
     {
     	$dataPayList=$this->PayRepository->paginate(5);
         return view('admin.pay.list',[
-             'dataPayList' =>$dataPayList
+            'dataPayList' =>$dataPayList
         	]);
     }
     
@@ -41,7 +41,7 @@ class PayController extends Controller
     public function postAdd(PayRequest $request)
     {
        if($this->PayRepository->create($request->all())){
-       	     return Response(['message'=>'successfull']);
+       	    return Response(['message'=>'successfull']);
         }
         else{
             return Response(['message'=>'error']);

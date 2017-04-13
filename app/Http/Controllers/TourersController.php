@@ -57,7 +57,7 @@ class TourersController extends Controller
     */ 
      public function getEdit($id)
      {
-       $dataTourerFind=$this->TourerRepository->find($id);
+      $dataTourerFind=$this->TourerRepository->find($id);
         return view('admin.tourer.edit',[
        'dataTourerFind'=>$dataTourerFind
        ]);
@@ -78,9 +78,9 @@ class TourersController extends Controller
        if($this->TourerRepository->delete($idTourer)){
        	 // if booked equal 0 ,delete order
             if((int)($dataTour->booked)==0){
-             $this->OrderRepository->delete($orderId);
+            $this->OrderRepository->delete($orderId);
             }
-           else{
+            else{
        	    $this->TourRepository->update($tourId,['booked'=>(int)($dataTour->booked)-1]);
        	    $this->OrderRepository->update($orderId,['quantity_tourer'=>(int)($dataOrder->quantity_tourer)-1]);
           }

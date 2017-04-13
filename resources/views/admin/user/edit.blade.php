@@ -32,7 +32,7 @@
                       @if(Auth::user()->level!=1)
                         <label>password old</label>
                         <input class="form-control" required type="password"  id="passwordold" name="passwordold" value="" placeholder="Please Enter password old" />
-                        <span id="error-password-old"></span>
+                        <span id="error-password-old" class="error-form"></span>
                       @endif
                     </div>
                     <div class="form-group">

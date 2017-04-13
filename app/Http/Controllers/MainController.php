@@ -47,12 +47,12 @@ class MainController extends Controller
        if(!empty($dataCodeOrder)){
        $dataSale      =$this->SaleRepository->find($dataCodeOrder->sale_id);
        $dataTourerList=$this->TourerRepository->getListTourer($dataCodeOrder->order_id);
-    	return view('frontend.checkcode',[
+    	 return view('frontend.checkcode',[
               'dataCodeOrder' =>$dataCodeOrder,
               'dataSale'      =>$dataSale,
               'dataTourerList'=>$dataTourerList
     		]);
-      }else{
+       }else{
             return view('frontend.checkcode',[
               'dataCodeOrder' =>$dataCodeOrder,
               ]);
@@ -68,7 +68,7 @@ class MainController extends Controller
     {  
         $dataTour    =$this->TourRepository->findTour($request->id);
         $dataTourSale=$this->TourRepository->saleTour();
-       return view('frontend.tourdetail',[
+        return view('frontend.tourdetail',[
            'dataTour'      =>$dataTour,
            'TourRepository'=>$this->TourRepository,
            'dataTourSale'  =>$dataTourSale
@@ -89,9 +89,9 @@ class MainController extends Controller
     }
     public function getCategories(Request $request)
     {
-     $dataCateTour= $this->TourRepository->showTourCate($request->id,10);
-     $dataCat=$this->CategoryRepository->find($request->id);
-     return view('frontend.catetour',[
+      $dataCateTour= $this->TourRepository->showTourCate($request->id,10);
+      $dataCat=$this->CategoryRepository->find($request->id);
+      return view('frontend.catetour',[
           'dataCateTour'       =>$dataCateTour,
           'TourRepository'     =>$this->TourRepository,
           'dataCat'            =>$dataCat
@@ -105,11 +105,11 @@ class MainController extends Controller
     */
     public function filterGobal(Request $request)
     {
-      $dataFilterTour=$this->TourRepository->filterTourGobal($request->province,$request->cate,$request->destination,$request->start,$request->price);
-      return view('frontend.filtergobal',[
-        'dataFilterTour'=>$dataFilterTour,
-        'TourRepository'=>$this->TourRepository,
-        'SaleRepository'      =>$this->SaleRepository
+        $dataFilterTour=$this->TourRepository->filterTourGobal($request->province,$request->cate,$request->destination,$request->start,$request->price);
+        return view('frontend.filtergobal',[
+          'dataFilterTour'=>$dataFilterTour,
+          'TourRepository'=>$this->TourRepository,
+          'SaleRepository'      =>$this->SaleRepository
         ]);
     }
 
@@ -134,7 +134,6 @@ class MainController extends Controller
       return view('frontend.tours',[
             'dataTourAll'   =>$dataTourAll,
             'TourRepository'=>$this->TourRepository
-
       ]);
    }
 

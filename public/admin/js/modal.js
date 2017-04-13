@@ -65,7 +65,6 @@
                  },
                  success: function(data) {
                     if(data==0){
-                     alert("wrong password old ");
                      $("#error-password-old").html("wrong password old");
                     }else{
                         $("#error-password-old").html("")
