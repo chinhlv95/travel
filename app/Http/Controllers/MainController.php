@@ -48,13 +48,13 @@ class MainController extends Controller
        $dataSale      =$this->SaleRepository->find($dataCodeOrder->sale_id);
        $dataTourerList=$this->TourerRepository->getListTourer($dataCodeOrder->order_id);
     	 return view('frontend.checkcode',[
-              'dataCodeOrder' =>$dataCodeOrder,
-              'dataSale'      =>$dataSale,
-              'dataTourerList'=>$dataTourerList
+            'dataCodeOrder' =>$dataCodeOrder,
+            'dataSale'      =>$dataSale,
+            'dataTourerList'=>$dataTourerList
     		]);
        }else{
             return view('frontend.checkcode',[
-              'dataCodeOrder' =>$dataCodeOrder,
+            'dataCodeOrder' =>$dataCodeOrder,
               ]);
       }
 
@@ -69,9 +69,9 @@ class MainController extends Controller
         $dataTour    =$this->TourRepository->findTour($request->id);
         $dataTourSale=$this->TourRepository->saleTour();
         return view('frontend.tourdetail',[
-           'dataTour'      =>$dataTour,
-           'TourRepository'=>$this->TourRepository,
-           'dataTourSale'  =>$dataTourSale
+          'dataTour'      =>$dataTour,
+          'TourRepository'=>$this->TourRepository,
+          'dataTourSale'  =>$dataTourSale
         ]);    
     }
     /**
@@ -109,7 +109,7 @@ class MainController extends Controller
         return view('frontend.filtergobal',[
           'dataFilterTour'=>$dataFilterTour,
           'TourRepository'=>$this->TourRepository,
-          'SaleRepository'      =>$this->SaleRepository
+          'SaleRepository'=>$this->SaleRepository
         ]);
     }
 
@@ -132,8 +132,8 @@ class MainController extends Controller
    public function showTour(){
       $dataTourAll=$this->TourRepository->showAllTour();
       return view('frontend.tours',[
-            'dataTourAll'   =>$dataTourAll,
-            'TourRepository'=>$this->TourRepository
+          'dataTourAll'   =>$dataTourAll,
+          'TourRepository'=>$this->TourRepository
       ]);
    }
 
@@ -179,9 +179,9 @@ class MainController extends Controller
       $dataDestiTour= $this->TourRepository->showTourDesti($request->id,10);
       $dataDesti=$this->DestiRepository->find($request->id);
       return view('frontend.destitour',[
-          'dataDestiTour'       =>$dataDestiTour,
-          'TourRepository'     =>$this->TourRepository,
-          'dataDesti'            =>$dataDesti
+        'dataDestiTour' =>$dataDestiTour,
+        'TourRepository'=>$this->TourRepository,
+        'dataDesti'     =>$dataDesti
         ]);
     }
  

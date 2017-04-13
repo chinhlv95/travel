@@ -57,6 +57,7 @@ class OrderEloquentRepository extends EloquentRepository implements OrderReposit
         ->select('tours.*','orders.*','customers.*','orders.id as order_id','pays.name as pay_name','tours.sale_id as sale_id')
         ->where('orders.code','like','%'.$name.'%')
         ->where('orders.status','like','%'.$status.'%')
+        ->orderBy('orders.id','desc')
         ->paginate(5);
         return $resultOrder;
 	}
