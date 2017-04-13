@@ -104,10 +104,13 @@ class TourController extends Controller
     	$this->tourReposity->update($id, $data);
     	$images  = $request->only(['imagepro']);
         $image_arr = array();
-        for( $i =0 ; $i < count($images['imagepro']) ; $i++) {
-        	$image_arr = array('name' => $images['imagepro'][$i], 'tour_id' => $id);
-        	$this->tourimageReposity->create($image_arr);
+        if($images['imagepro'][0] != '') {
+            for( $i =0 ; $i < count($images['imagepro']) ; $i++) {
+                $image_arr = array('name' => $images['imagepro'][$i], 'tour_id' => $id);
+                $this->tourimageReposity->create($image_arr);
+            }
         }
+
         $request->session()->flash('message', $name.' is updated!');
         return redirect()->route('admin.tour.list');
     }
@@ -137,10 +140,13 @@ class TourController extends Controller
         $name    = $request->name;
         $images  = $request->only(['imagepro']);
         $image_arr = array();
-        for( $i =0 ; $i < count($images['imagepro']) ; $i++) {
-        	$image_arr = array('name' => $images['imagepro'][$i], 'tour_id' => $tour_id);
-        	$this->tourimageReposity->create($image_arr);
+        if($images['imagepro'][0] != ''){
+            for( $i =0 ; $i < count($images['imagepro']) ; $i++) {
+                $image_arr = array('name' => $images['imagepro'][$i], 'tour_id' => $tour_id);
+                $this->tourimageReposity->create($image_arr);
+            }
         }
+
         return redirect()->route('admin.tour.list')->with('message', $name.' is added successfully!');
     }
 

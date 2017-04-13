@@ -40,6 +40,7 @@ class DestinationEloquentRepository extends EloquentRepository implements Destin
             ->join('provinces', 'provinces.id', '=','tours.province_id')
             ->select('tours.*','traffic.name as traffic_name','sales.sale_precent as sale','provinces.name as provice_name')
             ->where(['destinations.cate_id'=>$id,'tours.status'=>1])
+            ->orderBy('tours.created_at', 'desc')
             ->take($limit)
             ->get();
             return $result;

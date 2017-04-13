@@ -26,7 +26,7 @@ class TourEloquentRepository extends EloquentRepository implements TourRepositor
 	*/
 	public function FilterTourname($name= "", $limit = null, array $with = array())
 	{
-		$desti=$this->make($with)->where('name','like','%'.$name.'%')->paginate($limit);
+		$desti=$this->make($with)->where('name','like','%'.$name.'%')->orderBy('tours.created_at', 'desc')->paginate($limit);
   		return $desti;
 	}
 
