@@ -14,31 +14,44 @@ class TourSeeder extends Seeder
     {
         
         DB::table('tours')->insert([
-        	['name' => 'Du lịch Mỹ ngắm hoa anh đào 10 ngày giá tốt khởi hành từ TpHCM', 'content' => '<div class="mda-title">VIỆT NAM - TRANSIT - NEW YORK (ĂN TỐI)</div>
+        	['name' => 'Du Lịch Miền Bắc - Khám phá Đảo Đầu Lâu - Trang An dịp lễ', 'content' => '<div class="mda-title">
+<div class="mda-title"><span style="font-size: 12pt;"><strong>TP.HCM &ndash; H&Agrave; NỘI (Ăn trưa, chiều)</strong></span></div>
+<div class="mda-title">&nbsp;</div>
 <div class="mda-day">
-<div><strong>Buổi s&aacute;ng:&nbsp;</strong>HDV c&ocirc;ng ty Du Lịch Việt đ&oacute;n Qu&yacute; kh&aacute;ch tại ga quốc tế, phi trường T&acirc;n Sơn Nhất l&agrave;m thủ tục đ&aacute;p chuyến bay qu&aacute; cảnh tại s&acirc;n bay Bắc Kinh, sau đ&oacute; tiếp tục nối chuyến bay đi NEW YORK. Qu&yacute; kh&aacute;ch ăn uống tr&ecirc;n m&aacute;y bay. Vượt tuyến, đổi ng&agrave;y.</div>
+<div><em>S&aacute;ng:</em></div>
+<div>&nbsp;</div>
+<div style="padding-left: 30px;">Qu&yacute; kh&aacute;ch c&oacute; mặt tại ga quốc nội, s&acirc;n bay T&acirc;n Sơn Nhất trước giờ bay &iacute;t nhất 3 tiếng.<br />Đại diện c&ocirc;ng ty Du Lịch Việt đ&oacute;n v&agrave; hỗ trợ Qu&yacute; Kh&aacute;ch l&agrave;m thủ tục đ&oacute;n chuyến bay đi H&agrave; Nội.<br />Đến s&acirc;n bay Nội B&agrave;i, Hướng Dẫn Vi&ecirc;n đ&oacute;n đo&agrave;n đến trung t&acirc;m Thủ Đ&ocirc; H&agrave; Nội.<br />Viếng Lăng B&aacute;c (trừ ng&agrave;y thứ hai, thứ s&aacute;u bảo tr&igrave; Lăng).<br />Tham quan thủ đ&ocirc; H&agrave; Nội với: Phủ Chủ Tịch, ao c&aacute;, nh&agrave; s&agrave;n B&aacute;c Hồ, Ch&ugrave;a Một Cột, Bảo T&agrave;ng Hồ Ch&iacute; Minh.</div>
+<div style="padding-left: 30px;">&nbsp;</div>
 </div>
 <div class="mda-day">
-<div>Đến <strong>NEW YORK</strong> c&ugrave;ng ng&agrave;y Qu&yacute; kh&aacute;ch l&agrave;m thủ tục nhập cảnh Mỹ. Xe đ&oacute;n đo&agrave;n tại phi trường v&agrave; đưa về trung t&acirc;m tự do thư gi&atilde;n sau một chuyến bay d&agrave;i.<br /><strong>Buổi tối:</strong>&nbsp;Qu&yacute; kh&aacute;ch d&ugrave;ng cơm tối, nhận ph&ograve;ng kh&aacute;ch sạn nghỉ ngơi.</div>
+<div><em>Trưa:</em></div>
 <div>&nbsp;</div>
-<div>
-<div class="mda-title">NEW YORK &ndash; CITY TOUR (ĂN 3 BỮA)</div>
+<div style="padding-left: 30px;">D&ugrave;ng cơm trưa.&nbsp;<br />Tham quan Văn Miếu-Quốc Tử Gi&aacute;m, ch&ugrave;a Trấn Quốc, Hồ T&acirc;y, Hồ Tr&uacute;c Bạch, Hồ Ho&agrave;n Kiếm, Đền Ngọc Sơn.</div>
+<div style="padding-left: 30px;">&nbsp;</div>
+</div>
+<div class="mda-day"><em>Tối:</em></div>
+<div class="mda-day">&nbsp;</div>
+<div class="mda-day" style="padding-left: 30px;">D&ugrave;ng bữa tối. Nghỉ đ&ecirc;m tại H&agrave; Nội.&nbsp;Qu&yacute; kh&aacute;ch c&oacute; thể dạo một v&ograve;ng quanh thủ đ&ocirc;, thưởng thức c&aacute;c m&oacute;n đặc sản: b&uacute;n chả c&aacute; Lả Vọng, phở H&agrave; Nội, b&uacute;ng thang, b&uacute;n chả, &hellip; hoặc thưởng thức caf&eacute; ở phố cổ, Hồ Gươm.</div>
+<div class="mda-day" style="padding-left: 30px;">&nbsp;</div>
+<div class="mda-day"><span style="font-size: 12pt;"><strong>HẠ LONG &ndash; H&Agrave; NỘI &ndash; TP.HCM (Ăn s&aacute;ng, trưa)</strong></span></div>
 <div class="mda-day">
-<div><strong>Buổi s&aacute;ng: </strong>Qu&yacute; kh&aacute;ch d&ugrave;ng điểm t&acirc;m. Đo&agrave;n khởi h&agrave;nh tham quan Th&agrave;nh Phố NEW YORK:</div>
-<ul>
-<li><strong>Wall Street,</strong>&nbsp;nơi tọa lạc của s&agrave;n giao dịch chứng kho&aacute;n New York v&agrave; c&aacute;c trung t&acirc;m t&agrave;i ch&iacute;nh ng&acirc;n h&agrave;ng, v&agrave; cũng l&agrave; trung t&acirc;m t&agrave;i ch&iacute;nh của th&ecirc;́ giới.</li>
-<li><strong>T&agrave;n t&iacute;ch của t&ograve;a nh&agrave; Thương Mại Thế Giới</strong>&nbsp;sau sự kiện ng&agrave;y 11 th&aacute;ng 9 năm 2001 (World Trade Center &ndash; Ground Zero)</li>
-<li><strong>T&ograve;a nh&agrave; Emprie State nổi tiếng NEW YORK</strong>&nbsp;(tham quan b&ecirc;n ngo&agrave;i).</li>
-<li><strong>Trụ Sở Li&ecirc;n Hiệp Quốc.</strong></li>
-<li><strong>Đại Lộ 5 (Fifth Avenue)</strong>&nbsp;Trung t&acirc;m thời trang của nước Mỹ, nơi t&acirc;̣p trung c&aacute;c s&agrave;n Catwalk v&agrave; c&aacute;c thương hi&ecirc;̣u thời trang lớn của th&ecirc;́ giới</li>
-<li><strong>Trung T&acirc;m Rockerfeller</strong>&nbsp;&ndash; Trung t&acirc;m thương mại s&acirc;̀m u&acirc;́t, nơi đặt đại bản doanh của k&ecirc;nh truy&ecirc;̀n h&igrave;nh NBC.</li>
-</ul>
+<div class="mda-day">
+<div>&nbsp;</div>
+<div>S&aacute;ng:</div>
+<div>&nbsp;</div>
+<div style="padding-left: 30px;">D&ugrave;ng buffet s&aacute;ng tại kh&aacute;ch sạn.<br />Xuống thuyền ngoạn cảnh Vịnh Hạ Long &ndash; Di sản thi&ecirc;n nhi&ecirc;n thế giới với h&agrave;ng ng&agrave;n đảo đ&aacute; c&oacute; h&igrave;nh dạng kỳ vị - chi&ecirc;m ngưỡng vẻ đẹp trau chuốt, lộng lẫy của động Thi&ecirc;n Cung, vẻ đẹp si&ecirc;u nhi&ecirc;n của h&ograve;n Đỉnh Hương, G&agrave; Chọi, Ch&oacute; Đ&aacute;&hellip;&nbsp;</div>
+<div style="padding-left: 30px;">&nbsp;</div>
+</div>
+<div class="mda-day">
+<div>Trưa:</div>
+<div>&nbsp;</div>
+<div style="padding-left: 30px;">D&ugrave;ng cơm trưa tr&ecirc;n t&agrave;u.<br />Đo&agrave;n trở về H&agrave; Nội, Hướng dẫn vi&ecirc;n tiễn đo&agrave;n ra s&acirc;n bay Nội B&agrave;i đ&oacute;n chuyến bay về TP.HCM.<br />Kết th&uacute;c chương tr&igrave;nh tham quan, chia tay v&agrave; hẹn gặp lại.</div>
 </div>
 </div>
 </div>', 'description' => '<p>Du lịch Mỹ ngắm hoa anh đ&agrave;o 2017 H&agrave;ng năm, lễ hội hoa anh đ&agrave;o ở Washington được tổ chức long trọng v&agrave;o m&ugrave;a xu&acirc;n. Mỗi năm c&oacute; hơn một triệu du kh&aacute;ch đến Washington DC để ngắm c&aacute;c c&acirc;y anh đ&agrave;o nở hoa, b&aacute;o hiệu m&ugrave;a xu&acirc;n lại trở về tr&ecirc;n thủ đ&ocirc;.</p>
 <p>Du lịch Mỹ ngắm hoa anh đ&agrave;o 2017 H&agrave;ng năm, lễ hội hoa anh đ&agrave;o ở Washington được tổ chức long trọng v&agrave;o m&ugrave;a xu&acirc;n. Mỗi năm c&oacute; hơn một triệu du kh&aacute;ch đến Washington DC để ngắm c&aacute;c c&acirc;y anh đ&agrave;o nở hoa, b&aacute;o hiệu m&ugrave;a xu&acirc;n lại trở về tr&ecirc;n thủ đ&ocirc;.</p>
 <p>Du lịch Mỹ ngắm hoa anh đ&agrave;o 2017 H&agrave;ng năm, lễ hội hoa anh đ&agrave;o ở Washington được tổ chức long trọng v&agrave;o m&ugrave;a xu&acirc;n. Mỗi năm c&oacute; hơn một triệu du kh&aacute;ch đến Washington DC để ngắm c&aacute;c c&acirc;y anh đ&agrave;o nở hoa, b&aacute;o hiệu m&ugrave;a xu&acirc;n lại trở về tr&ecirc;n thủ đ&ocirc;.</p>
-<p><img src="http://travel.com/uploads/du-lich-da-lat-tet-am-lich-2017-tu-ha-noi_du-lich-viet_2.jpg" alt="" width="720" height="540" /></p>', 'journey' =>'New York – Philadelphia – Washington D.C – Las Vegas – Los Angeles', 'note' => ' <p><strong>GI&Aacute; TOUR </strong><strong>BAO GỒM:</strong><u></u></p>
+<p><img src="http://travel.com/uploads/kham-pha-vung-dat-vua-kong_du-lich-viet.jpg" alt="" width="720" height="550" /></p>', 'journey' =>'Hà Nội – Đầm Vân Long – Chùa Bái Đính – Tràng An – Hạ Long', 'note' => ' <p><strong>GI&Aacute; TOUR </strong><strong>BAO GỒM:</strong><u></u></p>
 <ul>
 <li>V&eacute; m&aacute;y bay khứ hồi Quốc tế: Tp.HCM &ndash; New York // Los Angeles &ndash; Tp.HCM</li>
 <li>V&eacute; m&aacute;y bay chặng nội địa: Washington D.C &ndash; Las Vegas hoặc Los Angeles.</li>
@@ -65,32 +78,45 @@ class TourSeeder extends Seeder
 <li>Trẻ em từ 2 đến dưới 11 tuổi = 61.175.000</li>
 <li>Trẻ em dưới 2 tuổi: 26.915.000</li>
 </ul>
-<p>*** Lưu &yacute;: Trẻ em ngủ chung giường với bố mẹ. Mỗi gia đ&igrave;nh chỉ được k&egrave;m 1 trẻ em, trẻ em thứ 2 đ&oacute;ng 90% để c&oacute; ti&ecirc;u chuẩn giường ri&ecirc;ng.</p>', 'quantity' => 20, 'booked' => 0, 'image' => 'http://travel.com/uploads/tf_160701_relaxtravel-SIHANOUKVILLE-2.jpg', 'price' => 3000000, 'meta_key' => 'du-lich', 'name_seo' => 'Mien Bac', 'tag' => 'mienbac', 'start_date' => '2017-04-11', 'end_date' => '2017-04-19', 'status' => 1, 'is_hot' => 1, 'sale_id' => 1, 'province_id' => 2, 'traffic_id' =>1, 'destination_id' =>4, 'user_id' => 2, 'created_at' => Carbon::now()->format('Y-m-d H:i:s'), 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')],
-    ['name' => 'Du lịch Mỹ ngắm hoa anh đào 10 ngày giá tốt khởi hành từ TpHCM', 'content' => '<div class="mda-title">VIỆT NAM - TRANSIT - NEW YORK (ĂN TỐI)</div>
+<p>*** Lưu &yacute;: Trẻ em ngủ chung giường với bố mẹ. Mỗi gia đ&igrave;nh chỉ được k&egrave;m 1 trẻ em, trẻ em thứ 2 đ&oacute;ng 90% để c&oacute; ti&ecirc;u chuẩn giường ri&ecirc;ng.</p>', 'quantity' => 20, 'booked' => 0, 'image' => 'http://travel.com/uploads/khai-hoan-mon-phap--du-lich-chau-au-mua-hoa-le-hoi-tulip_du-lich-viet.jpg', 'price' => 4000000, 'meta_key' => 'du-lich', 'name_seo' => 'Mien Bac', 'tag' => 'mienbac', 'start_date' => '2017-04-11', 'end_date' => '2017-04-19', 'status' => 1, 'is_hot' => 0, 'sale_id' => 2, 'province_id' => 1, 'traffic_id' =>1, 'destination_id' =>3, 'user_id' => 2, 'created_at' => Carbon::now()->format('Y-m-d H:i:s'), 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')],
+    ['name' => 'Du Lịch Miền Bắc - Khám phá Đảo Đầu Lâu - Trang An dịp lễ', 'content' => '<div class="mda-title">
+<div class="mda-title"><span style="font-size: 12pt;"><strong>TP.HCM &ndash; H&Agrave; NỘI (Ăn trưa, chiều)</strong></span></div>
+<div class="mda-title">&nbsp;</div>
 <div class="mda-day">
-<div><strong>Buổi s&aacute;ng:&nbsp;</strong>HDV c&ocirc;ng ty Du Lịch Việt đ&oacute;n Qu&yacute; kh&aacute;ch tại ga quốc tế, phi trường T&acirc;n Sơn Nhất l&agrave;m thủ tục đ&aacute;p chuyến bay qu&aacute; cảnh tại s&acirc;n bay Bắc Kinh, sau đ&oacute; tiếp tục nối chuyến bay đi NEW YORK. Qu&yacute; kh&aacute;ch ăn uống tr&ecirc;n m&aacute;y bay. Vượt tuyến, đổi ng&agrave;y.</div>
+<div><em>S&aacute;ng:</em></div>
+<div>&nbsp;</div>
+<div style="padding-left: 30px;">Qu&yacute; kh&aacute;ch c&oacute; mặt tại ga quốc nội, s&acirc;n bay T&acirc;n Sơn Nhất trước giờ bay &iacute;t nhất 3 tiếng.<br />Đại diện c&ocirc;ng ty Du Lịch Việt đ&oacute;n v&agrave; hỗ trợ Qu&yacute; Kh&aacute;ch l&agrave;m thủ tục đ&oacute;n chuyến bay đi H&agrave; Nội.<br />Đến s&acirc;n bay Nội B&agrave;i, Hướng Dẫn Vi&ecirc;n đ&oacute;n đo&agrave;n đến trung t&acirc;m Thủ Đ&ocirc; H&agrave; Nội.<br />Viếng Lăng B&aacute;c (trừ ng&agrave;y thứ hai, thứ s&aacute;u bảo tr&igrave; Lăng).<br />Tham quan thủ đ&ocirc; H&agrave; Nội với: Phủ Chủ Tịch, ao c&aacute;, nh&agrave; s&agrave;n B&aacute;c Hồ, Ch&ugrave;a Một Cột, Bảo T&agrave;ng Hồ Ch&iacute; Minh.</div>
+<div style="padding-left: 30px;">&nbsp;</div>
 </div>
 <div class="mda-day">
-<div>Đến <strong>NEW YORK</strong> c&ugrave;ng ng&agrave;y Qu&yacute; kh&aacute;ch l&agrave;m thủ tục nhập cảnh Mỹ. Xe đ&oacute;n đo&agrave;n tại phi trường v&agrave; đưa về trung t&acirc;m tự do thư gi&atilde;n sau một chuyến bay d&agrave;i.<br /><strong>Buổi tối:</strong>&nbsp;Qu&yacute; kh&aacute;ch d&ugrave;ng cơm tối, nhận ph&ograve;ng kh&aacute;ch sạn nghỉ ngơi.</div>
+<div><em>Trưa:</em></div>
 <div>&nbsp;</div>
-<div>
-<div class="mda-title">NEW YORK &ndash; CITY TOUR (ĂN 3 BỮA)</div>
+<div style="padding-left: 30px;">D&ugrave;ng cơm trưa.&nbsp;<br />Tham quan Văn Miếu-Quốc Tử Gi&aacute;m, ch&ugrave;a Trấn Quốc, Hồ T&acirc;y, Hồ Tr&uacute;c Bạch, Hồ Ho&agrave;n Kiếm, Đền Ngọc Sơn.</div>
+<div style="padding-left: 30px;">&nbsp;</div>
+</div>
+<div class="mda-day"><em>Tối:</em></div>
+<div class="mda-day">&nbsp;</div>
+<div class="mda-day" style="padding-left: 30px;">D&ugrave;ng bữa tối. Nghỉ đ&ecirc;m tại H&agrave; Nội.&nbsp;Qu&yacute; kh&aacute;ch c&oacute; thể dạo một v&ograve;ng quanh thủ đ&ocirc;, thưởng thức c&aacute;c m&oacute;n đặc sản: b&uacute;n chả c&aacute; Lả Vọng, phở H&agrave; Nội, b&uacute;ng thang, b&uacute;n chả, &hellip; hoặc thưởng thức caf&eacute; ở phố cổ, Hồ Gươm.</div>
+<div class="mda-day" style="padding-left: 30px;">&nbsp;</div>
+<div class="mda-day"><span style="font-size: 12pt;"><strong>HẠ LONG &ndash; H&Agrave; NỘI &ndash; TP.HCM (Ăn s&aacute;ng, trưa)</strong></span></div>
 <div class="mda-day">
-<div><strong>Buổi s&aacute;ng: </strong>Qu&yacute; kh&aacute;ch d&ugrave;ng điểm t&acirc;m. Đo&agrave;n khởi h&agrave;nh tham quan Th&agrave;nh Phố NEW YORK:</div>
-<ul>
-<li><strong>Wall Street,</strong>&nbsp;nơi tọa lạc của s&agrave;n giao dịch chứng kho&aacute;n New York v&agrave; c&aacute;c trung t&acirc;m t&agrave;i ch&iacute;nh ng&acirc;n h&agrave;ng, v&agrave; cũng l&agrave; trung t&acirc;m t&agrave;i ch&iacute;nh của th&ecirc;́ giới.</li>
-<li><strong>T&agrave;n t&iacute;ch của t&ograve;a nh&agrave; Thương Mại Thế Giới</strong>&nbsp;sau sự kiện ng&agrave;y 11 th&aacute;ng 9 năm 2001 (World Trade Center &ndash; Ground Zero)</li>
-<li><strong>T&ograve;a nh&agrave; Emprie State nổi tiếng NEW YORK</strong>&nbsp;(tham quan b&ecirc;n ngo&agrave;i).</li>
-<li><strong>Trụ Sở Li&ecirc;n Hiệp Quốc.</strong></li>
-<li><strong>Đại Lộ 5 (Fifth Avenue)</strong>&nbsp;Trung t&acirc;m thời trang của nước Mỹ, nơi t&acirc;̣p trung c&aacute;c s&agrave;n Catwalk v&agrave; c&aacute;c thương hi&ecirc;̣u thời trang lớn của th&ecirc;́ giới</li>
-<li><strong>Trung T&acirc;m Rockerfeller</strong>&nbsp;&ndash; Trung t&acirc;m thương mại s&acirc;̀m u&acirc;́t, nơi đặt đại bản doanh của k&ecirc;nh truy&ecirc;̀n h&igrave;nh NBC.</li>
-</ul>
+<div class="mda-day">
+<div>&nbsp;</div>
+<div>S&aacute;ng:</div>
+<div>&nbsp;</div>
+<div style="padding-left: 30px;">D&ugrave;ng buffet s&aacute;ng tại kh&aacute;ch sạn.<br />Xuống thuyền ngoạn cảnh Vịnh Hạ Long &ndash; Di sản thi&ecirc;n nhi&ecirc;n thế giới với h&agrave;ng ng&agrave;n đảo đ&aacute; c&oacute; h&igrave;nh dạng kỳ vị - chi&ecirc;m ngưỡng vẻ đẹp trau chuốt, lộng lẫy của động Thi&ecirc;n Cung, vẻ đẹp si&ecirc;u nhi&ecirc;n của h&ograve;n Đỉnh Hương, G&agrave; Chọi, Ch&oacute; Đ&aacute;&hellip;&nbsp;</div>
+<div style="padding-left: 30px;">&nbsp;</div>
+</div>
+<div class="mda-day">
+<div>Trưa:</div>
+<div>&nbsp;</div>
+<div style="padding-left: 30px;">D&ugrave;ng cơm trưa tr&ecirc;n t&agrave;u.<br />Đo&agrave;n trở về H&agrave; Nội, Hướng dẫn vi&ecirc;n tiễn đo&agrave;n ra s&acirc;n bay Nội B&agrave;i đ&oacute;n chuyến bay về TP.HCM.<br />Kết th&uacute;c chương tr&igrave;nh tham quan, chia tay v&agrave; hẹn gặp lại.</div>
 </div>
 </div>
 </div>', 'description' => '<p>Du lịch Mỹ ngắm hoa anh đ&agrave;o 2017 H&agrave;ng năm, lễ hội hoa anh đ&agrave;o ở Washington được tổ chức long trọng v&agrave;o m&ugrave;a xu&acirc;n. Mỗi năm c&oacute; hơn một triệu du kh&aacute;ch đến Washington DC để ngắm c&aacute;c c&acirc;y anh đ&agrave;o nở hoa, b&aacute;o hiệu m&ugrave;a xu&acirc;n lại trở về tr&ecirc;n thủ đ&ocirc;.</p>
 <p>Du lịch Mỹ ngắm hoa anh đ&agrave;o 2017 H&agrave;ng năm, lễ hội hoa anh đ&agrave;o ở Washington được tổ chức long trọng v&agrave;o m&ugrave;a xu&acirc;n. Mỗi năm c&oacute; hơn một triệu du kh&aacute;ch đến Washington DC để ngắm c&aacute;c c&acirc;y anh đ&agrave;o nở hoa, b&aacute;o hiệu m&ugrave;a xu&acirc;n lại trở về tr&ecirc;n thủ đ&ocirc;.</p>
 <p>Du lịch Mỹ ngắm hoa anh đ&agrave;o 2017 H&agrave;ng năm, lễ hội hoa anh đ&agrave;o ở Washington được tổ chức long trọng v&agrave;o m&ugrave;a xu&acirc;n. Mỗi năm c&oacute; hơn một triệu du kh&aacute;ch đến Washington DC để ngắm c&aacute;c c&acirc;y anh đ&agrave;o nở hoa, b&aacute;o hiệu m&ugrave;a xu&acirc;n lại trở về tr&ecirc;n thủ đ&ocirc;.</p>
-<p><img src="http://travel.com/uploads/du-lich-da-lat-tet-am-lich-2017-tu-ha-noi_du-lich-viet_2.jpg" alt="" width="720" height="540" /></p>', 'journey' =>'New York – Philadelphia – Washington D.C – Las Vegas – Los Angeles', 'note' => ' <p><strong>GI&Aacute; TOUR </strong><strong>BAO GỒM:</strong><u></u></p>
+<p><img src="http://travel.com/uploads/kham-pha-vung-dat-vua-kong_du-lich-viet.jpg" alt="" width="720" height="550" /></p>', 'journey' =>'Hà Nội – Đầm Vân Long – Chùa Bái Đính – Tràng An – Hạ Long', 'note' => ' <p><strong>GI&Aacute; TOUR </strong><strong>BAO GỒM:</strong><u></u></p>
 <ul>
 <li>V&eacute; m&aacute;y bay khứ hồi Quốc tế: Tp.HCM &ndash; New York // Los Angeles &ndash; Tp.HCM</li>
 <li>V&eacute; m&aacute;y bay chặng nội địa: Washington D.C &ndash; Las Vegas hoặc Los Angeles.</li>
@@ -117,7 +143,7 @@ class TourSeeder extends Seeder
 <li>Trẻ em từ 2 đến dưới 11 tuổi = 61.175.000</li>
 <li>Trẻ em dưới 2 tuổi: 26.915.000</li>
 </ul>
-<p>*** Lưu &yacute;: Trẻ em ngủ chung giường với bố mẹ. Mỗi gia đ&igrave;nh chỉ được k&egrave;m 1 trẻ em, trẻ em thứ 2 đ&oacute;ng 90% để c&oacute; ti&ecirc;u chuẩn giường ri&ecirc;ng.</p>', 'quantity' => 20, 'booked' => 0, 'image' => 'http://travel.com/uploads/tf_160701_relaxtravel-SIHANOUKVILLE-2.jpg', 'price' => 5000000, 'meta_key' => 'du-lich', 'name_seo' => 'Mien Bac', 'tag' => 'mienbac', 'start_date' => '2017-05-11', 'end_date' => '2017-04-19', 'status' => 1, 'is_hot' => 1, 'sale_id' => 1, 'province_id' => 1, 'traffic_id' =>2, 'destination_id' =>2, 'user_id' => 1, 'created_at' => Carbon::now()->format('Y-m-d H:i:s'), 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')]
+<p>*** Lưu &yacute;: Trẻ em ngủ chung giường với bố mẹ. Mỗi gia đ&igrave;nh chỉ được k&egrave;m 1 trẻ em, trẻ em thứ 2 đ&oacute;ng 90% để c&oacute; ti&ecirc;u chuẩn giường ri&ecirc;ng.</p>', 'quantity' => 20, 'booked' => 0, 'image' => 'http://travel.com/uploads/du-lich-da-lat-tet-am-lich-2017-tu-ha-noi_du-lich-viet.jpg', 'price' => 4000000, 'meta_key' => 'du-lich', 'name_seo' => 'Mien Bac', 'tag' => 'mienbac', 'start_date' => '2017-04-11', 'end_date' => '2017-04-19', 'status' => 1, 'is_hot' => 0, 'sale_id' => 2, 'province_id' => 1, 'traffic_id' =>1, 'destination_id' =>3, 'user_id' => 2, 'created_at' => Carbon::now()->format('Y-m-d H:i:s'), 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')]
             
     	]);
         // DB::table('users')->insert([[

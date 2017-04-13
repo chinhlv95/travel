@@ -40,7 +40,7 @@ class CreateToursTable extends Migration
             $table->integer('destination_id')->unsigned();
             $table->foreign('destination_id')->references('id')->on('destinations')->onDelete('cascade');
             $table->integer('user_id')->unsigned();
-            $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
         });
     }

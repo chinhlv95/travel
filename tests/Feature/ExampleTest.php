@@ -10,6 +10,7 @@ use Illuminate\Http\Response;
 
 class ExampleTest extends TestCase
 {
+    use WithoutMiddleware;
     /**
      * A basic test example.
      *
@@ -17,7 +18,9 @@ class ExampleTest extends TestCase
      */
     public function testBasicTest()
     {
-        $response = $this->get('/');
-        $response->assertStatus(200);
+        $response = $this->json('GET', '/backend', ['name' => 'chinh','password' => '123456']);
+
+        $response
+            ->assertStatus(200);
     }
 }

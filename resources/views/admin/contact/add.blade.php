@@ -16,9 +16,6 @@
             <div class="col-lg-12">
                 <form action="{{URL::to('/')}}/admin/contact/add" id="contact-form" method="POST">
                    <input type="hidden" name="_token" value="{{csrf_token()}}" id="_token">
-                      <div class="alert alert-success alert-contact">
-    
-                        </div>
                     <div class="form-group">
                         <label>name</label>
                         <input class="form-control" name="name" placeholder="Please Enter name" required />

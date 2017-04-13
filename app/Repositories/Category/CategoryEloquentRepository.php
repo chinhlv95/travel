@@ -16,7 +16,7 @@ class CategoryEloquentRepository extends EloquentRepository implements CategoryR
 		return \App\Models\Category::class;
 	}
 	 public function getCatPublic(){
-	   	$result=$this->make(['destination'])->where(['status'=>1])->get();
+	   	$result=$this->make(['destination'])->where(['status'=>1])->orderBy('created_at', 'desc')->get();
 	   	return  $result;
 	   }
 
